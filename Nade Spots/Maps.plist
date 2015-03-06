@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>MapName</key>
+		<string>de_dust2</string>
+		<key>Smokes</key>
+		<dict>
+			<key>To Other</key>
+			<dict>
+				<key>yCord</key>
+				<integer>550</integer>
+				<key>xCord</key>
+				<integer>800</integer>
+				<key>From B</key>
+				<dict>
+					<key>xCord</key>
+					<integer>80</integer>
+					<key>yCord</key>
+					<integer>80</integer>
+					<key>path</key>
+					<string>testVideo</string>
+				</dict>
+			</dict>
+			<key>To Short</key>
+			<dict>
+				<key>From B - 2</key>
+				<dict>
+					<key>xCord</key>
+					<integer>500</integer>
+					<key>yCord</key>
+					<integer>800</integer>
+					<key>path</key>
+					<string>testVideo</string>
+				</dict>
+				<key>yCord</key>
+				<integer>250</integer>
+				<key>xCord</key>
+				<integer>250</integer>
+				<key>From B</key>
+				<dict>
+					<key>xCord</key>
+					<integer>90</integer>
+					<key>yCord</key>
+					<integer>800</integer>
+					<key>path</key>
+					<string>testVideo</string>
+				</dict>
+			</dict>
+		</dict>
+	</dict>
+	<dict/>
+</array>
+</plist>

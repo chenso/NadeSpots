@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  MapsTableViewController.h
 //  Nade Spots
 //
 //  Created by Songge Chen on 2/23/15.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface MapsTableViewController : UITableViewController
 
 @end
-
