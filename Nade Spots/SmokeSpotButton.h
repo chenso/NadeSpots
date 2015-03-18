@@ -7,9 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "NadeSpotButton.h"
 
-@interface NadeSpotButton : UIButton
-@property (strong, nonatomic) NSArray * nadeFromSpots;
+@interface SmokeSpotButton : NadeSpotButton
 
 -(void)deselect;
 -(void) defaultImage;

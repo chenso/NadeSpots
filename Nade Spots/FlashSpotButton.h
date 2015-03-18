@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "NadeSpotButton.h"
 
-@interface FlashSpotButton : UIButton
-
+@interface FlashSpotButton : NadeSpotButton
+-(void)deselect;
+-(void) defaultImage;
 @end

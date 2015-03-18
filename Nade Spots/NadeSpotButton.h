@@ -9,5 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface NadeSpotButton : UIButton
-
+@property (strong, nonatomic) NSArray * nadeFromSpots;
+-(void) deselect;
+-(void) defaultImage;
 @end

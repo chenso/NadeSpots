@@ -7,8 +7,9 @@
 //
 
 #import "NadeSpot.h"
-#import "NadeSpotButton.h"
+#import "SmokeSpotButton.h"
 #import "NadeFromButton.h"
+#import "FlashSpotButton.h"
 #import <MediaPlayer/MediaPlayer.h>
 
 @interface DetailViewController : UIViewController <UIScrollViewDelegate> {

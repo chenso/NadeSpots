@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4A076FF31A9EBD5000073D9A /* NadeSpotButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A076FF21A9EBD5000073D9A /* NadeSpotButton.m */; };
+		4A076FF31A9EBD5000073D9A /* SmokeSpotButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A076FF21A9EBD5000073D9A /* SmokeSpotButton.m */; };
 		4A076FF81A9EC10900073D9A /* NadeFrom.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A076FF51A9EC10900073D9A /* NadeFrom.m */; };
 		4A076FF91A9EC10900073D9A /* NadeSpot.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A076FF71A9EC10900073D9A /* NadeSpot.m */; };
 		4A076FFD1A9EEA8500073D9A /* de_dust2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4A076FFC1A9EEA8500073D9A /* de_dust2.jpg */; };
@@ -21,6 +21,9 @@
 		4A0B39B31A9BD227004F8CC6 /* Maps.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4A0B39B21A9BD227004F8CC6 /* Maps.plist */; };
 		4A0B39BA1A9E98DC004F8CC6 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A0B39B91A9E98DC004F8CC6 /* DetailViewController.m */; };
 		4A478EB01AA155F6000541FD /* testVideo.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 4A0770081AA07B2800073D9A /* testVideo.mp4 */; };
+		4AA137441AB8F5950085A959 /* navJWButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 4AA137431AB8F5950085A959 /* navJWButton.png */; };
+		4AA137471AB8FE070085A959 /* FlashSpotButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AA137461AB8FE070085A959 /* FlashSpotButton.m */; };
+		4AA1374A1AB900C00085A959 /* NadeSpotButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AA137491AB900C00085A959 /* NadeSpotButton.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,8 +37,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		4A076FF11A9EBD5000073D9A /* NadeSpotButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NadeSpotButton.h; sourceTree = "<group>"; };
-		4A076FF21A9EBD5000073D9A /* NadeSpotButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NadeSpotButton.m; sourceTree = "<group>"; };
+		4A076FF11A9EBD5000073D9A /* SmokeSpotButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SmokeSpotButton.h; sourceTree = "<group>"; };
+		4A076FF21A9EBD5000073D9A /* SmokeSpotButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SmokeSpotButton.m; sourceTree = "<group>"; };
 		4A076FF41A9EC10900073D9A /* NadeFrom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NadeFrom.h; sourceTree = "<group>"; };
 		4A076FF51A9EC10900073D9A /* NadeFrom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NadeFrom.m; sourceTree = "<group>"; };
 		4A076FF61A9EC10900073D9A /* NadeSpot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NadeSpot.h; sourceTree = "<group>"; };
@@ -59,6 +62,11 @@
 		4A0B39B21A9BD227004F8CC6 /* Maps.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Maps.plist; sourceTree = "<group>"; };
 		4A0B39B81A9E98DC004F8CC6 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		4A0B39B91A9E98DC004F8CC6 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		4AA137431AB8F5950085A959 /* navJWButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = navJWButton.png; sourceTree = "<group>"; };
+		4AA137451AB8FE070085A959 /* FlashSpotButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlashSpotButton.h; sourceTree = "<group>"; };
+		4AA137461AB8FE070085A959 /* FlashSpotButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlashSpotButton.m; sourceTree = "<group>"; };
+		4AA137481AB900C00085A959 /* NadeSpotButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NadeSpotButton.h; sourceTree = "<group>"; };
+		4AA137491AB900C00085A959 /* NadeSpotButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NadeSpotButton.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,8 +128,12 @@
 				4A0B39B21A9BD227004F8CC6 /* Maps.plist */,
 				4A0B39AF1A9BC96C004F8CC6 /* MapsTableViewController.h */,
 				4A0B39B01A9BC96C004F8CC6 /* MapsTableViewController.m */,
-				4A076FF11A9EBD5000073D9A /* NadeSpotButton.h */,
-				4A076FF21A9EBD5000073D9A /* NadeSpotButton.m */,
+				4A076FF11A9EBD5000073D9A /* SmokeSpotButton.h */,
+				4A076FF21A9EBD5000073D9A /* SmokeSpotButton.m */,
+				4AA137451AB8FE070085A959 /* FlashSpotButton.h */,
+				4AA137461AB8FE070085A959 /* FlashSpotButton.m */,
+				4AA137481AB900C00085A959 /* NadeSpotButton.h */,
+				4AA137491AB900C00085A959 /* NadeSpotButton.m */,
 				4A0B39AB1A9B1D71004F8CC6 /* Images */,
 				4A0B39871A9B1C0C004F8CC6 /* AppDelegate.h */,
 				4A0B39881A9B1C0C004F8CC6 /* AppDelegate.m */,
@@ -161,6 +173,7 @@
 		4A0B39AB1A9B1D71004F8CC6 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				4AA137431AB8F5950085A959 /* navJWButton.png */,
 				4A076FFC1A9EEA8500073D9A /* de_dust2.jpg */,
 			);
 			name = Images;
@@ -251,6 +264,7 @@
 				4A0B398F1A9B1C0C004F8CC6 /* Main.storyboard in Resources */,
 				4A076FFD1A9EEA8500073D9A /* de_dust2.jpg in Resources */,
 				4A0B39B31A9BD227004F8CC6 /* Maps.plist in Resources */,
+				4AA137441AB8F5950085A959 /* navJWButton.png in Resources */,
 				4A0B39911A9B1C0C004F8CC6 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -271,8 +285,10 @@
 			files = (
 				4A076FF91A9EC10900073D9A /* NadeSpot.m in Sources */,
 				4A076FF81A9EC10900073D9A /* NadeFrom.m in Sources */,
-				4A076FF31A9EBD5000073D9A /* NadeSpotButton.m in Sources */,
+				4AA137471AB8FE070085A959 /* FlashSpotButton.m in Sources */,
+				4A076FF31A9EBD5000073D9A /* SmokeSpotButton.m in Sources */,
 				4A0770001A9F0D7500073D9A /* NadeFromButton.m in Sources */,
+				4AA1374A1AB900C00085A959 /* NadeSpotButton.m in Sources */,
 				4A0B39B11A9BC96C004F8CC6 /* MapsTableViewController.m in Sources */,
 				4A0B39891A9B1C0C004F8CC6 /* AppDelegate.m in Sources */,
 				4A0B39861A9B1C0C004F8CC6 /* main.m in Sources */,

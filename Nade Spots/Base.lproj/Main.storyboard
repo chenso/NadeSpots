@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="4h6-zc-oWI">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="4h6-zc-oWI">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -49,41 +49,27 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vOD-P5-4l9">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                             </scrollView>
-                            <tabBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n2H-Su-ikx">
-                                <rect key="frame" x="0.0" y="519" width="320" height="49"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="49" id="tNt-td-pv3"/>
-                                </constraints>
-                                <items>
-                                    <tabBarItem title="Smoke" image="smokeIconSmall" id="6r2-f8-i4n"/>
-                                    <tabBarItem title="Flashbang" id="mLY-dk-p29"/>
-                                </items>
-                            </tabBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="n2H-Su-ikx" secondAttribute="trailing" constant="-16" id="08d-gD-aJE"/>
                             <constraint firstItem="vOD-P5-4l9" firstAttribute="leading" secondItem="xKJ-Ed-UsN" secondAttribute="leadingMargin" constant="-16" id="Fsg-sK-nm8"/>
-                            <constraint firstItem="n2H-Su-ikx" firstAttribute="leading" secondItem="xKJ-Ed-UsN" secondAttribute="leadingMargin" constant="-16" id="SKB-Zc-goJ"/>
-                            <constraint firstItem="n2H-Su-ikx" firstAttribute="top" secondItem="vOD-P5-4l9" secondAttribute="bottom" id="fdv-ij-TbO"/>
-                            <constraint firstItem="WHz-FA-c1n" firstAttribute="top" secondItem="n2H-Su-ikx" secondAttribute="bottom" id="sEZ-jz-dkz"/>
+                            <constraint firstItem="WHz-FA-c1n" firstAttribute="top" secondItem="vOD-P5-4l9" secondAttribute="bottom" id="mj3-uD-c5k"/>
                             <constraint firstItem="vOD-P5-4l9" firstAttribute="top" secondItem="xKJ-Ed-UsN" secondAttribute="topMargin" id="uwy-xi-XsE"/>
                             <constraint firstAttribute="trailingMargin" secondItem="vOD-P5-4l9" secondAttribute="trailing" constant="-16" id="x6J-Pq-vOf"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="rU9-PJ-PUJ"/>
+                    <navigationItem key="navigationItem" id="rU9-PJ-PUJ">
+                        <nil key="title"/>
+                    </navigationItem>
                     <connections>
-                        <outlet property="flashTab" destination="mLY-dk-p29" id="bVc-1a-GiO"/>
                         <outlet property="scrollView" destination="vOD-P5-4l9" id="QRz-rE-o0f"/>
-                        <outlet property="smokeTab" destination="6r2-f8-i4n" id="5oR-2d-jCG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e4L-id-N8e" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1144" y="313"/>
+            <point key="canvasLocation" x="1287" y="313"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="EYJ-DR-q07">
@@ -104,9 +90,6 @@
             <point key="canvasLocation" x="332.80000000000001" y="313.34666666666664"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="smokeIconSmall" width="32" height="32"/>
-    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

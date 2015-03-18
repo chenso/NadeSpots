@@ -15,15 +15,16 @@
 
 @interface DetailViewController ()
 
-@property (strong, nonatomic) NSMutableString * nadeType;
+@property (strong, nonatomic) NSString * nadeType;
 @property (strong, nonatomic) NSMutableArray * nadeSpotButtons;
 @property (strong, nonatomic) NSMutableArray * nadeFromButtons;
+@property (strong, nonatomic) NSMutableArray * nadeTypeButtons;
 @property (strong, nonatomic) UIView * videoView;
 @property (strong, nonatomic) MPMoviePlayerController * videoPlayer;
 @property (strong, nonatomic) UIButton * transparentPlayerExiterButton;
 @property (strong, nonatomic) NadeSpotButton * currentlySelectedSpot;
-@property (strong, nonatomic) IBOutlet UITabBarItem *smokeTab;
-@property (strong, nonatomic) IBOutlet UITabBarItem *flashTab;
+@property (strong, nonatomic) UIButton * smokesButton;
+@property (strong, nonatomic) UIButton * flashesButton;
 
 @end
 
@@ -36,9 +37,12 @@
 @synthesize scrollView = _scrollView;
 @synthesize mapView = _mapView;
 @synthesize nadeSpotButtons;
+@synthesize nadeTypeButtons;
 @synthesize videoPlayer;
 @synthesize transparentPlayerExiterButton;
 @synthesize currentlySelectedSpot;
+@synthesize smokesButton = _smokesButton;
+@synthesize flashesButton = _flashesButton;
 
 -(UIView *) viewForZoomingInScrollView:(UIScrollView *)scrollView {
     return self.mapView;
@@ -92,63 +96,58 @@
     self.mapView.frame = contentsFrame;
 }
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    //initialize arrays
-    self.nadeSpotButtons = [[NSMutableArray alloc] initWithCapacity:20]; // increase when more are added
-    self.nadeFromButtons = [[NSMutableArray alloc] initWithCapacity:5];
+- (void) openJWYT {
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://www.youtube.com/c/jamiew"]];
+}
+
+-(void) clearNadeFrom {
+    for (NadeFromButton * buttonToRemove in nadeFromButtons) {
+        [UIView animateWithDuration:0.4 delay:0.0 options: UIViewAnimationOptionCurveEaseInOut animations:^{
+            buttonToRemove.transform = CGAffineTransformScale(buttonToRemove.transform, 0.01, 0.01);
+        } completion:nil];
+        [buttonToRemove removeFromSuperview];
+    }
+}
+
+-(void) clearNadeSpots {
+    for (NadeSpotButton * buttonToRemove in nadeSpotButtons) {
+        [UIView animateWithDuration:0.4 delay:0.0 options: UIViewAnimationOptionCurveEaseInOut animations:^{
+            buttonToRemove.transform = CGAffineTransformScale(buttonToRemove.transform, 0.01, 0.01);
+        } completion:nil];
+        [buttonToRemove removeFromSuperview];
+    }
+    [nadeSpotButtons removeAllObjects];
+}
+
+// load nades of type
+-(void) loadNades {
+    // remove previous Nade buttons
+    [self clearNadeSpots];
+    [self clearNadeFrom];
+    NSDictionary * nades = [mapDetails objectForKey:self.nadeType];
     
-    // load the map view and nade destination view
-    UIImage * image = [UIImage imageNamed:[NSString stringWithFormat:@"%@.jpg", mapName]];
-    self.mapView = [[UIImageView alloc] initWithImage:image];
-    self.mapView.frame = (CGRect){.origin=CGPointMake(0.0f, 0.0f), .size = image.size};
-    self.mapView.userInteractionEnabled = YES;
-    self.mapView.exclusiveTouch = YES;
-    [self.scrollView addSubview:self.mapView];
-    
-    // initial and minimum zoom fill screen by x-axis
-    [self.scrollView setContentSize:image.size];
-    self.scrollView.frame = CGRectMake(0.0f, 0.0f, image.size.width, image.size.height);
-    self.scrollView.minimumZoomScale = [[UIScreen mainScreen] bounds].size.width / image.size.width;
-    self.scrollView.maximumZoomScale = 1.0;
-    self.scrollView.delegate = self;
-    [self.scrollView setBackgroundColor:[UIColor blackColor] ];
-    self.scrollView.canCancelContentTouches = YES;
-    self.scrollView.delaysContentTouches = YES;
-    
-    UITapGestureRecognizer *doubleTapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(scrollViewDoubleTapped:)];
-    doubleTapRecognizer.numberOfTapsRequired = 2;
-    doubleTapRecognizer.numberOfTouchesRequired = 1;
-    [self.scrollView addGestureRecognizer:doubleTapRecognizer];
-    
-    UITapGestureRecognizer *twoFingerTapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(scrollViewTwoFingerTapped:)];
-    twoFingerTapRecognizer.numberOfTapsRequired = 1;
-    twoFingerTapRecognizer.numberOfTouchesRequired = 2;
-    [self.scrollView addGestureRecognizer:twoFingerTapRecognizer];
-    
-    // Default nades are smokes
-    self.nadeType = [NSMutableString stringWithFormat:@"Smokes"];
-    
-    
-    NSDictionary * smokes = [mapDetails objectForKey:self.nadeType];
-    
-    for (id key in smokes) {
+    for (id key in nades) {
         // load all Nade Spots with destination and origins
-        NSDictionary * destination = [smokes objectForKey:key];
+        NSDictionary * destination = [nades objectForKey:key];
         NSMutableArray * origins = [[NSMutableArray alloc] initWithCapacity:1];
         for (id key in destination) {
             if (![key isEqualToString:@"xCord"] && ![key isEqualToString:@"yCord"]) {
-            // add all origins to single destination spot
-            NSDictionary * anOrigin = [destination objectForKey:key];
+                // add all origins to single destination spot
+                NSDictionary * anOrigin = [destination objectForKey:key];
                 NadeFrom * originSpot = [[NadeFrom alloc] initWithPath:anOrigin[@"path"] xCord:[anOrigin[@"xCord"] floatValue] yCord:[anOrigin[@"yCord"] floatValue]];
-            [origins addObject:originSpot];
+                [origins addObject:originSpot];
             }
         }
         
         // create button for the spot
         NadeSpot * aSpot = [[NadeSpot alloc] initWithX:[destination[@"xCord"] floatValue] Y:[destination[@"yCord"] floatValue]fromLocations:origins];
         CGRect buttonLocation = CGRectMake(aSpot.xCord, aSpot.yCord, 55, 55);
-        NadeSpotButton * nadeButton = [[NadeSpotButton alloc] initWithFrame:buttonLocation];
+        NadeSpotButton * nadeButton;
+        if ([self.nadeType isEqualToString:@"Smokes"]) {
+            nadeButton = [[SmokeSpotButton alloc] initWithFrame:buttonLocation];
+        } else {
+            nadeButton = [[FlashSpotButton alloc] initWithFrame:buttonLocation];
+        }
         nadeButton.exclusiveTouch = YES;
         [nadeButton addTarget:self action:@selector(nadeDestButtonTouchUp:) forControlEvents:UIControlEventTouchUpInside];
         nadeButton.nadeFromSpots = aSpot.nadeFrom;
@@ -161,9 +160,88 @@
         
         [self.mapView addSubview:nadeButton];
         [self.nadeSpotButtons addObject:nadeButton];
-
+        
     }
+}
 
+-(void)selectNadeType:(id)sender {
+    UIButton * type = (UIButton *) sender;
+    self.nadeType = [type titleForState:UIControlStateNormal];
+    for (UIButton * types in self.nadeTypeButtons) {
+        types.selected = types == type;
+    }
+    [self loadNades];
+}
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    // jamiew yt channel nav bar link
+    UIButton *button =  [UIButton buttonWithType:UIButtonTypeCustom];
+    [button setImage:[UIImage imageNamed:@"navJWButton.png"] forState:UIControlStateNormal];
+    [button addTarget:self action:@selector(openJWYT) forControlEvents:UIControlEventTouchUpInside];
+    [button setFrame:CGRectMake(0, 0, 243, 32)];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:button];
+    
+    //initialize arrays
+    self.nadeSpotButtons = [[NSMutableArray alloc] initWithCapacity:20]; // increase when more are added
+    self.nadeFromButtons = [[NSMutableArray alloc] initWithCapacity:5];
+    self.nadeTypeButtons = [[NSMutableArray alloc] initWithCapacity:2];
+    // load the map view and nade destination view
+    UIImage * image = [UIImage imageNamed:[NSString stringWithFormat:@"%@.jpg", mapName]];
+    self.mapView = [[UIImageView alloc] initWithImage:image];
+    self.mapView.frame = (CGRect){.origin=CGPointMake(0.0f, 0.0f), .size = image.size};
+    self.mapView.userInteractionEnabled = YES;
+    self.mapView.exclusiveTouch = YES;
+    [self.scrollView addSubview:self.mapView];
+    // initial and minimum zoom fill screen by x-axis
+    [self.scrollView setContentSize:image.size];
+    self.scrollView.frame = CGRectMake(0.0f, 0.0f, image.size.width, image.size.height);
+    self.scrollView.minimumZoomScale = [[UIScreen mainScreen] bounds].size.width / image.size.width;
+    self.scrollView.maximumZoomScale = 1.0;
+    self.scrollView.delegate = self;
+    [self.scrollView setBackgroundColor:[UIColor blackColor] ];
+    self.scrollView.canCancelContentTouches = YES;
+    self.scrollView.delaysContentTouches = YES;
+    UITapGestureRecognizer *doubleTapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(scrollViewDoubleTapped:)];
+    doubleTapRecognizer.numberOfTapsRequired = 2;
+    doubleTapRecognizer.numberOfTouchesRequired = 1;
+    [self.scrollView addGestureRecognizer:doubleTapRecognizer];
+    
+    UITapGestureRecognizer *twoFingerTapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(scrollViewTwoFingerTapped:)];
+    twoFingerTapRecognizer.numberOfTapsRequired = 1;
+    twoFingerTapRecognizer.numberOfTouchesRequired = 2;
+    [self.scrollView addGestureRecognizer:twoFingerTapRecognizer];
+    
+    // initialize showSmokes and showFlashes buttons
+    UIView * bar = [[UIView alloc] initWithFrame:CGRectMake(0, [[UIScreen mainScreen] bounds].size.height - 40 , [[UIScreen mainScreen] bounds].size.width, 40)];
+    [bar setBackgroundColor:[UIColor whiteColor]];
+    [bar setAlpha:0.2];
+    [self.view addSubview:bar];
+    self.smokesButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 100, 40)];
+    [self.smokesButton setTitle:@"Smokes" forState:UIControlStateNormal];
+    [self.smokesButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [self.smokesButton setTitleColor:[UIColor grayColor] forState:UIControlStateHighlighted];
+    [self.smokesButton setTitleColor:[UIColor colorWithRed:188/255.0f green:255/255.0f blue:81/255.0f alpha:1.0f] forState:UIControlStateSelected];
+    [self.smokesButton setCenter:CGPointMake([[UIScreen mainScreen] bounds].size.width / 3, [[UIScreen mainScreen]bounds].size.height - 20)];
+    [self.smokesButton addTarget:self action:@selector(selectNadeType:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:self.smokesButton];
+    [self.nadeTypeButtons addObject:self.smokesButton];
+    
+    
+    self.flashesButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 100, 32)];
+    [self.flashesButton setTitle:@"Flashes" forState:UIControlStateNormal];
+    [self.flashesButton setCenter:CGPointMake([[UIScreen mainScreen] bounds].size.width * 2 / 3, [[UIScreen mainScreen]bounds].size.height - 20)];
+    [self.flashesButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [self.flashesButton setTitleColor:[UIColor grayColor] forState:UIControlStateHighlighted];
+    [self.flashesButton setTitleColor:[UIColor colorWithRed:188/255.0f green:255/255.0f blue:81/255.0f alpha:1.0f] forState:UIControlStateSelected];
+    [self.flashesButton addTarget:self action:@selector(selectNadeType:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:self.flashesButton];
+    [self.nadeTypeButtons addObject:self.flashesButton];
+    // Default nades are smokes
+    
+    self.nadeType = [NSMutableString stringWithFormat:@"Smokes"];
+    self.smokesButton.selected = YES;
+    [self loadNades];
     
     // initialize video player view
     CGRect frame = [self videoViewScale];
@@ -181,19 +259,14 @@
 }
 
 -(void)nadeDestButtonTouchUp:(id)sender {
-    //[[UIApplication sharedApplication] beginIgnoringInteractionEvents];
     NadeSpotButton * myButton = (NadeSpotButton *) sender;
     if (currentlySelectedSpot == myButton) {
         [[UIApplication sharedApplication] endIgnoringInteractionEvents];
         return;
     }
     // remove previous NadeFrom buttons
-    for (NadeFromButton * buttonToRemove in nadeFromButtons) {
-        [UIView animateWithDuration:0.4 delay:0.0 options: UIViewAnimationOptionCurveEaseInOut animations:^{
-            buttonToRemove.transform = CGAffineTransformScale(buttonToRemove.transform, 0.01, 0.01);
-        } completion:nil];
-        [buttonToRemove removeFromSuperview];
-    }
+
+    [self clearNadeFrom];
     [nadeFromButtons removeAllObjects];
     
     // prepare zoom and scroll to fit relevant buttons
@@ -237,9 +310,7 @@
             [buttonToDeselect defaultImage];
         }
     }
-    
     currentlySelectedSpot = myButton;
-    //[[UIApplication sharedApplication] endIgnoringInteractionEvents];
 
 }
 
@@ -283,13 +354,14 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    //self.scrollView.zoomScale = self.scrollView.minimumZoomScale;
-    
+
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+
 
 /*
 #pragma mark - Navigation
