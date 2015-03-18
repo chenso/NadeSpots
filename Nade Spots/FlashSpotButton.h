@@ -1,5 +1,5 @@
 //
-//  NadeSpotButton.h
+//  FlashSpotButton.h
 //  Nade Spots
 //
 //  Created by Songge Chen on 3/17/15.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface NadeSpotButton : UIButton
+@interface FlashSpotButton : UIButton
 
 @end
