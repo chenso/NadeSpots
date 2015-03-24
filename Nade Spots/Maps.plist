@@ -5,6 +5,47 @@
 	<dict>
 		<key>Flashes</key>
 		<dict>
+			<key>To Long Corner</key>
+			<dict>
+				<key>yCord</key>
+				<integer>350</integer>
+				<key>xCord</key>
+				<integer>585</integer>
+				<key>From T Spawn 1</key>
+				<dict>
+					<key>yCord</key>
+					<integer>565</integer>
+					<key>xCord</key>
+					<integer>420</integer>
+					<key>path</key>
+					<string>dust2_smoke_tspawn_to_long_corner</string>
+				</dict>
+				<key>From T Spawn 2</key>
+				<dict>
+					<key>yCord</key>
+					<integer>650</integer>
+					<key>xCord</key>
+					<integer>430</integer>
+					<key>path</key>
+					<string>dust2_smoke_tspawn_to_long_corner_1</string>
+				</dict>
+			</dict>
+			<key>To Mid Doors</key>
+			<dict>
+				<key>yCord</key>
+				<integer>270</integer>
+				<key>xCord</key>
+				<integer>320</integer>
+				<key>From T Spawn</key>
+				<dict>
+					<key>yCord</key>
+					<integer>670</integer>
+					<key>xCord</key>
+					<integer>320</integer>
+					<key>path</key>
+					<string>dust2_smoke_tspawn_to_mid</string>
+				</dict>
+			</dict>
 			<key>To Other</key>
 			<dict>
 				<key>yCord</key>
@@ -48,52 +89,639 @@
 			</dict>
 		</dict>
 		<key>MapName</key>
-		<string>de_dust2</string>
+		<string>de_inferno</string>
 		<key>Smokes</key>
 		<dict>
-			<key>To Other</key>
+			<key>To Tramp</key>
 			<dict>
 				<key>yCord</key>
-				<integer>550</integer>
+				<integer>620</integer>
 				<key>xCord</key>
-				<integer>800</integer>
-				<key>From B</key>
+				<integer>430</integer>
+				<key>From Bluebox</key>
 				<dict>
-					<key>xCord</key>
-					<integer>80</integer>
 					<key>yCord</key>
-					<integer>80</integer>
+					<integer>360</integer>
+					<key>xCord</key>
+					<integer>545</integer>
 					<key>path</key>
-					<string>testVideo</string>
+					<string>dust2_smoke_bluebox_to_tramp</string>
 				</dict>
 			</dict>
-			<key>To Short</key>
+			<key>To Long Doors</key>
 			<dict>
-				<key>From B - 2</key>
-				<dict>
-					<key>xCord</key>
-					<integer>500</integer>
-					<key>yCord</key>
-					<integer>800</integer>
-					<key>path</key>
-					<string>testVideo</string>
-				</dict>
 				<key>yCord</key>
-				<integer>250</integer>
+				<integer>430</integer>
 				<key>xCord</key>
-				<integer>250</integer>
-				<key>From B</key>
+				<integer>490</integer>
+				<key>From Acar</key>
 				<dict>
-					<key>xCord</key>
-					<integer>90</integer>
 					<key>yCord</key>
-					<integer>800</integer>
+					<integer>220</integer>
+					<key>xCord</key>
+					<integer>650</integer>
 					<key>path</key>
-					<string>testVideo</string>
+					<string>dust2_smoke_acar_to_longdoors</string>
+				</dict>
+			</dict>
+			<key>To Connector</key>
+			<dict>
+				<key>yCord</key>
+				<integer>185</integer>
+				<key>xCord</key>
+				<integer>575</integer>
+				<key>From Long</key>
+				<dict>
+					<key>yCord</key>
+					<integer>380</integer>
+					<key>xCord</key>
+					<integer>565</integer>
+					<key>path</key>
+					<string>dust2_smoke_long_to_connector</string>
+				</dict>
+			</dict>
+			<key>To B Site</key>
+			<dict>
+				<key>yCord</key>
+				<integer>185</integer>
+				<key>xCord</key>
+				<integer>95</integer>
+				<key>From B Tunnel</key>
+				<dict>
+					<key>yCord</key>
+					<integer>360</integer>
+					<key>xCord</key>
+					<integer>95</integer>
+					<key>path</key>
+					<string>dust2_smoke_btunnel_to_b</string>
 				</dict>
 			</dict>
 		</dict>
 	</dict>
-	<dict/>
+	<dict>
+		<key>Flashes</key>
+		<dict>
+			<key>To deep cat</key>
+			<dict>
+				<key>xCord</key>
+				<integer>440</integer>
+				<key>yCord</key>
+				<integer>300</integer>
+				<key>From short</key>
+				<dict>
+					<key>xCord</key>
+					<integer>450</integer>
+					<key>yCord</key>
+					<integer>270</integer>
+					<key>path</key>
+					<string>de_dust2_flash_short_to_cat</string>
+				</dict>
+				<key>From Top Mid</key>
+				<dict>
+					<key>xCord</key>
+					<integer>310</integer>
+					<key>yCord</key>
+					<integer>360</integer>
+					<key>path</key>
+					<string>de_dust2_flash_mid_to_deepshort</string>
+				</dict>
+			</dict>
+			<key>To Cat</key>
+			<dict>
+				<key>xCord</key>
+				<integer>360</integer>
+				<key>yCord</key>
+				<integer>300</integer>
+				<key>From Top Mid</key>
+				<dict>
+					<key>xCord</key>
+					<integer>380</integer>
+					<key>yCord</key>
+					<integer>480</integer>
+					<key>path</key>
+					<string>de_dust2_flash_mid_to_cat</string>
+				</dict>
+			</dict>
+			<key>To Short</key>
+			<dict>
+				<key>xCord</key>
+				<integer>440</integer>
+				<key>yCord</key>
+				<integer>180</integer>
+				<key>From ctramp</key>
+				<dict>
+					<key>xCord</key>
+					<integer>540</integer>
+					<key>yCord</key>
+					<integer>190</integer>
+					<key>path</key>
+					<string>de_dust2_flash_ctspawn_to_short</string>
+				</dict>
+			</dict>
+			<key>To A</key>
+			<dict>
+				<key>xCord</key>
+				<integer>570</integer>
+				<key>yCord</key>
+				<integer>130</integer>
+				<key>From Short</key>
+				<dict>
+					<key>xCord</key>
+					<integer>440</integer>
+					<key>yCord</key>
+					<integer>260</integer>
+					<key>path</key>
+					<string>de_dust2_flash_short_to_a</string>
+				</dict>
+				<key>From ctramp</key>
+				<dict>
+					<key>xCord</key>
+					<integer>540</integer>
+					<key>yCord</key>
+					<integer>190</integer>
+					<key>path</key>
+					<string>de_dust2_flash_ctspawn_to_a</string>
+				</dict>
+			</dict>
+			<key>To Lower</key>
+			<dict>
+				<key>xCord</key>
+				<integer>250</integer>
+				<key>yCord</key>
+				<integer>300</integer>
+				<key>From Ctmid</key>
+				<dict>
+					<key>xCord</key>
+					<integer>315</integer>
+					<key>yCord</key>
+					<integer>250</integer>
+					<key>path</key>
+					<string>de_dust2_flash_ctmid_to_lower</string>
+				</dict>
+			</dict>
+			<key>To B Tunnel</key>
+			<dict>
+				<key>xCord</key>
+				<integer>65</integer>
+				<key>yCord</key>
+				<integer>250</integer>
+				<key>From B Plat</key>
+				<dict>
+					<key>xCord</key>
+					<integer>90</integer>
+					<key>yCord</key>
+					<integer>100</integer>
+					<key>path</key>
+					<string>de_dust2_flash_bplat_to_btunnel</string>
+				</dict>
+				<key>From B Box</key>
+				<dict>
+					<key>xCord</key>
+					<integer>140</integer>
+					<key>yCord</key>
+					<integer>80</integer>
+					<key>path</key>
+					<string>de_dust2_flash_bbox_to_btunnel</string>
+				</dict>
+				<key>From B Car</key>
+				<dict>
+					<key>xCord</key>
+					<integer>140</integer>
+					<key>yCord</key>
+					<integer>230</integer>
+					<key>path</key>
+					<string>de_dust2_flash_bcar_to_btunnel</string>
+				</dict>
+			</dict>
+			<key>To B Site</key>
+			<dict>
+				<key>From ctmid - 4 </key>
+				<dict>
+					<key>xCord</key>
+					<integer>310</integer>
+					<key>yCord</key>
+					<integer>200</integer>
+					<key>path</key>
+					<string>de_dust2_flash_ctmid_to_bsite</string>
+				</dict>
+				<key>From ctmid - 3</key>
+				<dict>
+					<key>xCord</key>
+					<integer>290</integer>
+					<key>yCord</key>
+					<integer>180</integer>
+					<key>path</key>
+					<string>de_dust2_flash_ctmid_to_bsite_3</string>
+				</dict>
+				<key>From ctmid - 2</key>
+				<dict>
+					<key>xCord</key>
+					<integer>220</integer>
+					<key>yCord</key>
+					<integer>180</integer>
+					<key>path</key>
+					<string>de_dust2_flash_ctmid_to_bsite_2</string>
+				</dict>
+				<key>From ctmid</key>
+				<dict>
+					<key>xCord</key>
+					<integer>250</integer>
+					<key>yCord</key>
+					<integer>170</integer>
+					<key>path</key>
+					<string>de_dust2_flash_ctmid_to_bsite_1</string>
+				</dict>
+				<key>xCord</key>
+				<integer>150</integer>
+				<key>yCord</key>
+				<integer>150</integer>
+				<key>From B Back of site</key>
+				<dict>
+					<key>xCord</key>
+					<integer>160</integer>
+					<key>yCord</key>
+					<integer>90</integer>
+					<key>path</key>
+					<string>de_dust2_flash_bbackofsite_to_bsite</string>
+				</dict>
+				<key>From B Site</key>
+				<dict>
+					<key>xCord</key>
+					<integer>130</integer>
+					<key>yCord</key>
+					<integer>120</integer>
+					<key>path</key>
+					<string>de_dust2_flash_bsite_to_bsite</string>
+				</dict>
+			</dict>
+			<key>To Long</key>
+			<dict>
+				<key>xCord</key>
+				<integer>625</integer>
+				<key>yCord</key>
+				<integer>280</integer>
+				<key>From t spawn - 2</key>
+				<dict>
+					<key>xCord</key>
+					<integer>500</integer>
+					<key>yCord</key>
+					<integer>470</integer>
+					<key>path</key>
+					<string>de_dust2_flash_tspawn_to_long</string>
+				</dict>
+				<key>From t spawn</key>
+				<dict>
+					<key>xCord</key>
+					<integer>500</integer>
+					<key>yCord</key>
+					<integer>560</integer>
+					<key>path</key>
+					<string>de_dust2_flash_tspawn_to_long_1</string>
+				</dict>
+				<key>From elevator</key>
+				<dict>
+					<key>xCord</key>
+					<integer>550</integer>
+					<key>yCord</key>
+					<integer>160</integer>
+					<key>path</key>
+					<string>de_dust2_flash_elevator to long</string>
+				</dict>
+				<key>From ctramp - 2</key>
+				<dict>
+					<key>xCord</key>
+					<integer>550</integer>
+					<key>yCord</key>
+					<integer>190</integer>
+					<key>path</key>
+					<string>de_dust2_flash_ctramp to long</string>
+				</dict>
+				<key>From ctramp</key>
+				<dict>
+					<key>xCord</key>
+					<integer>585</integer>
+					<key>yCord</key>
+					<integer>200</integer>
+					<key>path</key>
+					<string>de_dust2_flash_ctramp to long_1</string>
+				</dict>
+				<key>From A</key>
+				<dict>
+					<key>xCord</key>
+					<integer>585</integer>
+					<key>yCord</key>
+					<integer>130</integer>
+					<key>path</key>
+					<string>de_dust2_flash_a_to_long</string>
+				</dict>
+				<key>From Car</key>
+				<dict>
+					<key>xCord</key>
+					<integer>675</integer>
+					<key>yCord</key>
+					<integer>250</integer>
+					<key>path</key>
+					<string>de_dust2_flash_acar_to_long</string>
+				</dict>
+			</dict>
+			<key>To Long Corner</key>
+			<dict>
+				<key>xCord</key>
+				<integer>550</integer>
+				<key>yCord</key>
+				<integer>380</integer>
+				<key>From ctramp</key>
+				<dict>
+					<key>xCord</key>
+					<integer>590</integer>
+					<key>yCord</key>
+					<integer>200</integer>
+					<key>path</key>
+					<string>de_dust2_flash_ctramp to longcorner</string>
+				</dict>
+				<key>From Pit</key>
+				<dict>
+					<key>xCord</key>
+					<integer>620</integer>
+					<key>yCord</key>
+					<integer>440</integer>
+					<key>path</key>
+					<string>de_dust2_flash_acar_to_long</string>
+				</dict>
+			</dict>
+		</dict>
+		<key>MapName</key>
+		<string>de_dust2</string>
+		<key>Smokes</key>
+		<dict>
+			<key>To Mid Doors</key>
+			<dict>
+				<key>yCord</key>
+				<integer>270</integer>
+				<key>xCord</key>
+				<integer>320</integer>
+				<key>From T Spawn</key>
+				<dict>
+					<key>yCord</key>
+					<integer>670</integer>
+					<key>xCord</key>
+					<integer>320</integer>
+					<key>path</key>
+					<string>dust2_smoke_tspawn_to_mid</string>
+				</dict>
+			</dict>
+			<key>To Long Corner</key>
+			<dict>
+				<key>yCord</key>
+				<integer>350</integer>
+				<key>xCord</key>
+				<integer>585</integer>
+				<key>From T Spawn 1</key>
+				<dict>
+					<key>yCord</key>
+					<integer>565</integer>
+					<key>xCord</key>
+					<integer>420</integer>
+					<key>path</key>
+					<string>dust2_smoke_tspawn_to_long_corner</string>
+				</dict>
+				<key>From T Spawn 2</key>
+				<dict>
+					<key>yCord</key>
+					<integer>650</integer>
+					<key>xCord</key>
+					<integer>430</integer>
+					<key>path</key>
+					<string>dust2_smoke_tspawn_to_long_corner_1</string>
+				</dict>
+			</dict>
+			<key>To CT Spawn</key>
+			<dict>
+				<key>yCord</key>
+				<integer>190</integer>
+				<key>xCord</key>
+				<integer>350</integer>
+				<key>From Mid</key>
+				<dict>
+					<key>yCord</key>
+					<integer>415</integer>
+					<key>xCord</key>
+					<integer>345</integer>
+					<key>path</key>
+					<string>dust2_smoke_mid_to_ctspawn</string>
+				</dict>
+				<key>From XBox</key>
+				<dict>
+					<key>yCord</key>
+					<integer>350</integer>
+					<key>xCord</key>
+					<integer>345</integer>
+					<key>path</key>
+					<string>dust2_smoke_mid_to_ctspawn_1</string>
+				</dict>
+			</dict>
+			<key>To XBox</key>
+			<dict>
+				<key>yCord</key>
+				<integer>310</integer>
+				<key>xCord</key>
+				<integer>335</integer>
+				<key>From Lower</key>
+				<dict>
+					<key>yCord</key>
+					<integer>310</integer>
+					<key>xCord</key>
+					<integer>250</integer>
+					<key>path</key>
+					<string>dust2_smoke_lowertunnel_to_xbox</string>
+				</dict>
+			</dict>
+			<key>To Short</key>
+			<dict>
+				<key>yCord</key>
+				<integer>200</integer>
+				<key>xCord</key>
+				<integer>450</integer>
+				<key>From Long</key>
+				<dict>
+					<key>yCord</key>
+					<integer>285</integer>
+					<key>xCord</key>
+					<integer>635</integer>
+					<key>path</key>
+					<string>dust2_smoke_long_to_short</string>
+				</dict>
+			</dict>
+			<key>To CT Mid for cross</key>
+			<dict>
+				<key>yCord</key>
+				<integer>150</integer>
+				<key>xCord</key>
+				<integer>315</integer>
+				<key>From CT Spawn</key>
+				<dict>
+					<key>yCord</key>
+					<integer>170</integer>
+					<key>xCord</key>
+					<integer>430</integer>
+					<key>path</key>
+					<string>dust2_smoke_ctspawn_to_ctmid</string>
+				</dict>
+			</dict>
+			<key>To Suicide</key>
+			<dict>
+				<key>yCord</key>
+				<integer>500</integer>
+				<key>xCord</key>
+				<integer>315</integer>
+				<key>From CT Mid</key>
+				<dict>
+					<key>yCord</key>
+					<integer>220</integer>
+					<key>xCord</key>
+					<integer>335</integer>
+					<key>path</key>
+					<string>dust2_smoke_ctmid_to_suicide</string>
+				</dict>
+			</dict>
+			<key>To B Tunnel</key>
+			<dict>
+				<key>yCord</key>
+				<integer>245</integer>
+				<key>xCord</key>
+				<integer>60</integer>
+				<key>From CT Mid</key>
+				<dict>
+					<key>yCord</key>
+					<integer>150</integer>
+					<key>xCord</key>
+					<integer>260</integer>
+					<key>path</key>
+					<string>dust2_smoke_ctmid_to_btunnel</string>
+				</dict>
+			</dict>
+			<key>To B Car</key>
+			<dict>
+				<key>yCord</key>
+				<integer>225</integer>
+				<key>xCord</key>
+				<integer>125</integer>
+				<key>From CT Mid</key>
+				<dict>
+					<key>yCord</key>
+					<integer>150</integer>
+					<key>xCord</key>
+					<integer>260</integer>
+					<key>path</key>
+					<string>dust2_smoke_ctmid_to_bcar</string>
+				</dict>
+			</dict>
+			<key>To CT Ramp</key>
+			<dict>
+				<key>yCord</key>
+				<integer>180</integer>
+				<key>xCord</key>
+				<integer>490</integer>
+				<key>From Long</key>
+				<dict>
+					<key>yCord</key>
+					<integer>375</integer>
+					<key>xCord</key>
+					<integer>575</integer>
+					<key>path</key>
+					<string>dust2_smoke_long_to_ctramp</string>
+				</dict>
+				<key>From Short</key>
+				<dict>
+					<key>yCord</key>
+					<integer>260</integer>
+					<key>xCord</key>
+					<integer>455</integer>
+					<key>path</key>
+					<string>dust2_smoke_cat_to_ctspawn</string>
+				</dict>
+			</dict>
+			<key>To A Site</key>
+			<dict>
+				<key>yCord</key>
+				<integer>130</integer>
+				<key>xCord</key>
+				<integer>530</integer>
+				<key>From B Tunnel</key>
+				<dict>
+					<key>yCord</key>
+					<integer>260</integer>
+					<key>xCord</key>
+					<integer>440</integer>
+					<key>path</key>
+					<string>dust2_smoke_cat_to_asite</string>
+				</dict>
+			</dict>
+			<key>To Tramp</key>
+			<dict>
+				<key>yCord</key>
+				<integer>620</integer>
+				<key>xCord</key>
+				<integer>430</integer>
+				<key>From Bluebox</key>
+				<dict>
+					<key>yCord</key>
+					<integer>360</integer>
+					<key>xCord</key>
+					<integer>545</integer>
+					<key>path</key>
+					<string>dust2_smoke_bluebox_to_tramp</string>
+				</dict>
+			</dict>
+			<key>To Long Doors</key>
+			<dict>
+				<key>yCord</key>
+				<integer>430</integer>
+				<key>xCord</key>
+				<integer>490</integer>
+				<key>From Acar</key>
+				<dict>
+					<key>yCord</key>
+					<integer>220</integer>
+					<key>xCord</key>
+					<integer>650</integer>
+					<key>path</key>
+					<string>dust2_smoke_acar_to_longdoors</string>
+				</dict>
+			</dict>
+			<key>To Connector</key>
+			<dict>
+				<key>yCord</key>
+				<integer>185</integer>
+				<key>xCord</key>
+				<integer>575</integer>
+				<key>From Long</key>
+				<dict>
+					<key>yCord</key>
+					<integer>380</integer>
+					<key>xCord</key>
+					<integer>565</integer>
+					<key>path</key>
+					<string>dust2_smoke_long_to_connector</string>
+				</dict>
+			</dict>
+			<key>To B Site</key>
+			<dict>
+				<key>yCord</key>
+				<integer>185</integer>
+				<key>xCord</key>
+				<integer>95</integer>
+				<key>From B Tunnel</key>
+				<dict>
+					<key>yCord</key>
+					<integer>360</integer>
+					<key>xCord</key>
+					<integer>95</integer>
+					<key>path</key>
+					<string>dust2_smoke_btunnel_to_b</string>
+				</dict>
+			</dict>
+		</dict>
+	</dict>
 </array>
 </plist>

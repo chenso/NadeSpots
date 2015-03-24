@@ -9,16 +9,36 @@
 #import "MapsTableViewController.h"
 #import "DetailViewController.h"
 
+
 @interface MapsTableViewController ()
 @property (nonatomic, strong) NSArray * maps;
 @end
 
 @implementation MapsTableViewController
 @synthesize maps;
+
+- (void) openJWYT {
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://www.youtube.com/c/jamiew"]];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+    UIButton *button =  [UIButton buttonWithType:UIButtonTypeCustom];
+    [button setImage:[UIImage imageNamed:@"navJWButton.png"] forState:UIControlStateNormal];
+    [button addTarget:self action:@selector(openJWYT) forControlEvents:UIControlEventTouchUpInside];
+    [button setFrame:CGRectMake(0, 0, 243, 32)];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:button];
+    
     NSString * mapsPath = [[NSBundle mainBundle]pathForResource:@"Maps" ofType:@"plist"];
     maps = [NSArray arrayWithContentsOfFile:mapsPath];
+    self.tableView.backgroundView = nil;
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    self.tableView.contentInset = UIEdgeInsetsMake(0, -16, 0, 0);
+    
+    UIImageView *tempImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"table_background.png"]];
+    //[tempImageView setFrame:self.tableView.frame];
+    self.tableView.backgroundView = tempImageView;
+    self.tableView.backgroundView.contentMode = UIViewContentModeScaleAspectFill;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -44,9 +64,16 @@
     UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     NSDictionary * mapInfo = maps[indexPath.row];
-    cell.textLabel.text = mapInfo[@"MapName"];
+    NSString * mapName = mapInfo[@"MapName"];
+    NSString * mapCellImagePath = [NSString stringWithFormat:@"%@_cell", mapName];
+    [cell.imageView setImage:[UIImage imageNamed:mapCellImagePath]];
     
+    [cell.imageView setFrame:CGRectMake(100, 0, [[UIScreen mainScreen]bounds].size.width, 85)];
     return cell;
+}
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 85;
 }
 
 
@@ -98,6 +125,13 @@
     DVC.mapName = theMap;
     DVC.mapDetails = mapDetails;
 }
+- (void)tableView:(UITableView *)tableView
+  willDisplayCell:(UITableViewCell *)cell
+forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [cell setBackgroundColor:[UIColor clearColor]];
+}
+
 
 
 @end

@@ -141,7 +141,7 @@
         
         // create button for the spot
         NadeSpot * aSpot = [[NadeSpot alloc] initWithX:[destination[@"xCord"] floatValue] Y:[destination[@"yCord"] floatValue]fromLocations:origins];
-        CGRect buttonLocation = CGRectMake(aSpot.xCord, aSpot.yCord, 55, 55);
+        CGRect buttonLocation = CGRectMake(aSpot.xCord, aSpot.yCord, 45, 45);
         NadeSpotButton * nadeButton;
         if ([self.nadeType isEqualToString:@"Smokes"]) {
             nadeButton = [[SmokeSpotButton alloc] initWithFrame:buttonLocation];
@@ -155,7 +155,7 @@
         
         //animate button appear
         [UIView animateWithDuration:1.0 delay:0.0 options: UIViewAnimationOptionCurveEaseInOut animations:^{
-            nadeButton.alpha = 1.0;
+            nadeButton.alpha = 0.8;
         } completion:nil];
         
         [self.mapView addSubview:nadeButton];
@@ -187,13 +187,14 @@
     self.nadeFromButtons = [[NSMutableArray alloc] initWithCapacity:5];
     self.nadeTypeButtons = [[NSMutableArray alloc] initWithCapacity:2];
     // load the map view and nade destination view
-    UIImage * image = [UIImage imageNamed:[NSString stringWithFormat:@"%@.jpg", mapName]];
+    UIImage * image = [UIImage imageNamed:[NSString stringWithFormat:@"%@.png", mapName]];
     self.mapView = [[UIImageView alloc] initWithImage:image];
     self.mapView.frame = (CGRect){.origin=CGPointMake(0.0f, 0.0f), .size = image.size};
     self.mapView.userInteractionEnabled = YES;
     self.mapView.exclusiveTouch = YES;
     [self.scrollView addSubview:self.mapView];
     // initial and minimum zoom fill screen by x-axis
+    
     [self.scrollView setContentSize:image.size];
     self.scrollView.frame = CGRectMake(0.0f, 0.0f, image.size.width, image.size.height);
     self.scrollView.minimumZoomScale = [[UIScreen mainScreen] bounds].size.width / image.size.width;
@@ -227,7 +228,6 @@
     [self.view addSubview:self.smokesButton];
     [self.nadeTypeButtons addObject:self.smokesButton];
     
-    
     self.flashesButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 100, 32)];
     [self.flashesButton setTitle:@"Flashes" forState:UIControlStateNormal];
     [self.flashesButton setCenter:CGPointMake([[UIScreen mainScreen] bounds].size.width * 2 / 3, [[UIScreen mainScreen]bounds].size.height - 20)];
@@ -238,9 +238,11 @@
     [self.view addSubview:self.flashesButton];
     [self.nadeTypeButtons addObject:self.flashesButton];
     // Default nades are smokes
+    // Default map is de_dust2
     
     self.nadeType = [NSMutableString stringWithFormat:@"Smokes"];
     self.smokesButton.selected = YES;
+
     [self loadNades];
     
     // initialize video player view
@@ -283,7 +285,7 @@
         botmost = botmost > aSpot.yCord ? botmost : aSpot.yCord;
         
         // make NadeFromButtons for destination button
-        CGRect buttonLocation = CGRectMake(aSpot.xCord, aSpot.yCord, 45, 45);
+        CGRect buttonLocation = CGRectMake(aSpot.xCord, aSpot.yCord, 35, 35);
         NadeFromButton * nadeFromButton = [[NadeFromButton alloc] initWithPath:aSpot.path];
         nadeFromButton.frame = buttonLocation;
         [nadeFromButton addTarget:self action:@selector(nadeOriginButtonTouchUp:) forControlEvents:UIControlEventTouchUpInside];
@@ -333,6 +335,13 @@
     [self.videoPlayer stop];
     self.videoView.hidden = YES;
     sender.hidden = YES;
+}
+
+// for rotation do:
+// resize videoview
+-(void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation {
+    self.videoView.frame = [self videoViewScale];
+    [[self.videoPlayer view] setFrame:[self.videoView bounds]];
 }
 
 -(CGRect) videoViewScale {
