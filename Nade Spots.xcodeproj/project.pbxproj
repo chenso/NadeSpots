@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4A0682851AC11AC300F637EF /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A0682841AC11AC300F637EF /* Default-568h@2x.png */; };
 		4A076FF31A9EBD5000073D9A /* SmokeSpotButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A076FF21A9EBD5000073D9A /* SmokeSpotButton.m */; };
 		4A076FF81A9EC10900073D9A /* NadeFrom.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A076FF51A9EC10900073D9A /* NadeFrom.m */; };
 		4A076FF91A9EC10900073D9A /* NadeSpot.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A076FF71A9EC10900073D9A /* NadeSpot.m */; };
@@ -83,6 +84,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4A0682841AC11AC300F637EF /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		4A076FF11A9EBD5000073D9A /* SmokeSpotButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SmokeSpotButton.h; sourceTree = "<group>"; };
 		4A076FF21A9EBD5000073D9A /* SmokeSpotButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SmokeSpotButton.m; sourceTree = "<group>"; };
 		4A076FF41A9EC10900073D9A /* NadeFrom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NadeFrom.h; sourceTree = "<group>"; };
@@ -239,6 +241,7 @@
 		4A0B39831A9B1C0C004F8CC6 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				4A0682841AC11AC300F637EF /* Default-568h@2x.png */,
 				4A0B39841A9B1C0C004F8CC6 /* Info.plist */,
 				4A0B39851A9B1C0C004F8CC6 /* main.m */,
 			);
@@ -467,6 +470,7 @@
 				4AD8B5761ABCDB5500BC5A7F /* dust2_smoke_cat_to_asite.mp4 in Resources */,
 				4AD8B57B1ABCDB5500BC5A7F /* dust2_smoke_ctspawn_to_ctmid.mp4 in Resources */,
 				4AD8B5ED1ABFA4D100BC5A7F /* de_dust2_flash_short_to_cat.mp4 in Resources */,
+				4A0682851AC11AC300F637EF /* Default-568h@2x.png in Resources */,
 				4AD8B5E71ABFA4D100BC5A7F /* de_dust2_flash_ctspawn_to_short.mp4 in Resources */,
 				4AD8B5DA1ABFA4D100BC5A7F /* de_dust2_flash_bbox_to_btunnel.mp4 in Resources */,
 				4AD8B5D91ABFA4D100BC5A7F /* de_dust2_flash_bbackofsite_to_bsite.mp4 in Resources */,
@@ -616,6 +620,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "Nade Spots/Info.plist";
@@ -631,6 +636,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "Nade Spots/Info.plist";
