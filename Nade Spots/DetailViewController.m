@@ -25,10 +25,12 @@
 @property (strong, nonatomic) NadeSpotButton * currentlySelectedSpot;
 @property (strong, nonatomic) UIButton * smokesButton;
 @property (strong, nonatomic) UIButton * flashesButton;
+@property bool scrollAvailable;
 
 @end
 
 @implementation DetailViewController
+@synthesize scrollAvailable;
 @synthesize mapName;
 @synthesize mapDetails;
 @synthesize nadeFromButtons;
@@ -48,8 +50,8 @@
     return self.mapView;
 }
 
-// remove for 436 submission
 - (void)scrollViewDoubleTapped:(UITapGestureRecognizer*)recognizer {
+    if (self.scrollView.minimumZoomScale >= self.scrollView.maximumZoomScale) return;
     CGPoint pointInView = [recognizer locationInView:self.mapView];
     CGFloat newZoomScale = self.scrollView.zoomScale * 1.5f;
     newZoomScale = MIN(newZoomScale, self.scrollView.maximumZoomScale);
@@ -64,7 +66,6 @@
     [self.scrollView zoomToRect:rectToZoomTo animated:YES];
 }
 
-// remove for 436 submission
 - (void)scrollViewTwoFingerTapped:(UITapGestureRecognizer*)recognizer {
     // Zoom out slightly, capping at the minimum zoom scale specified by the scroll view
     CGFloat newZoomScale = self.scrollView.zoomScale / 1.5f;
@@ -193,12 +194,16 @@
     self.mapView.userInteractionEnabled = YES;
     self.mapView.exclusiveTouch = YES;
     [self.scrollView addSubview:self.mapView];
-    // initial and minimum zoom fill screen by x-axis
     
+    // initial and minimum zoom fill screen by x-axis
     [self.scrollView setContentSize:image.size];
     self.scrollView.frame = CGRectMake(0.0f, 0.0f, image.size.width, image.size.height);
     self.scrollView.minimumZoomScale = [[UIScreen mainScreen] bounds].size.width / image.size.width;
     self.scrollView.maximumZoomScale = 1.0;
+    scrollAvailable = self.scrollView.minimumZoomScale >= self.scrollView.maximumZoomScale;
+    if (scrollAvailable) {
+        self.mapView.center = self.view.center;
+    }
     self.scrollView.delegate = self;
     [self.scrollView setBackgroundColor:[UIColor blackColor] ];
     self.scrollView.canCancelContentTouches = YES;
@@ -212,7 +217,6 @@
     twoFingerTapRecognizer.numberOfTapsRequired = 1;
     twoFingerTapRecognizer.numberOfTouchesRequired = 2;
     [self.scrollView addGestureRecognizer:twoFingerTapRecognizer];
-    
     // initialize showSmokes and showFlashes buttons
     UIView * bar = [[UIView alloc] initWithFrame:CGRectMake(0, [[UIScreen mainScreen] bounds].size.height - 40 , [[UIScreen mainScreen] bounds].size.width, 40)];
     [bar setBackgroundColor:[UIColor whiteColor]];
@@ -302,6 +306,9 @@
     
     // scroll to relevant area
     //TODO
+    if (scrollAvailable) {
+        
+    }
     
     // switch other NadeSpotButtons to deselected image
 
@@ -340,8 +347,14 @@
 // for rotation do:
 // resize videoview
 -(void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation {
+    if (self.scrollView.minimumZoomScale >= self.scrollView.maximumZoomScale) {
+        self.mapView.center = self.view.center;
+    }
     self.videoView.frame = [self videoViewScale];
     [[self.videoPlayer view] setFrame:[self.videoView bounds]];
+    
+    [self.smokesButton setCenter:CGPointMake([[UIScreen mainScreen] bounds].size.width / 3, [[UIScreen mainScreen]bounds].size.height - 20)];
+     [self.flashesButton setCenter:CGPointMake([[UIScreen mainScreen] bounds].size.width * 2 / 3, [[UIScreen mainScreen]bounds].size.height - 20)];
 }
 
 -(CGRect) videoViewScale {
@@ -350,7 +363,6 @@
     CGFloat videoWidth, videoHeight;
     if (UIDeviceOrientationIsPortrait(orientation)) {
         videoWidth = [[UIScreen mainScreen] bounds].size.width - 40.0;
-        
     } else {
         videoWidth = [[UIScreen mainScreen] bounds].size.width - 100.0;
     }

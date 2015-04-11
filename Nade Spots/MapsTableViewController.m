@@ -11,11 +11,13 @@
 
 
 @interface MapsTableViewController ()
+@property (strong, nonatomic) IBOutlet UIImageView *mapTitle;
 @property (nonatomic, strong) NSArray * maps;
 @end
 
 @implementation MapsTableViewController
 @synthesize maps;
+@synthesize mapTitle;
 
 - (void) openJWYT {
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://www.youtube.com/c/jamiew"]];
@@ -23,6 +25,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title = @"MAPS";
     UIButton *button =  [UIButton buttonWithType:UIButtonTypeCustom];
     [button setImage:[UIImage imageNamed:@"navJWButton.png"] forState:UIControlStateNormal];
     [button addTarget:self action:@selector(openJWYT) forControlEvents:UIControlEventTouchUpInside];
@@ -36,9 +39,18 @@
     self.tableView.contentInset = UIEdgeInsetsMake(0, -16, 0, 0);
     
     UIImageView *tempImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"table_background.png"]];
-    //[tempImageView setFrame:self.tableView.frame];
+    
     self.tableView.backgroundView = tempImageView;
     self.tableView.backgroundView.contentMode = UIViewContentModeScaleAspectFill;
+    
+    //UIImage * title = [UIImage imageNamed:@"MAPS title.png"];
+    //UIImageView * realTitle = [[UIImageView alloc] initWithImage:title];
+    //realTitle.frame = CGRectMake(16, 0, 212.5, 85);
+    //[self.tableView addSubview:realTitle];
+    
+    //filler space
+    //mapTitle.frame = CGRectMake(0, 0, 1, 85);
+    //mapTitle.backgroundColor = [UIColor clearColor];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -62,7 +74,6 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString * CellIdentifier = @"Cell";
     UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-    
     NSDictionary * mapInfo = maps[indexPath.row];
     NSString * mapName = mapInfo[@"MapName"];
     NSString * mapCellImagePath = [NSString stringWithFormat:@"%@_cell", mapName];
@@ -76,42 +87,6 @@
     return 85;
 }
 
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -123,6 +98,7 @@
     NSString * theMap = [maps objectAtIndex:path.row][@"MapName"];
     NSDictionary * mapDetails = [maps objectAtIndex:path.row];
     DVC.mapName = theMap;
+    DVC.title = theMap;
     DVC.mapDetails = mapDetails;
 }
 - (void)tableView:(UITableView *)tableView

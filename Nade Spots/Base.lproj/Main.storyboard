@@ -14,6 +14,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <imageView key="tableHeaderView" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="tzl-3Q-tSR">
+                            <rect key="frame" x="0.0" y="64" width="320" height="40"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </imageView>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="Cell" id="2fc-Ha-8k7">
                                 <autoresizingMask key="autoresizingMask"/>
@@ -31,6 +35,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="mat-4v-LNb"/>
+                    <connections>
+                        <outlet property="mapTitle" destination="tzl-3Q-tSR" id="cDd-GW-T04"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Ef-l7-uVU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
