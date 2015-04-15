@@ -98,7 +98,7 @@
     NSString * theMap = [maps objectAtIndex:path.row][@"MapName"];
     NSDictionary * mapDetails = [maps objectAtIndex:path.row];
     DVC.mapName = theMap;
-    DVC.title = theMap;
+    //DVC.title = theMap;
     DVC.mapDetails = mapDetails;
 }
 - (void)tableView:(UITableView *)tableView

@@ -12,10 +12,7 @@
 #import "FlashSpotButton.h"
 #import <MediaPlayer/MediaPlayer.h>
 
-@interface DetailViewController : UIViewController <UIScrollViewDelegate> {
-    UIScrollView * scrollView;
-    UIImageView * mapView;
-}
+@interface DetailViewController : UIViewController <UIScrollViewDelegate> 
 
 @property (nonatomic, strong) UIScrollView *scrollView;
 @property (nonatomic, strong) UIImageView *mapView;
