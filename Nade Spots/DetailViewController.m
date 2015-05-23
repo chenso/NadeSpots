@@ -13,22 +13,6 @@
 #define NS_ENUM(_type, _name) enum _name : _type _name; enum _name : _type
 #endif
 
-@interface DetailViewController ()
-
-@property (strong, nonatomic) NSString * nadeType;
-@property (strong, nonatomic) NSMutableArray * nadeSpotButtons;
-@property (strong, nonatomic) NSMutableArray * nadeFromButtons;
-@property (strong, nonatomic) NSMutableArray * nadeTypeButtons;
-@property (strong, nonatomic) UIView * videoView;
-@property (strong, nonatomic) MPMoviePlayerController * videoPlayer;
-@property (strong, nonatomic) UIButton * transparentPlayerExiterButton;
-@property (strong, nonatomic) NadeSpotButton * currentlySelectedSpot;
-@property (strong, nonatomic) UIButton * smokesButton;
-@property (strong, nonatomic) UIButton * flashesButton;
-@property bool scrollAvailable;
-
-@end
-
 @implementation DetailViewController
 @synthesize scrollAvailable;
 @synthesize mapName;
@@ -45,6 +29,7 @@
 @synthesize currentlySelectedSpot;
 @synthesize smokesButton = _smokesButton;
 @synthesize flashesButton = _flashesButton;
+@synthesize hemolotovButton = _hemolotovButton;
 
 -(UIView *) viewForZoomingInScrollView:(UIScrollView *)scrollView {
     return self.mapView;
@@ -187,6 +172,7 @@
     self.nadeSpotButtons = [[NSMutableArray alloc] initWithCapacity:20]; // increase when more are added
     self.nadeFromButtons = [[NSMutableArray alloc] initWithCapacity:5];
     self.nadeTypeButtons = [[NSMutableArray alloc] initWithCapacity:2];
+    
     // load the map view and nade destination view
     UIImage * image = [UIImage imageNamed:[NSString stringWithFormat:@"%@.png", mapName]];
     self.mapView = [[UIImageView alloc] initWithImage:image];
@@ -217,33 +203,42 @@
     twoFingerTapRecognizer.numberOfTapsRequired = 1;
     twoFingerTapRecognizer.numberOfTouchesRequired = 2;
     [self.scrollView addGestureRecognizer:twoFingerTapRecognizer];
+    
     // initialize showSmokes and showFlashes buttons
     UIView * bar = [[UIView alloc] initWithFrame:CGRectMake(0, [[UIScreen mainScreen] bounds].size.height - 40 , [[UIScreen mainScreen] bounds].size.width, 40)];
     [bar setBackgroundColor:[UIColor whiteColor]];
-    [bar setAlpha:0.2];
+    [bar setAlpha:0.5];
     [self.view addSubview:bar];
-    self.smokesButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 100, 40)];
+    
+    
+    self.smokesButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 40, 40)];
+    [self.smokesButton setImage:[UIImage imageNamed:@"weapon_smokegrenade_small_black_icon.png"] forState:UIControlStateNormal];
+    [self.smokesButton setImage:[UIImage imageNamed:@"weapon_smokegrenade_small_icon_selected.png"] forState:UIControlStateSelected];
     [self.smokesButton setTitle:@"Smokes" forState:UIControlStateNormal];
-    [self.smokesButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [self.smokesButton setTitleColor:[UIColor grayColor] forState:UIControlStateHighlighted];
-    [self.smokesButton setTitleColor:[UIColor colorWithRed:188/255.0f green:255/255.0f blue:81/255.0f alpha:1.0f] forState:UIControlStateSelected];
-    [self.smokesButton setCenter:CGPointMake([[UIScreen mainScreen] bounds].size.width / 3, [[UIScreen mainScreen]bounds].size.height - 20)];
+    [self.smokesButton setCenter:CGPointMake([[UIScreen mainScreen] bounds].size.width / 4, [[UIScreen mainScreen]bounds].size.height - 20)];
     [self.smokesButton addTarget:self action:@selector(selectNadeType:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:self.smokesButton];
     [self.nadeTypeButtons addObject:self.smokesButton];
     
-    self.flashesButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 100, 32)];
+    self.flashesButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 40, 40)];
+    [self.flashesButton setImage:[UIImage imageNamed:@"weapon_flashbang_small_icon_deselected.png"] forState:UIControlStateNormal];
+    [self.flashesButton setImage:[UIImage imageNamed:@"weapon_flashbang_small_icon_selected.png"] forState:UIControlStateSelected];
     [self.flashesButton setTitle:@"Flashes" forState:UIControlStateNormal];
-    [self.flashesButton setCenter:CGPointMake([[UIScreen mainScreen] bounds].size.width * 2 / 3, [[UIScreen mainScreen]bounds].size.height - 20)];
-    [self.flashesButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [self.flashesButton setTitleColor:[UIColor grayColor] forState:UIControlStateHighlighted];
-    [self.flashesButton setTitleColor:[UIColor colorWithRed:188/255.0f green:255/255.0f blue:81/255.0f alpha:1.0f] forState:UIControlStateSelected];
+    [self.flashesButton setCenter:CGPointMake([[UIScreen mainScreen] bounds].size.width * 2 / 4, [[UIScreen mainScreen]bounds].size.height - 20)];
     [self.flashesButton addTarget:self action:@selector(selectNadeType:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:self.flashesButton];
     [self.nadeTypeButtons addObject:self.flashesButton];
-    // Default nades are smokes
-    // Default map is de_dust2
     
+    self.hemolotovButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 40, 40)];
+    [self.hemolotovButton setImage:[UIImage imageNamed:@"weapon_hemolotov_small_icon_deselected.png"] forState:UIControlStateNormal];
+    [self.hemolotovButton setImage:[UIImage imageNamed:@"weapon_hemolotov_small_selected.png"] forState:UIControlStateSelected];
+    [self.hemolotovButton setTitle:@"HEMolotov" forState:UIControlStateNormal];
+    [self.hemolotovButton setCenter:CGPointMake([[UIScreen mainScreen] bounds].size.width * 3 / 4, [[UIScreen mainScreen]bounds].size.height - 20)];
+    [self.hemolotovButton addTarget:self action:@selector(selectNadeType:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:self.hemolotovButton];
+    [self.nadeTypeButtons addObject:self.hemolotovButton];
+    
+    // Default nades are smokes
     self.nadeType = [NSMutableString stringWithFormat:@"Smokes"];
     self.smokesButton.selected = YES;
 
@@ -258,7 +253,8 @@
     
     // create transparent button on superview for removing the video player view
     transparentPlayerExiterButton = [[UIButton alloc] initWithFrame:self.scrollView.bounds];
-    transparentPlayerExiterButton.backgroundColor = [UIColor clearColor];
+    transparentPlayerExiterButton.backgroundColor = [UIColor blackColor];
+    transparentPlayerExiterButton.alpha = 0.0f;
     [transparentPlayerExiterButton addTarget:self action:@selector(dismissPlayer:) forControlEvents:UIControlEventTouchUpInside];
     [self.scrollView addSubview:transparentPlayerExiterButton];
     transparentPlayerExiterButton.hidden = true;
@@ -327,7 +323,7 @@
 -(void)nadeOriginButtonTouchUp:(id)sender {
     NadeFromButton * button = (NadeFromButton *)sender;
     NSString * path = [[NSBundle mainBundle] pathForResource:button.path ofType:@"mp4"];
-    NSURL *videoURL = [NSURL fileURLWithPath:path];
+    NSURL * videoURL = [NSURL fileURLWithPath:path];
     videoPlayer = [[MPMoviePlayerController alloc] initWithContentURL:videoURL];
     videoPlayer.controlStyle = MPMovieControlStyleDefault;
     [[videoPlayer view] setFrame:[self.videoView bounds]];
@@ -335,13 +331,24 @@
     [videoPlayer play];
     self.videoView.hidden = false;
     transparentPlayerExiterButton.hidden = false;
+    [UIView animateWithDuration:0.25f delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+        transparentPlayerExiterButton.alpha = 0.3f;
+    } completion:nil];
     
 }
 
 -(void)dismissPlayer:(UIButton *) sender{
     [self.videoPlayer stop];
     self.videoView.hidden = YES;
-    sender.hidden = YES;
+    [UIView animateWithDuration:0.25 delay:0
+                        options:UIViewAnimationOptionCurveEaseInOut animations:^{
+        sender.alpha = 0.0f;
+        }
+                     completion:^(BOOL finished){
+                         sender.hidden = YES;
+                     }];
+
+
 }
 
 // for rotation do:
@@ -377,6 +384,7 @@
     [super viewWillAppear:animated];
 
 }
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

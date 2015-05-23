@@ -18,6 +18,18 @@
 @property (nonatomic, strong) UIImageView *mapView;
 @property (strong, nonatomic) NSString * mapName;
 @property (strong, nonatomic) NSDictionary * mapDetails;
+@property (strong, nonatomic) NSString * nadeType;
+@property (strong, nonatomic) NSMutableArray * nadeSpotButtons;
+@property (strong, nonatomic) NSMutableArray * nadeFromButtons;
+@property (strong, nonatomic) NSMutableArray * nadeTypeButtons;
+@property (strong, nonatomic) UIView * videoView;
+@property (strong, nonatomic) MPMoviePlayerController * videoPlayer;
+@property (strong, nonatomic) UIButton * transparentPlayerExiterButton;
+@property (strong, nonatomic) NadeSpotButton * currentlySelectedSpot;
+@property (strong, nonatomic) UIButton * hemolotovButton;
+@property (strong, nonatomic) UIButton * smokesButton;
+@property (strong, nonatomic) UIButton * flashesButton;
+@property bool scrollAvailable;
 - (void)centerScrollViewContents;
 - (void)scrollViewDoubleTapped:(UITapGestureRecognizer*)recognizer;
 - (void)scrollViewTwoFingerTapped:(UITapGestureRecognizer*)recognizer;
