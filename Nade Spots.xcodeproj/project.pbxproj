@@ -133,12 +133,12 @@
 		4AA137471AB8FE070085A959 /* FlashSpotButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AA137461AB8FE070085A959 /* FlashSpotButton.m */; };
 		4AA1374A1AB900C00085A959 /* NadeSpotButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AA137491AB900C00085A959 /* NadeSpotButton.m */; };
 		4AA137781ABA351F0085A959 /* de_dust2.png in Resources */ = {isa = PBXBuildFile; fileRef = 4AA137771ABA351F0085A959 /* de_dust2.png */; };
-		4AC6625F1B0EB7B5001CC31A /* weapon_smokegrenade_small_icon_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 4AC6625E1B0EB7B5001CC31A /* weapon_smokegrenade_small_icon_selected.png */; };
-		4AC662631B0EB877001CC31A /* weapon_smokegrenade_small_black_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 4AC662621B0EB877001CC31A /* weapon_smokegrenade_small_black_icon.png */; };
-		4AC662661B0FBB61001CC31A /* weapon_flashbang_small_icon_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 4AC662641B0FBB61001CC31A /* weapon_flashbang_small_icon_selected.png */; };
-		4AC662671B0FBB61001CC31A /* weapon_flashbang_small_icon_deselected.png in Resources */ = {isa = PBXBuildFile; fileRef = 4AC662651B0FBB61001CC31A /* weapon_flashbang_small_icon_deselected.png */; };
-		4AC6626A1B0FDAA0001CC31A /* weapon_hemolotov_small_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 4AC662681B0FDAA0001CC31A /* weapon_hemolotov_small_selected.png */; };
-		4AC662711B0FDCCF001CC31A /* weapon_hemolotov_small_icon_deselected.png in Resources */ = {isa = PBXBuildFile; fileRef = 4AC662701B0FDCCF001CC31A /* weapon_hemolotov_small_icon_deselected.png */; };
+		4AC6625F1B0EB7B5001CC31A /* small_icon_selected_Smokes.png in Resources */ = {isa = PBXBuildFile; fileRef = 4AC6625E1B0EB7B5001CC31A /* small_icon_selected_Smokes.png */; };
+		4AC662631B0EB877001CC31A /* small_icon_deselected_Smokes.png in Resources */ = {isa = PBXBuildFile; fileRef = 4AC662621B0EB877001CC31A /* small_icon_deselected_Smokes.png */; };
+		4AC662661B0FBB61001CC31A /* small_icon_selected_Flashes.png in Resources */ = {isa = PBXBuildFile; fileRef = 4AC662641B0FBB61001CC31A /* small_icon_selected_Flashes.png */; };
+		4AC662671B0FBB61001CC31A /* small_icon_deselected_Flashes.png in Resources */ = {isa = PBXBuildFile; fileRef = 4AC662651B0FBB61001CC31A /* small_icon_deselected_Flashes.png */; };
+		4AC6626A1B0FDAA0001CC31A /* small_icon_selected_HEMolotov.png in Resources */ = {isa = PBXBuildFile; fileRef = 4AC662681B0FDAA0001CC31A /* small_icon_selected_HEMolotov.png */; };
+		4AC662711B0FDCCF001CC31A /* small_icon_deselected_HEMolotov.png in Resources */ = {isa = PBXBuildFile; fileRef = 4AC662701B0FDCCF001CC31A /* small_icon_deselected_HEMolotov.png */; };
 		4AD8B5731ABCDB5500BC5A7F /* dust2_smoke_acar_to_longdoors.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 4AD8B5611ABCDB5500BC5A7F /* dust2_smoke_acar_to_longdoors.mp4 */; };
 		4AD8B5741ABCDB5500BC5A7F /* dust2_smoke_bluebox_to_tramp.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 4AD8B5621ABCDB5500BC5A7F /* dust2_smoke_bluebox_to_tramp.mp4 */; };
 		4AD8B5751ABCDB5500BC5A7F /* dust2_smoke_btunnel_to_b.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 4AD8B5631ABCDB5500BC5A7F /* dust2_smoke_btunnel_to_b.mp4 */; };
@@ -335,12 +335,12 @@
 		4AA137481AB900C00085A959 /* NadeSpotButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NadeSpotButton.h; sourceTree = "<group>"; };
 		4AA137491AB900C00085A959 /* NadeSpotButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NadeSpotButton.m; sourceTree = "<group>"; };
 		4AA137771ABA351F0085A959 /* de_dust2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = de_dust2.png; sourceTree = "<group>"; };
-		4AC6625E1B0EB7B5001CC31A /* weapon_smokegrenade_small_icon_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = weapon_smokegrenade_small_icon_selected.png; sourceTree = "<group>"; };
-		4AC662621B0EB877001CC31A /* weapon_smokegrenade_small_black_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = weapon_smokegrenade_small_black_icon.png; sourceTree = "<group>"; };
-		4AC662641B0FBB61001CC31A /* weapon_flashbang_small_icon_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = weapon_flashbang_small_icon_selected.png; sourceTree = "<group>"; };
-		4AC662651B0FBB61001CC31A /* weapon_flashbang_small_icon_deselected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = weapon_flashbang_small_icon_deselected.png; sourceTree = "<group>"; };
-		4AC662681B0FDAA0001CC31A /* weapon_hemolotov_small_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = weapon_hemolotov_small_selected.png; sourceTree = "<group>"; };
-		4AC662701B0FDCCF001CC31A /* weapon_hemolotov_small_icon_deselected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = weapon_hemolotov_small_icon_deselected.png; sourceTree = "<group>"; };
+		4AC6625E1B0EB7B5001CC31A /* small_icon_selected_Smokes.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = small_icon_selected_Smokes.png; sourceTree = "<group>"; };
+		4AC662621B0EB877001CC31A /* small_icon_deselected_Smokes.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = small_icon_deselected_Smokes.png; sourceTree = "<group>"; };
+		4AC662641B0FBB61001CC31A /* small_icon_selected_Flashes.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = small_icon_selected_Flashes.png; sourceTree = "<group>"; };
+		4AC662651B0FBB61001CC31A /* small_icon_deselected_Flashes.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = small_icon_deselected_Flashes.png; sourceTree = "<group>"; };
+		4AC662681B0FDAA0001CC31A /* small_icon_selected_HEMolotov.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = small_icon_selected_HEMolotov.png; sourceTree = "<group>"; };
+		4AC662701B0FDCCF001CC31A /* small_icon_deselected_HEMolotov.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = small_icon_deselected_HEMolotov.png; sourceTree = "<group>"; };
 		4AD8B5611ABCDB5500BC5A7F /* dust2_smoke_acar_to_longdoors.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = dust2_smoke_acar_to_longdoors.mp4; sourceTree = "<group>"; };
 		4AD8B5621ABCDB5500BC5A7F /* dust2_smoke_bluebox_to_tramp.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = dust2_smoke_bluebox_to_tramp.mp4; sourceTree = "<group>"; };
 		4AD8B5631ABCDB5500BC5A7F /* dust2_smoke_btunnel_to_b.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = dust2_smoke_btunnel_to_b.mp4; sourceTree = "<group>"; };
@@ -668,14 +668,14 @@
 				4A0683C91AC2784200F637EF /* de_overpass_cell.png */,
 				4A0683CA1AC2784200F637EF /* de_inferno_cell.png */,
 				4A0683CB1AC2784200F637EF /* de_dust2_cell.png */,
-				4AC662681B0FDAA0001CC31A /* weapon_hemolotov_small_selected.png */,
-				4AC662701B0FDCCF001CC31A /* weapon_hemolotov_small_icon_deselected.png */,
+				4AC662681B0FDAA0001CC31A /* small_icon_selected_HEMolotov.png */,
+				4AC662701B0FDCCF001CC31A /* small_icon_deselected_HEMolotov.png */,
 				4A0683CC1AC2784200F637EF /* de_cache_cell.png */,
-				4AC662641B0FBB61001CC31A /* weapon_flashbang_small_icon_selected.png */,
-				4AC662651B0FBB61001CC31A /* weapon_flashbang_small_icon_deselected.png */,
+				4AC662641B0FBB61001CC31A /* small_icon_selected_Flashes.png */,
+				4AC662651B0FBB61001CC31A /* small_icon_deselected_Flashes.png */,
 				4A0683B61AC267A500F637EF /* de_overpass.png */,
-				4AC6625E1B0EB7B5001CC31A /* weapon_smokegrenade_small_icon_selected.png */,
-				4AC662621B0EB877001CC31A /* weapon_smokegrenade_small_black_icon.png */,
+				4AC6625E1B0EB7B5001CC31A /* small_icon_selected_Smokes.png */,
+				4AC662621B0EB877001CC31A /* small_icon_deselected_Smokes.png */,
 				4A0683B81AC267A500F637EF /* de_train.png */,
 				4A0683B21AC2679300F637EF /* de_cache.png */,
 				4A90C60B1AC0DAC80048A9B7 /* table_background.png */,
@@ -886,7 +886,7 @@
 				4A06843E1AC3E5B900F637EF /* mirage_f_connector_from_jungle.mp4 in Resources */,
 				4A0683B31AC2679300F637EF /* de_cache.png in Resources */,
 				4A06846B1AC3E5C400F637EF /* mirage_s_short_from_ashort.mp4 in Resources */,
-				4AC662661B0FBB61001CC31A /* weapon_flashbang_small_icon_selected.png in Resources */,
+				4AC662661B0FBB61001CC31A /* small_icon_selected_Flashes.png in Resources */,
 				4A06837D1AC2186000F637EF /* de_inferno_banana_to_ctb.mp4 in Resources */,
 				4AD8B5E91ABFA4D100BC5A7F /* de_dust2_flash_mid_to_cat.mp4 in Resources */,
 				4AD8B5E61ABFA4D100BC5A7F /* de_dust2_flash_ctspawn_to_a.mp4 in Resources */,
@@ -919,7 +919,7 @@
 				4A0683781AC2186000F637EF /* de_inferno_altmid_to_pastarch.mp4 in Resources */,
 				4A0684241AC3D44D00F637EF /* de_mirage_cell.png in Resources */,
 				4AD8B5E41ABFA4D100BC5A7F /* de_dust2_flash_ctramp to long.mp4 in Resources */,
-				4AC662671B0FBB61001CC31A /* weapon_flashbang_small_icon_deselected.png in Resources */,
+				4AC662671B0FBB61001CC31A /* small_icon_deselected_Flashes.png in Resources */,
 				4A0684611AC3E5C400F637EF /* mirage_s_bsite_from_apts.mp4 in Resources */,
 				4AD8B5EC1ABFA4D100BC5A7F /* de_dust2_flash_short_to_a.mp4 in Resources */,
 				4AD8B5831ABCDB5500BC5A7F /* dust2_smoke_tspawn_to_long_corner.mp4 in Resources */,
@@ -928,7 +928,7 @@
 				4A0684711AC3E5C400F637EF /* mirage_s_underpass_from_connector.mp4 in Resources */,
 				4A0683FF1AC33D0E00F637EF /* cache_s_abalc_from_along.mp4 in Resources */,
 				4A0684721AC3E5C400F637EF /* mirage_s_van_from_apts.mp4 in Resources */,
-				4AC662711B0FDCCF001CC31A /* weapon_hemolotov_small_icon_deselected.png in Resources */,
+				4AC662711B0FDCCF001CC31A /* small_icon_deselected_HEMolotov.png in Resources */,
 				4A0684371AC3E5B900F637EF /* mirage_f_apts_from_bclose.mp4 in Resources */,
 				4AD8B5DC1ABFA4D100BC5A7F /* de_dust2_flash_bplat_to_btunnel.mp4 in Resources */,
 				4A0684001AC33D0E00F637EF /* cache_s_asite_from_along.mp4 in Resources */,
@@ -956,8 +956,8 @@
 				4AD8B57F1ABCDB5500BC5A7F /* dust2_smoke_lowertunnel_to_xbox.mp4 in Resources */,
 				4A06837C1AC2186000F637EF /* de_inferno_arches_to_spool.mp4 in Resources */,
 				4AD8B5751ABCDB5500BC5A7F /* dust2_smoke_btunnel_to_b.mp4 in Resources */,
-				4AC6625F1B0EB7B5001CC31A /* weapon_smokegrenade_small_icon_selected.png in Resources */,
-				4AC662631B0EB877001CC31A /* weapon_smokegrenade_small_black_icon.png in Resources */,
+				4AC6625F1B0EB7B5001CC31A /* small_icon_selected_Smokes.png in Resources */,
+				4AC662631B0EB877001CC31A /* small_icon_deselected_Smokes.png in Resources */,
 				4A0683931AC22AC500F637EF /* de_inferno_flash_ctbanana_to_banana.mp4 in Resources */,
 				4A0684031AC33D0E00F637EF /* cache_s_bentry_from_bmain.mp4 in Resources */,
 				4A06841B1AC33D1600F637EF /* cache_f_b_from_bsite.mp4 in Resources */,
@@ -986,7 +986,7 @@
 				4A0684391AC3E5B900F637EF /* mirage_f_ashort_from_lowerdark.mp4 in Resources */,
 				4AD8B5E71ABFA4D100BC5A7F /* de_dust2_flash_ctspawn_to_short.mp4 in Resources */,
 				4AD8B5DA1ABFA4D100BC5A7F /* de_dust2_flash_bbox_to_btunnel.mp4 in Resources */,
-				4AC6626A1B0FDAA0001CC31A /* weapon_hemolotov_small_selected.png in Resources */,
+				4AC6626A1B0FDAA0001CC31A /* small_icon_selected_HEMolotov.png in Resources */,
 				4AD8B5D91ABFA4D100BC5A7F /* de_dust2_flash_bbackofsite_to_bsite.mp4 in Resources */,
 				4AD8B57C1ABCDB5500BC5A7F /* dust2_smoke_long_to_connector.mp4 in Resources */,
 				4A0683761AC2186000F637EF /* de_inferno_altmid_to_ctb.mp4 in Resources */,

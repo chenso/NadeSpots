@@ -81,38 +81,16 @@
     [bar setBackgroundColor:[UIColor whiteColor]];
     [bar setAlpha:0.5];
     [self.view addSubview:bar];
+    NSArray * nadeTypes = @[@"Smokes", @"Flashes", @"HEMolotov"];
     
-    
-    self.smokesButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 40, 40)];
-    [self.smokesButton setImage:[UIImage imageNamed:@"weapon_smokegrenade_small_black_icon.png"] forState:UIControlStateNormal];
-    [self.smokesButton setImage:[UIImage imageNamed:@"weapon_smokegrenade_small_icon_selected.png"] forState:UIControlStateSelected];
-    [self.smokesButton setTitle:@"Smokes" forState:UIControlStateNormal];
-    [self.smokesButton setCenter:CGPointMake([[UIScreen mainScreen] bounds].size.width / 4, [[UIScreen mainScreen]bounds].size.height - 20)];
-    [self.smokesButton addTarget:self action:@selector(selectNadeType:) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:self.smokesButton];
-    [self.nadeTypeButtons addObject:self.smokesButton];
-    
-    self.flashesButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 40, 40)];
-    [self.flashesButton setImage:[UIImage imageNamed:@"weapon_flashbang_small_icon_deselected.png"] forState:UIControlStateNormal];
-    [self.flashesButton setImage:[UIImage imageNamed:@"weapon_flashbang_small_icon_selected.png"] forState:UIControlStateSelected];
-    [self.flashesButton setTitle:@"Flashes" forState:UIControlStateNormal];
-    [self.flashesButton setCenter:CGPointMake([[UIScreen mainScreen] bounds].size.width * 2 / 4, [[UIScreen mainScreen]bounds].size.height - 20)];
-    [self.flashesButton addTarget:self action:@selector(selectNadeType:) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:self.flashesButton];
-    [self.nadeTypeButtons addObject:self.flashesButton];
-    
-    self.hemolotovButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 40, 40)];
-    [self.hemolotovButton setImage:[UIImage imageNamed:@"weapon_hemolotov_small_icon_deselected.png"] forState:UIControlStateNormal];
-    [self.hemolotovButton setImage:[UIImage imageNamed:@"weapon_hemolotov_small_selected.png"] forState:UIControlStateSelected];
-    [self.hemolotovButton setTitle:@"HEMolotov" forState:UIControlStateNormal];
-    [self.hemolotovButton setCenter:CGPointMake([[UIScreen mainScreen] bounds].size.width * 3 / 4, [[UIScreen mainScreen]bounds].size.height - 20)];
-    [self.hemolotovButton addTarget:self action:@selector(selectNadeType:) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:self.hemolotovButton];
-    [self.nadeTypeButtons addObject:self.hemolotovButton];
+    for (int i = 0; i < nadeTypes.count; i++) {
+        [self createNadeTypeSelectorButtonsForType:[nadeTypes objectAtIndex:i] atIndex:i numberTypes:(int)nadeTypes.count];
+    }
     
     // Default nades are smokes
-    self.nadeType = [NSMutableString stringWithFormat:@"Smokes"];
-    self.smokesButton.selected = YES;
+    UIButton * defaultSelection =[self.nadeTypeButtons objectAtIndex:0];
+    self.nadeType = [NSMutableString stringWithFormat:@"%@", [defaultSelection titleForState:UIControlStateNormal]];
+    defaultSelection.selected = YES;
     
     [self loadNades];
     
@@ -130,6 +108,20 @@
     [transparentPlayerExiterButton addTarget:self action:@selector(dismissPlayer:) forControlEvents:UIControlEventTouchUpInside];
     [self.scrollView addSubview:transparentPlayerExiterButton];
     transparentPlayerExiterButton.hidden = true;
+}
+
+-(void) createNadeTypeSelectorButtonsForType:(NSString *) nadeType atIndex:(int) index numberTypes:(int) totalTypeAmount {
+    UIButton * nadeTypeButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 40, 40)];
+    NSMutableString * deselected_path = [NSMutableString stringWithFormat: @"small_icon_deselected_"];
+    [nadeTypeButton setImage:[UIImage imageNamed:[deselected_path stringByAppendingString:nadeType]] forState:UIControlStateNormal];
+    
+    NSMutableString * selected_path = [NSMutableString stringWithFormat: @"small_icon_selected_"];
+    [nadeTypeButton setImage:[UIImage imageNamed:[selected_path stringByAppendingString:nadeType]] forState:UIControlStateSelected];
+    [nadeTypeButton setTitle:nadeType forState:UIControlStateNormal];
+    [nadeTypeButton setCenter:CGPointMake([[UIScreen mainScreen] bounds].size.width * (index + 1) / (totalTypeAmount + 1), [[UIScreen mainScreen]bounds].size.height - 20)];
+    [nadeTypeButton addTarget:self action:@selector(selectNadeType:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:nadeTypeButton];
+    [self.nadeTypeButtons addObject:nadeTypeButton];
 }
 
 - (void) openJWYT {
