@@ -126,8 +126,8 @@
 		4A0B39911A9B1C0C004F8CC6 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A0B39901A9B1C0C004F8CC6 /* Images.xcassets */; };
 		4A0B39A01A9B1C0C004F8CC6 /* Nade_SpotsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A0B399F1A9B1C0C004F8CC6 /* Nade_SpotsTests.m */; };
 		4A0B39B11A9BC96C004F8CC6 /* MapsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A0B39B01A9BC96C004F8CC6 /* MapsTableViewController.m */; };
-		4A0B39B31A9BD227004F8CC6 /* Maps.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4A0B39B21A9BD227004F8CC6 /* Maps.plist */; };
 		4A0B39BA1A9E98DC004F8CC6 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A0B39B91A9E98DC004F8CC6 /* DetailViewController.m */; };
+		4A8C84311B16591D0026D5E1 /* Maps.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4A8C84301B16591D0026D5E1 /* Maps.plist */; };
 		4A90C60C1AC0DAC80048A9B7 /* table_background.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A90C60B1AC0DAC80048A9B7 /* table_background.png */; };
 		4AA137441AB8F5950085A959 /* navJWButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 4AA137431AB8F5950085A959 /* navJWButton.png */; };
 		4AA137471AB8FE070085A959 /* FlashSpotButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AA137461AB8FE070085A959 /* FlashSpotButton.m */; };
@@ -325,9 +325,9 @@
 		4A0B399F1A9B1C0C004F8CC6 /* Nade_SpotsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Nade_SpotsTests.m; sourceTree = "<group>"; };
 		4A0B39AF1A9BC96C004F8CC6 /* MapsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapsTableViewController.h; sourceTree = "<group>"; };
 		4A0B39B01A9BC96C004F8CC6 /* MapsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapsTableViewController.m; sourceTree = "<group>"; };
-		4A0B39B21A9BD227004F8CC6 /* Maps.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Maps.plist; sourceTree = "<group>"; };
 		4A0B39B81A9E98DC004F8CC6 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		4A0B39B91A9E98DC004F8CC6 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		4A8C84301B16591D0026D5E1 /* Maps.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Maps.plist; sourceTree = "<group>"; };
 		4A90C60B1AC0DAC80048A9B7 /* table_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = table_background.png; sourceTree = "<group>"; };
 		4AA137431AB8F5950085A959 /* navJWButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = navJWButton.png; sourceTree = "<group>"; };
 		4AA137451AB8FE070085A959 /* FlashSpotButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlashSpotButton.h; sourceTree = "<group>"; };
@@ -613,7 +613,7 @@
 				4A076FF71A9EC10900073D9A /* NadeSpot.m */,
 				4A0B39B81A9E98DC004F8CC6 /* DetailViewController.h */,
 				4A0B39B91A9E98DC004F8CC6 /* DetailViewController.m */,
-				4A0B39B21A9BD227004F8CC6 /* Maps.plist */,
+				4A8C84301B16591D0026D5E1 /* Maps.plist */,
 				4A0B39AF1A9BC96C004F8CC6 /* MapsTableViewController.h */,
 				4A0B39B01A9BC96C004F8CC6 /* MapsTableViewController.m */,
 				4A076FF11A9EBD5000073D9A /* SmokeSpotButton.h */,
@@ -854,7 +854,6 @@
 				4A90C60C1AC0DAC80048A9B7 /* table_background.png in Resources */,
 				4AD8B57E1ABCDB5500BC5A7F /* dust2_smoke_long_to_short.mp4 in Resources */,
 				4A06838F1AC22AC500F637EF /* de_inferno_flash_archside_to_mid.mp4 in Resources */,
-				4A0B39B31A9BD227004F8CC6 /* Maps.plist in Resources */,
 				4A06838D1AC22AC500F637EF /* de_inferno_flash_apts_to_balcony.mp4 in Resources */,
 				4A0684641AC3E5C400F637EF /* mirage_s_bsitex2_from_apts.mp4 in Resources */,
 				4AD8B5E21ABFA4D100BC5A7F /* de_dust2_flash_ctmid_to_lower.mp4 in Resources */,
@@ -937,6 +936,7 @@
 				4A06845D1AC3E5C400F637EF /* mirage_s_bapts_from_b.mp4 in Resources */,
 				4AD8B5E31ABFA4D100BC5A7F /* de_dust2_flash_ctramp to long_1.mp4 in Resources */,
 				4A06840B1AC33D0E00F637EF /* cache_s_mid_from_tmid.mp4 in Resources */,
+				4A8C84311B16591D0026D5E1 /* Maps.plist in Resources */,
 				4AD8B5EF1ABFA4D100BC5A7F /* de_dust2_flash_tspawn_to_long.mp4 in Resources */,
 				4A0684081AC33D0E00F637EF /* cache_s_ctmid_from_tvan.mp4 in Resources */,
 				4A0683901AC22AC500F637EF /* de_inferno_flash_bplayground_to_ctbanana.mp4 in Resources */,

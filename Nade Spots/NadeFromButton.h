@@ -10,7 +10,8 @@
 
 @interface NadeFromButton : UIButton
 @property NSString * path;
+@property NSString * video_creator;
 
--(id) initWithPath:(NSString *)path;
+-(id) initWithPath:(NSString *)path video_creator:(NSString *)video_creator;
 
 @end

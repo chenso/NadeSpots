@@ -10,10 +10,12 @@
 
 @implementation NadeFromButton
 @synthesize path = _path;
+@synthesize video_creator = _video_creator;
 
--(id) initWithPath:(NSString *)path{
+-(id) initWithPath:(NSString *)path video_creator:(NSString *)video_creator{
     if (self = [super init]) {
         self.path = path;
+        self.video_creator = video_creator;
     }
     return self;
 }

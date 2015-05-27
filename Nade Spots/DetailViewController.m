@@ -31,134 +31,6 @@
 @synthesize flashesButton = _flashesButton;
 @synthesize hemolotovButton = _hemolotovButton;
 
--(UIView *) viewForZoomingInScrollView:(UIScrollView *)scrollView {
-    return self.mapView;
-}
-
-- (void)scrollViewDoubleTapped:(UITapGestureRecognizer*)recognizer {
-    if (self.scrollView.minimumZoomScale >= self.scrollView.maximumZoomScale) return;
-    CGPoint pointInView = [recognizer locationInView:self.mapView];
-    CGFloat newZoomScale = self.scrollView.zoomScale * 1.5f;
-    newZoomScale = MIN(newZoomScale, self.scrollView.maximumZoomScale);
-    CGSize scrollViewSize = self.scrollView.bounds.size;
-    
-    CGFloat w = scrollViewSize.width / newZoomScale;
-    CGFloat h = scrollViewSize.height / newZoomScale;
-    CGFloat x = pointInView.x - (w / 2.0f);
-    CGFloat y = pointInView.y - (h / 2.0f);
-    
-    CGRect rectToZoomTo = CGRectMake(x, y, w, h);
-    [self.scrollView zoomToRect:rectToZoomTo animated:YES];
-}
-
-- (void)scrollViewTwoFingerTapped:(UITapGestureRecognizer*)recognizer {
-    // Zoom out slightly, capping at the minimum zoom scale specified by the scroll view
-    CGFloat newZoomScale = self.scrollView.zoomScale / 1.5f;
-    newZoomScale = MAX(newZoomScale, self.scrollView.minimumZoomScale);
-    [self.scrollView setZoomScale:newZoomScale animated:YES];
-}
-
-- (void)scrollViewDidZoom:(UIScrollView *)scrollView {
-    // The scroll view has zoomed, so you need to re-center the contents
-    [self centerScrollViewContents];
-}
-
-- (void)centerScrollViewContents {
-    CGSize boundsSize = self.scrollView.bounds.size;
-    CGRect contentsFrame = self.mapView.frame;
-    
-    if (contentsFrame.size.width < boundsSize.width) {
-        contentsFrame.origin.x = (boundsSize.width - contentsFrame.size.width) / 2.0f;
-    } else {
-        contentsFrame.origin.x = 0.0f;
-    }
-    
-    if (contentsFrame.size.height < boundsSize.height) {
-        contentsFrame.origin.y = (boundsSize.height - contentsFrame.size.height) / 2.0f;
-    } else {
-        contentsFrame.origin.y = 0.0f;
-    }
-    
-    self.mapView.frame = contentsFrame;
-}
-
-- (void) openJWYT {
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://www.youtube.com/c/jamiew"]];
-}
-
--(void) clearNadeFrom {
-    for (NadeFromButton * buttonToRemove in nadeFromButtons) {
-        [UIView animateWithDuration:0.4 delay:0.0 options: UIViewAnimationOptionCurveEaseInOut animations:^{
-            buttonToRemove.transform = CGAffineTransformScale(buttonToRemove.transform, 0.01, 0.01);
-        } completion:nil];
-        [buttonToRemove removeFromSuperview];
-    }
-}
-
--(void) clearNadeSpots {
-    for (NadeSpotButton * buttonToRemove in nadeSpotButtons) {
-        [UIView animateWithDuration:0.4 delay:0.0 options: UIViewAnimationOptionCurveEaseInOut animations:^{
-            buttonToRemove.transform = CGAffineTransformScale(buttonToRemove.transform, 0.01, 0.01);
-        } completion:nil];
-        [buttonToRemove removeFromSuperview];
-    }
-    [nadeSpotButtons removeAllObjects];
-}
-
-// load nades of type
--(void) loadNades {
-    // remove previous Nade buttons
-    [self clearNadeSpots];
-    [self clearNadeFrom];
-    NSDictionary * nades = [mapDetails objectForKey:self.nadeType];
-    
-    for (id key in nades) {
-        // load all Nade Spots with destination and origins
-        NSDictionary * destination = [nades objectForKey:key];
-        NSMutableArray * origins = [[NSMutableArray alloc] initWithCapacity:1];
-        for (id key in destination) {
-            if (![key isEqualToString:@"xCord"] && ![key isEqualToString:@"yCord"]) {
-                // add all origins to single destination spot
-                NSDictionary * anOrigin = [destination objectForKey:key];
-                NadeFrom * originSpot = [[NadeFrom alloc] initWithPath:anOrigin[@"path"] xCord:[anOrigin[@"xCord"] floatValue] yCord:[anOrigin[@"yCord"] floatValue]];
-                [origins addObject:originSpot];
-            }
-        }
-        
-        // create button for the spot
-        NadeSpot * aSpot = [[NadeSpot alloc] initWithX:[destination[@"xCord"] floatValue] Y:[destination[@"yCord"] floatValue]fromLocations:origins];
-        CGRect buttonLocation = CGRectMake(aSpot.xCord, aSpot.yCord, 45, 45);
-        NadeSpotButton * nadeButton;
-        if ([self.nadeType isEqualToString:@"Smokes"]) {
-            nadeButton = [[SmokeSpotButton alloc] initWithFrame:buttonLocation];
-        } else {
-            nadeButton = [[FlashSpotButton alloc] initWithFrame:buttonLocation];
-        }
-        nadeButton.exclusiveTouch = YES;
-        [nadeButton addTarget:self action:@selector(nadeDestButtonTouchUp:) forControlEvents:UIControlEventTouchUpInside];
-        nadeButton.nadeFromSpots = aSpot.nadeFrom;
-        nadeButton.alpha = 0.0;
-        
-        //animate button appear
-        [UIView animateWithDuration:1.0 delay:0.0 options: UIViewAnimationOptionCurveEaseInOut animations:^{
-            nadeButton.alpha = 0.8;
-        } completion:nil];
-        
-        [self.mapView addSubview:nadeButton];
-        [self.nadeSpotButtons addObject:nadeButton];
-        
-    }
-}
-
--(void)selectNadeType:(id)sender {
-    UIButton * type = (UIButton *) sender;
-    self.nadeType = [type titleForState:UIControlStateNormal];
-    for (UIButton * types in self.nadeTypeButtons) {
-        types.selected = types == type;
-    }
-    [self loadNades];
-}
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     // jamiew yt channel nav bar link
@@ -241,7 +113,7 @@
     // Default nades are smokes
     self.nadeType = [NSMutableString stringWithFormat:@"Smokes"];
     self.smokesButton.selected = YES;
-
+    
     [self loadNades];
     
     // initialize video player view
@@ -260,6 +132,64 @@
     transparentPlayerExiterButton.hidden = true;
 }
 
+- (void) openJWYT {
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://www.youtube.com/c/jamiew"]];
+}
+
+// load nades of type
+-(void) loadNades {
+    // remove previous Nade buttons
+    [self clearNadeSpots];
+    [self clearNadeFrom];
+    NSDictionary * nades = [mapDetails objectForKey:self.nadeType];
+    
+    for (id key in nades) {
+        // load all Nade Spots with destination and origins
+        NSDictionary * destination = [nades objectForKey:key];
+        NSMutableArray * origins = [[NSMutableArray alloc] initWithCapacity:1];
+        for (id key in destination) {
+            if (![key isEqualToString:@"xCord"] && ![key isEqualToString:@"yCord"]) {
+                // add all origins to single destination spot
+                NSDictionary * anOrigin = [destination objectForKey:key];
+                NadeFrom * originSpot = [[NadeFrom alloc] initWithPath:anOrigin[@"path"] xCord:[anOrigin[@"xCord"] floatValue] yCord:[anOrigin[@"yCord"] floatValue]];
+                [origins addObject:originSpot];
+            }
+        }
+        
+        // create button for the spot
+        NadeSpot * aSpot = [[NadeSpot alloc] initWithX:[destination[@"xCord"] floatValue] Y:[destination[@"yCord"] floatValue]fromLocations:origins];
+        CGRect buttonLocation = CGRectMake(aSpot.xCord, aSpot.yCord, 45, 45);
+        NadeSpotButton * nadeButton;
+        if ([self.nadeType isEqualToString:@"Smokes"]) {
+            nadeButton = [[SmokeSpotButton alloc] initWithFrame:buttonLocation];
+        } else {
+            nadeButton = [[FlashSpotButton alloc] initWithFrame:buttonLocation];
+        }
+        nadeButton.exclusiveTouch = YES;
+        [nadeButton addTarget:self action:@selector(nadeDestButtonTouchUp:) forControlEvents:UIControlEventTouchUpInside];
+        nadeButton.nadeFromSpots = aSpot.nadeFrom;
+        nadeButton.alpha = 0.0;
+        
+        //animate button appear
+        [UIView animateWithDuration:1.0 delay:0.0 options: UIViewAnimationOptionCurveEaseInOut animations:^{
+            nadeButton.alpha = 0.8;
+        } completion:nil];
+        
+        [self.mapView addSubview:nadeButton];
+        [self.nadeSpotButtons addObject:nadeButton];
+        
+    }
+}
+
+-(void)selectNadeType:(id)sender {
+    UIButton * type = (UIButton *) sender;
+    self.nadeType = [type titleForState:UIControlStateNormal];
+    for (UIButton * types in self.nadeTypeButtons) {
+        types.selected = types == type;
+    }
+    [self loadNades];
+}
+
 -(void)nadeDestButtonTouchUp:(id)sender {
     NadeSpotButton * myButton = (NadeSpotButton *) sender;
     if (currentlySelectedSpot == myButton) {
@@ -269,7 +199,7 @@
     // remove previous NadeFrom buttons
 
     [self clearNadeFrom];
-    [nadeFromButtons removeAllObjects];
+
     
     // prepare zoom and scroll to fit relevant buttons
     CGFloat rightmost = myButton.frame.origin.x;
@@ -286,7 +216,7 @@
         
         // make NadeFromButtons for destination button
         CGRect buttonLocation = CGRectMake(aSpot.xCord, aSpot.yCord, 35, 35);
-        NadeFromButton * nadeFromButton = [[NadeFromButton alloc] initWithPath:aSpot.path];
+        NadeFromButton * nadeFromButton = [[NadeFromButton alloc] initWithPath:aSpot.path video_creator:@"jamiew"];
         nadeFromButton.frame = buttonLocation;
         [nadeFromButton addTarget:self action:@selector(nadeOriginButtonTouchUp:) forControlEvents:UIControlEventTouchUpInside];
 
@@ -337,6 +267,25 @@
     
 }
 
+-(void) clearNadeFrom {
+    [self clearButtonArray:nadeFromButtons];
+}
+
+-(void) clearNadeSpots {
+    [self clearButtonArray:nadeSpotButtons];
+}
+
+-(void) clearButtonArray:(NSMutableArray *) nadeButtons {
+    for (UIButton * buttonToRemove in nadeButtons) {
+        [UIView animateWithDuration:0.4 delay:0.0 options: UIViewAnimationOptionCurveEaseInOut animations:^{
+            buttonToRemove.transform = CGAffineTransformScale(buttonToRemove.transform, 0.01, 0.01);
+        } completion:nil];
+        [buttonToRemove removeFromSuperview];
+    }
+    [nadeButtons removeAllObjects];
+}
+
+
 -(void)dismissPlayer:(UIButton *) sender{
     [self.videoPlayer stop];
     self.videoView.hidden = YES;
@@ -351,8 +300,71 @@
 
 }
 
-// for rotation do:
-// resize videoview
+/* 
+ - (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+
+} 
+*/
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - UIGestureHandling
+
+-(UIView *) viewForZoomingInScrollView:(UIScrollView *)scrollView {
+    return self.mapView;
+}
+
+- (void)scrollViewDoubleTapped:(UITapGestureRecognizer*)recognizer {
+    if (self.scrollView.minimumZoomScale >= self.scrollView.maximumZoomScale) return;
+    CGPoint pointInView = [recognizer locationInView:self.mapView];
+    CGFloat newZoomScale = self.scrollView.zoomScale * 1.5f;
+    newZoomScale = MIN(newZoomScale, self.scrollView.maximumZoomScale);
+    CGSize scrollViewSize = self.scrollView.bounds.size;
+    
+    CGFloat w = scrollViewSize.width / newZoomScale;
+    CGFloat h = scrollViewSize.height / newZoomScale;
+    CGFloat x = pointInView.x - (w / 2.0f);
+    CGFloat y = pointInView.y - (h / 2.0f);
+    
+    CGRect rectToZoomTo = CGRectMake(x, y, w, h);
+    [self.scrollView zoomToRect:rectToZoomTo animated:YES];
+}
+
+- (void)scrollViewTwoFingerTapped:(UITapGestureRecognizer*)recognizer {
+    // Zoom out slightly, capping at the minimum zoom scale specified by the scroll view
+    CGFloat newZoomScale = self.scrollView.zoomScale / 1.5f;
+    newZoomScale = MAX(newZoomScale, self.scrollView.minimumZoomScale);
+    [self.scrollView setZoomScale:newZoomScale animated:YES];
+}
+
+- (void)scrollViewDidZoom:(UIScrollView *)scrollView {
+    // The scroll view has zoomed, so you need to re-center the contents
+    [self centerScrollViewContents];
+}
+
+- (void)centerScrollViewContents {
+    CGSize boundsSize = self.scrollView.bounds.size;
+    CGRect contentsFrame = self.mapView.frame;
+    
+    if (contentsFrame.size.width < boundsSize.width) {
+        contentsFrame.origin.x = (boundsSize.width - contentsFrame.size.width) / 2.0f;
+    } else {
+        contentsFrame.origin.x = 0.0f;
+    }
+    
+    if (contentsFrame.size.height < boundsSize.height) {
+        contentsFrame.origin.y = (boundsSize.height - contentsFrame.size.height) / 2.0f;
+    } else {
+        contentsFrame.origin.y = 0.0f;
+    }
+    
+    self.mapView.frame = contentsFrame;
+}
+
 -(void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation {
     if (self.scrollView.minimumZoomScale >= self.scrollView.maximumZoomScale) {
         self.mapView.center = self.view.center;
@@ -361,7 +373,7 @@
     [[self.videoPlayer view] setFrame:[self.videoView bounds]];
     
     [self.smokesButton setCenter:CGPointMake([[UIScreen mainScreen] bounds].size.width / 3, [[UIScreen mainScreen]bounds].size.height - 20)];
-     [self.flashesButton setCenter:CGPointMake([[UIScreen mainScreen] bounds].size.width * 2 / 3, [[UIScreen mainScreen]bounds].size.height - 20)];
+    [self.flashesButton setCenter:CGPointMake([[UIScreen mainScreen] bounds].size.width * 2 / 3, [[UIScreen mainScreen]bounds].size.height - 20)];
 }
 
 -(CGRect) videoViewScale {
@@ -379,18 +391,6 @@
     frame = CGRectMake(videoWidthMargin, videoHeightMargin, videoWidth, videoHeight);
     return frame;
 }
-
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-
 
 /*
 #pragma mark - Navigation
