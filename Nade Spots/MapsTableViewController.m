@@ -9,28 +9,13 @@
 #import "MapsTableViewController.h"
 #import "DetailViewController.h"
 
-
-@interface MapsTableViewController ()
-@property (strong, nonatomic) IBOutlet UIImageView *mapTitle;
-@property (nonatomic, strong) NSArray * maps;
-@end
-
 @implementation MapsTableViewController
 @synthesize maps;
 @synthesize mapTitle;
 
-- (void) openJWYT {
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://www.youtube.com/c/jamiew"]];
-}
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"MAPS";
-    UIButton *button =  [UIButton buttonWithType:UIButtonTypeCustom];
-    [button setImage:[UIImage imageNamed:@"navJWButton.png"] forState:UIControlStateNormal];
-    [button addTarget:self action:@selector(openJWYT) forControlEvents:UIControlEventTouchUpInside];
-    [button setFrame:CGRectMake(0, 0, 243, 32)];
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:button];
     
     NSString * mapsPath = [[NSBundle mainBundle]pathForResource:@"Maps" ofType:@"plist"];
     maps = [NSArray arrayWithContentsOfFile:mapsPath];
@@ -42,11 +27,6 @@
     
     self.tableView.backgroundView = tempImageView;
     self.tableView.backgroundView.contentMode = UIViewContentModeScaleAspectFill;
-    
-    //UIImage * title = [UIImage imageNamed:@"MAPS title.png"];
-    //UIImageView * realTitle = [[UIImageView alloc] initWithImage:title];
-    //realTitle.frame = CGRectMake(16, 0, 212.5, 85);
-    //[self.tableView addSubview:realTitle];
     
     //filler space
     //mapTitle.frame = CGRectMake(0, 0, 1, 85);
@@ -98,7 +78,7 @@
     NSString * theMap = [maps objectAtIndex:path.row][@"MapName"];
     NSDictionary * mapDetails = [maps objectAtIndex:path.row];
     DVC.mapName = theMap;
-    //DVC.title = theMap;
+    DVC.title = theMap;
     DVC.mapDetails = mapDetails;
 }
 - (void)tableView:(UITableView *)tableView

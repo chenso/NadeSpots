@@ -11,6 +11,11 @@
 #import "NadeFromButton.h"
 #import "FlashSpotButton.h"
 #import <MediaPlayer/MediaPlayer.h>
+#import <QuartzCore/QuartzCore.h>
+
+#define BOTTOM_BAR_HEIGHT 40
+#define VIDEO_INVERSE_ASPECT 0.5625
+#define CHANNEL_PLUG_HEIGHT 40
 
 @interface DetailViewController : UIViewController <UIScrollViewDelegate> 
 
@@ -26,9 +31,10 @@
 @property (strong, nonatomic) MPMoviePlayerController * videoPlayer;
 @property (strong, nonatomic) UIButton * transparentPlayerExiterButton;
 @property (strong, nonatomic) NadeSpotButton * currentlySelectedSpot;
-@property (strong, nonatomic) UIButton * hemolotovButton;
-@property (strong, nonatomic) UIButton * smokesButton;
-@property (strong, nonatomic) UIButton * flashesButton;
+@property (strong, nonatomic) UIView * nadesBottomBar;
+@property (strong, nonatomic) UIButton * channelName;
+@property (strong, nonatomic) UIButton * channelLogo;
+
 @property bool scrollAvailable;
 - (void)centerScrollViewContents;
 - (void)scrollViewDoubleTapped:(UITapGestureRecognizer*)recognizer;

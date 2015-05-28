@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface MapsTableViewController : UITableViewController
-
+@property (strong, nonatomic) IBOutlet UIImageView *mapTitle;
+@property (nonatomic, strong) NSArray * maps;
 @end

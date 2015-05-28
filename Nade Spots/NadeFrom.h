@@ -13,5 +13,6 @@
 @property CGFloat xCord;
 @property CGFloat yCord;
 @property NSString * path;
--(id) initWithPath:(NSString *)path  xCord:(CGFloat) xCord yCord:(CGFloat) yCord ;
+@property NSString * video_creator;
+-(id) initWithPath:(NSString *)path  xCord:(CGFloat) xCord yCord:(CGFloat) yCord video_creator:(NSString * )creator;
 @end

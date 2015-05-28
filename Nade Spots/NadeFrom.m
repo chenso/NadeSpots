@@ -12,12 +12,14 @@
 @synthesize path = _path;
 @synthesize xCord = _xCord;
 @synthesize  yCord = _yCord;
+@synthesize video_creator = _video_creator;
 
--(id) initWithPath:(NSString *)path xCord:(CGFloat) xCord yCord:(CGFloat) yCord {
+-(id) initWithPath:(NSString *)path xCord:(CGFloat) xCord yCord:(CGFloat) yCord video_creator:(NSString * )creator{
     if (self = [super init]) {
         self.path = path;
         self.xCord = xCord;
         self.yCord = yCord;
+        self.video_creator = creator;
     }
     return self;
 }
