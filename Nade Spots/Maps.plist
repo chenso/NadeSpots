@@ -3,593 +3,437 @@
 <plist version="1.0">
 <array>
 	<dict>
+		<key>MapName</key>
+		<string>de_cache</string>
 		<key>Flashes</key>
 		<dict>
-			<key>To Connector</key>
+			<key>To Mid</key>
 			<dict>
 				<key>xCord</key>
-				<integer>350</integer>
+				<integer>330</integer>
 				<key>yCord</key>
-				<integer>440</integer>
-				<key>From Jungle</key>
+				<integer>410</integer>
+				<key>From T Mid</key>
 				<dict>
 					<key>xCord</key>
-					<integer>280</integer>
+					<integer>520</integer>
 					<key>yCord</key>
-					<integer>420</integer>
-					<key>creator</key>
-					<string>Jamiew_</string>
-					<key>path</key>
-					<string>mirage_f_connector_from_jungle</string>
-				</dict>
-				<key>From Tetris</key>
-				<dict>
-					<key>xCord</key>
 					<integer>410</integer>
-					<key>yCord</key>
-					<integer>455</integer>
 					<key>creator</key>
 					<string>Jamiew_</string>
 					<key>path</key>
-					<string>mirage_f_connector_from_tetris</string>
+					<string>cache_f_mid_from_tmid</string>
 				</dict>
 			</dict>
-			<key>To B - 2</key>
+			<key>To B Main</key>
 			<dict>
 				<key>xCord</key>
-				<integer>210</integer>
+				<integer>330</integer>
 				<key>yCord</key>
-				<integer>180</integer>
-				<key>From Apts</key>
+				<integer>520</integer>
+				<key>From B Site</key>
 				<dict>
 					<key>xCord</key>
-					<integer>290</integer>
+					<integer>270</integer>
 					<key>yCord</key>
-					<integer>140</integer>
+					<integer>610</integer>
 					<key>creator</key>
 					<string>Jamiew_</string>
 					<key>path</key>
-					<string>mirage_f_b_from_apts</string>
+					<string>cache_f_bmain_from_bsite</string>
 				</dict>
 			</dict>
 			<key>To B</key>
 			<dict>
 				<key>xCord</key>
-				<integer>160</integer>
+				<integer>280</integer>
 				<key>yCord</key>
-				<integer>190</integer>
-				<key>From Bench</key>
+				<integer>540</integer>
+				<key>From Heaven</key>
 				<dict>
 					<key>xCord</key>
-					<integer>90</integer>
+					<integer>230</integer>
 					<key>yCord</key>
-					<integer>200</integer>
+					<integer>525</integer>
 					<key>creator</key>
 					<string>Jamiew_</string>
 					<key>path</key>
-					<string>mirage_f_b_from_bench</string>
+					<string>cache_f_b_from_heaven</string>
 				</dict>
-				<key>From Apts</key>
+				<key>From B Main</key>
 				<dict>
 					<key>xCord</key>
-					<integer>290</integer>
+					<integer>410</integer>
 					<key>yCord</key>
-					<integer>140</integer>
+					<integer>580</integer>
 					<key>creator</key>
 					<string>Jamiew_</string>
 					<key>path</key>
-					<string>mirage_f_b_from_apts2</string>
+					<string>cache_f_b_from_bmain</string>
 				</dict>
-			</dict>
-			<key>To Apts</key>
-			<dict>
-				<key>xCord</key>
-				<integer>180</integer>
-				<key>yCord</key>
-				<integer>120</integer>
 				<key>From B Site</key>
 				<dict>
 					<key>xCord</key>
-					<integer>190</integer>
+					<integer>270</integer>
 					<key>yCord</key>
-					<integer>205</integer>
+					<integer>610</integer>
 					<key>creator</key>
 					<string>Jamiew_</string>
 					<key>path</key>
-					<string>mirage_f_apts_from_bsite</string>
-				</dict>
-				<key>From B Close</key>
-				<dict>
-					<key>xCord</key>
-					<integer>170</integer>
-					<key>yCord</key>
-					<integer>155</integer>
-					<key>creator</key>
-					<string>Jamiew_</string>
-					<key>path</key>
-					<string>mirage_f_apts_from_bclose</string>
-				</dict>
-			</dict>
-			<key>To A Playground</key>
-			<dict>
-				<key>xCord</key>
-				<integer>440</integer>
-				<key>yCord</key>
-				<integer>460</integer>
-				<key>From Lower Dark</key>
-				<dict>
-					<key>xCord</key>
-					<integer>460</integer>
-					<key>yCord</key>
-					<integer>520</integer>
-					<key>creator</key>
-					<string>Jamiew_</string>
-					<key>path</key>
-					<string>mirage_f_ashort_from_lowerdark</string>
-				</dict>
-				<key>From ashort</key>
-				<dict>
-					<key>xCord</key>
-					<integer>540</integer>
-					<key>yCord</key>
-					<integer>470</integer>
-					<key>creator</key>
-					<string>Jamiew_</string>
-					<key>path</key>
-					<string>mirage_f_a_from_ashort</string>
+					<string>cache_f_b_from_bsite</string>
 				</dict>
 			</dict>
 			<key>To A</key>
 			<dict>
 				<key>xCord</key>
-				<integer>400</integer>
+				<integer>300</integer>
 				<key>yCord</key>
-				<integer>500</integer>
-				<key>From Palace</key>
+				<integer>220</integer>
+				<key>From A Site</key>
 				<dict>
 					<key>xCord</key>
-					<integer>340</integer>
+					<integer>260</integer>
+					<key>yCord</key>
+					<integer>220</integer>
+					<key>creator</key>
+					<string>Jamiew_</string>
+					<key>path</key>
+					<string>cache_f_a_from_asite</string>
+				</dict>
+				<key>From A Corner</key>
+				<dict>
+					<key>xCord</key>
+					<integer>285</integer>
+					<key>yCord</key>
+					<integer>160</integer>
+					<key>creator</key>
+					<string>Jamiew_</string>
+					<key>path</key>
+					<string>cache_f_a_from_acorner</string>
+				</dict>
+			</dict>
+		</dict>
+		<key>Smokes</key>
+		<dict>
+			<key>To Vent</key>
+			<dict>
+				<key>xCord</key>
+				<integer>350</integer>
+				<key>yCord</key>
+				<integer>460</integer>
+				<key>From Truck</key>
+				<dict>
+					<key>xCord</key>
+					<integer>170</integer>
+					<key>yCord</key>
+					<integer>300</integer>
+					<key>creator</key>
+					<string>Jamiew_</string>
+					<key>path</key>
+					<string>cache_s_vent_from_truck</string>
+				</dict>
+			</dict>
+			<key>To Tree room and balcony</key>
+			<dict>
+				<key>xCord</key>
+				<integer>220</integer>
+				<key>yCord</key>
+				<integer>540</integer>
+				<key>From Toxic</key>
+				<dict>
+					<key>xCord</key>
+					<integer>430</integer>
+					<key>yCord</key>
+					<integer>620</integer>
+					<key>creator</key>
+					<string>Jamiew_</string>
+					<key>path</key>
+					<string>cache_s_treeroomandbalacony_from_bmain</string>
+				</dict>
+			</dict>
+			<key>To T Mid</key>
+			<dict>
+				<key>xCord</key>
+				<integer>395</integer>
+				<key>yCord</key>
+				<integer>400</integer>
+				<key>From Ct Mid</key>
+				<dict>
+					<key>xCord</key>
+					<integer>235</integer>
+					<key>yCord</key>
+					<integer>410</integer>
+					<key>creator</key>
+					<string>Jamiew_</string>
+					<key>path</key>
+					<string>cache_s_tmid_from_ctmid</string>
+				</dict>
+			</dict>
+			<key>To Midbox</key>
+			<dict>
+				<key>xCord</key>
+				<integer>265</integer>
+				<key>yCord</key>
+				<integer>380</integer>
+				<key>From T Van</key>
+				<dict>
+					<key>xCord</key>
+					<integer>530</integer>
+					<key>yCord</key>
+					<integer>360</integer>
+					<key>creator</key>
+					<string>Jamiew_</string>
+					<key>path</key>
+					<string>cache_s_midboxes_from_tvan</string>
+				</dict>
+				<key>From T Spawn</key>
+				<dict>
+					<key>xCord</key>
+					<integer>630</integer>
+					<key>yCord</key>
+					<integer>440</integer>
+					<key>creator</key>
+					<string>Jamiew_</string>
+					<key>path</key>
+					<string>cache_s_midbox_from_tspawn</string>
+				</dict>
+			</dict>
+			<key>To Mid</key>
+			<dict>
+				<key>xCord</key>
+				<integer>335</integer>
+				<key>yCord</key>
+				<integer>400</integer>
+				<key>From T Spawn</key>
+				<dict>
+					<key>xCord</key>
+					<integer>510</integer>
+					<key>yCord</key>
+					<integer>410</integer>
+					<key>creator</key>
+					<string>Jamiew_</string>
+					<key>path</key>
+					<string>cache_s_mid_from_tmid</string>
+				</dict>
+			</dict>
+			<key>To Generator</key>
+			<dict>
+				<key>xCord</key>
+				<integer>240</integer>
+				<key>yCord</key>
+				<integer>580</integer>
+				<key>From Toxic</key>
+				<dict>
+					<key>xCord</key>
+					<integer>430</integer>
+					<key>yCord</key>
+					<integer>620</integer>
+					<key>creator</key>
+					<string>Jamiew_</string>
+					<key>path</key>
+					<string>cache_s_generator_from_toxic</string>
+				</dict>
+			</dict>
+			<key>To Back A Site</key>
+			<dict>
+				<key>xCord</key>
+				<integer>250</integer>
+				<key>yCord</key>
+				<integer>150</integer>
+				<key>From Boost</key>
+				<dict>
+					<key>xCord</key>
+					<integer>420</integer>
+					<key>yCord</key>
+					<integer>370</integer>
+					<key>creator</key>
+					<string>Jamiew_</string>
+					<key>path</key>
+					<string>cache_s_fork_backasite_from_boost</string>
+				</dict>
+			</dict>
+			<key>To Forklift</key>
+			<dict>
+				<key>xCord</key>
+				<integer>330</integer>
+				<key>yCord</key>
+				<integer>250</integer>
+				<key>From Boost</key>
+				<dict>
+					<key>xCord</key>
+					<integer>420</integer>
+					<key>yCord</key>
+					<integer>370</integer>
+					<key>creator</key>
+					<string>Jamiew_</string>
+					<key>path</key>
+					<string>cache_s_fork_backasite_from_boost</string>
+				</dict>
+			</dict>
+			<key>To Ct Mid</key>
+			<dict>
+				<key>xCord</key>
+				<integer>220</integer>
+				<key>yCord</key>
+				<integer>440</integer>
+				<key>From T Van</key>
+				<dict>
+					<key>xCord</key>
+					<integer>505</integer>
+					<key>yCord</key>
+					<integer>315</integer>
+					<key>creator</key>
+					<string>Jamiew_</string>
+					<key>path</key>
+					<string>cache_s_ctmid_from_tvan</string>
+				</dict>
+				<key>From T Spawn</key>
+				<dict>
+					<key>xCord</key>
+					<integer>630</integer>
+					<key>yCord</key>
+					<integer>440</integer>
+					<key>creator</key>
+					<string>Jamiew_</string>
+					<key>path</key>
+					<string>cache_s_ctmid_from_tspawn</string>
+				</dict>
+			</dict>
+			<key>To Checkers</key>
+			<dict>
+				<key>xCord</key>
+				<integer>290</integer>
+				<key>yCord</key>
+				<integer>480</integer>
+				<key>From Heaven</key>
+				<dict>
+					<key>xCord</key>
+					<integer>220</integer>
+					<key>yCord</key>
+					<integer>540</integer>
+					<key>creator</key>
+					<string>Jamiew_</string>
+					<key>path</key>
+					<string>cache_s_checkers_from_heaven</string>
+				</dict>
+			</dict>
+			<key>To B Site</key>
+			<dict>
+				<key>xCord</key>
+				<integer>280</integer>
+				<key>yCord</key>
+				<integer>575</integer>
+				<key>From Toxic</key>
+				<dict>
+					<key>xCord</key>
+					<integer>430</integer>
+					<key>yCord</key>
+					<integer>620</integer>
+					<key>creator</key>
+					<string>Jamiew_</string>
+					<key>path</key>
+					<string>cache_s_bsite_from_toxic</string>
+				</dict>
+			</dict>
+			<key>To B Main</key>
+			<dict>
+				<key>xCord</key>
+				<integer>345</integer>
+				<key>yCord</key>
+				<integer>545</integer>
+				<key>From Heaven</key>
+				<dict>
+					<key>xCord</key>
+					<integer>220</integer>
 					<key>yCord</key>
 					<integer>530</integer>
 					<key>creator</key>
 					<string>Jamiew_</string>
 					<key>path</key>
-					<string>mirage_f_a_from_asite</string>
-				</dict>
-				<key>From a site</key>
-				<dict>
-					<key>xCord</key>
-					<integer>480</integer>
-					<key>yCord</key>
-					<integer>570</integer>
-					<key>creator</key>
-					<string>Jamiew_</string>
-					<key>path</key>
-					<string>mirage_f_asite_from_palace</string>
+					<string>cache_s_bmain_from_heaven</string>
 				</dict>
 			</dict>
-		</dict>
-		<key>MapName</key>
-		<string>de_mirage</string>
-		<key>Smokes</key>
-		<dict>
-			<key>To Window</key>
+			<key>To B Entry</key>
 			<dict>
-				<key>yCord</key>
-				<integer>320</integer>
 				<key>xCord</key>
-				<integer>280</integer>
-				<key>From T Spawn</key>
-				<dict>
-					<key>yCord</key>
-					<integer>265</integer>
-					<key>xCord</key>
-					<integer>650</integer>
-					<key>creator</key>
-					<string>Jamiew_</string>
-					<key>path</key>
-					<string>mirage_s_window_from_tspawn</string>
-				</dict>
-				<key>From A Short</key>
-				<dict>
-					<key>yCord</key>
-					<integer>410</integer>
-					<key>xCord</key>
-					<integer>650</integer>
-					<key>creator</key>
-					<string>Jamiew_</string>
-					<key>path</key>
-					<string>mirage_s_window_from_short</string>
-				</dict>
-				<key>From Apts</key>
-				<dict>
-					<key>yCord</key>
-					<integer>140</integer>
-					<key>xCord</key>
-					<integer>370</integer>
-					<key>creator</key>
-					<string>Jamiew_</string>
-					<key>path</key>
-					<string>mirage_s_window_from_apts</string>
-				</dict>
-			</dict>
-			<key>To Van</key>
-			<dict>
+				<integer>315</integer>
 				<key>yCord</key>
-				<integer>130</integer>
-				<key>xCord</key>
-				<integer>120</integer>
-				<key>From Apts</key>
+				<integer>520</integer>
+				<key>From B Main</key>
 				<dict>
-					<key>yCord</key>
-					<integer>160</integer>
 					<key>xCord</key>
 					<integer>420</integer>
-					<key>creator</key>
-					<string>Jamiew_</string>
-					<key>path</key>
-					<string>mirage_s_van_from_apts</string>
-				</dict>
-			</dict>
-			<key>To Underpass</key>
-			<dict>
-				<key>yCord</key>
-				<integer>280</integer>
-				<key>xCord</key>
-				<integer>300</integer>
-				<key>From Connector</key>
-				<dict>
 					<key>yCord</key>
-					<integer>410</integer>
-					<key>xCord</key>
-					<integer>345</integer>
+					<integer>530</integer>
 					<key>creator</key>
 					<string>Jamiew_</string>
 					<key>path</key>
-					<string>mirage_s_underpass_from_connector</string>
+					<string>cache_s_bentry_from_bmain</string>
 				</dict>
 			</dict>
-			<key>To T Ramp</key>
+			<key>To A Site Deep</key>
 			<dict>
-				<key>yCord</key>
-				<integer>450</integer>
 				<key>xCord</key>
-				<integer>480</integer>
-				<key>From Ct Spawn</key>
-				<dict>
-					<key>yCord</key>
-					<integer>460</integer>
-					<key>xCord</key>
-					<integer>210</integer>
-					<key>creator</key>
-					<string>Jamiew_</string>
-					<key>path</key>
-					<string>mirage_s_tramp_from_ct</string>
-				</dict>
-			</dict>
-			<key>To T Mid</key>
-			<dict>
-				<key>yCord</key>
-				<integer>275</integer>
-				<key>xCord</key>
-				<integer>490</integer>
-				<key>From Ct Spawn</key>
-				<dict>
-					<key>yCord</key>
-					<integer>380</integer>
-					<key>xCord</key>
-					<integer>220</integer>
-					<key>creator</key>
-					<string>Jamiew_</string>
-					<key>path</key>
-					<string>mirage_s_tmid_from_ct</string>
-				</dict>
-			</dict>
-			<key>To Stairs</key>
-			<dict>
-				<key>yCord</key>
-				<integer>450</integer>
-				<key>xCord</key>
-				<integer>380</integer>
-				<key>From A Short</key>
-				<dict>
-					<key>yCord</key>
-					<integer>410</integer>
-					<key>xCord</key>
-					<integer>570</integer>
-					<key>creator</key>
-					<string>Jamiew_</string>
-					<key>path</key>
-					<string>mirage_s_stairs_from_ashort</string>
-				</dict>
-			</dict>
-			<key>To B Short T side</key>
-			<dict>
-				<key>yCord</key>
 				<integer>240</integer>
-				<key>xCord</key>
-				<integer>330</integer>
-				<key>From Underpass</key>
-				<dict>
-					<key>yCord</key>
-					<integer>300</integer>
-					<key>xCord</key>
-					<integer>310</integer>
-					<key>creator</key>
-					<string>Jamiew_</string>
-					<key>path</key>
-					<string>mirage_s_short_from_underpass</string>
-				</dict>
-				<key>From T Spawn</key>
-				<dict>
-					<key>yCord</key>
-					<integer>300</integer>
-					<key>xCord</key>
-					<integer>650</integer>
-					<key>creator</key>
-					<string>Jamiew_</string>
-					<key>path</key>
-					<string>mirage_s_short_from_tspawn</string>
-				</dict>
-				<key>From A Short</key>
-				<dict>
-					<key>yCord</key>
-					<integer>400</integer>
-					<key>xCord</key>
-					<integer>650</integer>
-					<key>creator</key>
-					<string>Jamiew_</string>
-					<key>path</key>
-					<string>mirage_s_short_from_ashort</string>
-				</dict>
-			</dict>
-			<key>To Palace</key>
-			<dict>
 				<key>yCord</key>
-				<integer>550</integer>
-				<key>xCord</key>
-				<integer>460</integer>
-				<key>From B Short</key>
+				<integer>235</integer>
+				<key>From A Long</key>
 				<dict>
-					<key>yCord</key>
-					<integer>280</integer>
 					<key>xCord</key>
-					<integer>330</integer>
-					<key>creator</key>
-					<string>Jamiew_</string>
-					<key>path</key>
-					<string>mirage_s_palace_from_short</string>
-				</dict>
-			</dict>
-			<key>To Ct Spawn</key>
-			<dict>
-				<key>yCord</key>
-				<integer>570</integer>
-				<key>xCord</key>
-				<integer>320</integer>
-				<key>From ashort</key>
-				<dict>
+					<integer>455</integer>
 					<key>yCord</key>
-					<integer>380</integer>
-					<key>xCord</key>
-					<integer>600</integer>
-					<key>creator</key>
-					<string>Jamiew_</string>
-					<key>path</key>
-					<string>mirage_s_ctspawn_from_ashort</string>
-				</dict>
-			</dict>
-			<key>To Connector</key>
-			<dict>
-				<key>yCord</key>
-				<integer>370</integer>
-				<key>xCord</key>
-				<integer>350</integer>
-				<key>From T Spawn</key>
-				<dict>
-					<key>yCord</key>
-					<integer>145</integer>
-					<key>xCord</key>
-					<integer>610</integer>
-					<key>creator</key>
-					<string>Jamiew_</string>
-					<key>path</key>
-					<string>mirage_s_connector_from_tspawn</string>
-				</dict>
-				<key>From t Mid</key>
-				<dict>
-					<key>yCord</key>
-					<integer>225</integer>
-					<key>xCord</key>
-					<integer>500</integer>
-					<key>creator</key>
-					<string>Jamiew_</string>
-					<key>path</key>
-					<string>mirage_s_connector_from_tmid</string>
-				</dict>
-			</dict>
-			<key>To B Site ct side - 2</key>
-			<dict>
-				<key>yCord</key>
-				<integer>220</integer>
-				<key>xCord</key>
-				<integer>120</integer>
-				<key>From Apts</key>
-				<dict>
-					<key>yCord</key>
-					<integer>160</integer>
-					<key>xCord</key>
-					<integer>340</integer>
-					<key>creator</key>
-					<string>Jamiew_</string>
-					<key>path</key>
-					<string>mirage_s_kitchendoor_from_apts</string>
-				</dict>
-				<key>From Kitchen</key>
-				<dict>
-					<key>yCord</key>
-					<integer>310</integer>
-					<key>xCord</key>
-					<integer>145</integer>
-					<key>creator</key>
-					<string>Jamiew_</string>
-					<key>path</key>
-					<string>mirage_s_bsite_from_kitchen</string>
-				</dict>
-			</dict>
-			<key>To B Site ct side</key>
-			<dict>
-				<key>yCord</key>
-				<integer>220</integer>
-				<key>xCord</key>
-				<integer>160</integer>
-				<key>From Apts</key>
-				<dict>
-					<key>yCord</key>
-					<integer>160</integer>
-					<key>xCord</key>
-					<integer>340</integer>
-					<key>creator</key>
-					<string>Jamiew_</string>
-					<key>path</key>
-					<string>mirage_s_bsitex2_from_apts</string>
-				</dict>
-				<key>From Ct Spawn</key>
-				<dict>
-					<key>yCord</key>
-					<integer>460</integer>
-					<key>xCord</key>
 					<integer>240</integer>
 					<key>creator</key>
 					<string>Jamiew_</string>
 					<key>path</key>
-					<string>mirage_s_bsite_from_ct</string>
-				</dict>
-			</dict>
-			<key>To B Site</key>
-			<dict>
-				<key>yCord</key>
-				<integer>180</integer>
-				<key>xCord</key>
-				<integer>160</integer>
-				<key>From Apts</key>
-				<dict>
-					<key>yCord</key>
-					<integer>160</integer>
-					<key>xCord</key>
-					<integer>380</integer>
-					<key>creator</key>
-					<string>Jamiew_</string>
-					<key>path</key>
-					<string>mirage_s_bsite_from_apts</string>
-				</dict>
-			</dict>
-			<key>To B Short Cubby</key>
-			<dict>
-				<key>yCord</key>
-				<integer>175</integer>
-				<key>xCord</key>
-				<integer>250</integer>
-				<key>From Apts</key>
-				<dict>
-					<key>yCord</key>
-					<integer>120</integer>
-					<key>xCord</key>
-					<integer>420</integer>
-					<key>creator</key>
-					<string>Jamiew_</string>
-					<key>path</key>
-					<string>mirage_s_bshortcubby_from_apts</string>
-				</dict>
-			</dict>
-			<key>To B Short</key>
-			<dict>
-				<key>yCord</key>
-				<integer>200</integer>
-				<key>xCord</key>
-				<integer>280</integer>
-				<key>From Apts</key>
-				<dict>
-					<key>yCord</key>
-					<integer>120</integer>
-					<key>xCord</key>
-					<integer>420</integer>
-					<key>creator</key>
-					<string>Jamiew_</string>
-					<key>path</key>
-					<string>mirage_s_bench_from_apts</string>
-				</dict>
-			</dict>
-			<key>To Bench</key>
-			<dict>
-				<key>yCord</key>
-				<integer>160</integer>
-				<key>xCord</key>
-				<integer>120</integer>
-				<key>From Apts</key>
-				<dict>
-					<key>yCord</key>
-					<integer>160</integer>
-					<key>xCord</key>
-					<integer>380</integer>
-					<key>creator</key>
-					<string>Jamiew_</string>
-					<key>path</key>
-					<string>mirage_s_bench_from_apts</string>
-				</dict>
-			</dict>
-			<key>To B Apts</key>
-			<dict>
-				<key>yCord</key>
-				<integer>125</integer>
-				<key>xCord</key>
-				<integer>240</integer>
-				<key>From B</key>
-				<dict>
-					<key>yCord</key>
-					<integer>250</integer>
-					<key>xCord</key>
-					<integer>115</integer>
-					<key>creator</key>
-					<string>Jamiew_</string>
-					<key>path</key>
-					<string>mirage_s_bapts_from_b</string>
-				</dict>
-			</dict>
-			<key>To A Site - 2</key>
-			<dict>
-				<key>yCord</key>
-				<integer>520</integer>
-				<key>xCord</key>
-				<integer>380</integer>
-				<key>From ashort</key>
-				<dict>
-					<key>yCord</key>
-					<integer>380</integer>
-					<key>xCord</key>
-					<integer>600</integer>
-					<key>creator</key>
-					<string>Jamiew_</string>
-					<key>path</key>
-					<string>mirage_s_asite_from_ashort</string>
+					<string>cache_s_asite2_from_along</string>
 				</dict>
 			</dict>
 			<key>To A Site</key>
 			<dict>
-				<key>yCord</key>
-				<integer>510</integer>
 				<key>xCord</key>
-				<integer>340</integer>
-				<key>From apts</key>
+				<integer>295</integer>
+				<key>yCord</key>
+				<integer>235</integer>
+				<key>From A Main</key>
 				<dict>
-					<key>yCord</key>
-					<integer>150</integer>
 					<key>xCord</key>
-					<integer>360</integer>
+					<integer>380</integer>
+					<key>yCord</key>
+					<integer>275</integer>
 					<key>creator</key>
 					<string>Jamiew_</string>
 					<key>path</key>
-					<string>mirage_s_asite_from_apts</string>
+					<string>cache_s_asite_from_amain</string>
+				</dict>
+				<key>From A Long</key>
+				<dict>
+					<key>xCord</key>
+					<integer>455</integer>
+					<key>yCord</key>
+					<integer>240</integer>
+					<key>creator</key>
+					<string>Jamiew_</string>
+					<key>path</key>
+					<string>cache_s_asite_from_along</string>
+				</dict>
+			</dict>
+			<key>To abalc</key>
+			<dict>
+				<key>xCord</key>
+				<integer>280</integer>
+				<key>yCord</key>
+				<integer>275</integer>
+				<key>From A Long</key>
+				<dict>
+					<key>xCord</key>
+					<integer>455</integer>
+					<key>yCord</key>
+					<integer>275</integer>
+					<key>creator</key>
+					<string>Jamiew_</string>
+					<key>path</key>
+					<string>cache_s_abalc_from_along</string>
 				</dict>
 			</dict>
 		</dict>
@@ -1781,437 +1625,593 @@
 		</dict>
 	</dict>
 	<dict>
-		<key>MapName</key>
-		<string>de_cache</string>
 		<key>Flashes</key>
 		<dict>
-			<key>To Mid</key>
+			<key>To Connector</key>
 			<dict>
 				<key>xCord</key>
-				<integer>330</integer>
+				<integer>350</integer>
 				<key>yCord</key>
-				<integer>410</integer>
-				<key>From T Mid</key>
+				<integer>440</integer>
+				<key>From Jungle</key>
 				<dict>
 					<key>xCord</key>
-					<integer>520</integer>
+					<integer>280</integer>
 					<key>yCord</key>
-					<integer>410</integer>
+					<integer>420</integer>
 					<key>creator</key>
 					<string>Jamiew_</string>
 					<key>path</key>
-					<string>cache_f_mid_from_tmid</string>
+					<string>mirage_f_connector_from_jungle</string>
+				</dict>
+				<key>From Tetris</key>
+				<dict>
+					<key>xCord</key>
+					<integer>410</integer>
+					<key>yCord</key>
+					<integer>455</integer>
+					<key>creator</key>
+					<string>Jamiew_</string>
+					<key>path</key>
+					<string>mirage_f_connector_from_tetris</string>
 				</dict>
 			</dict>
-			<key>To B Main</key>
+			<key>To B - 2</key>
 			<dict>
 				<key>xCord</key>
-				<integer>330</integer>
+				<integer>210</integer>
 				<key>yCord</key>
-				<integer>520</integer>
-				<key>From B Site</key>
+				<integer>180</integer>
+				<key>From Apts</key>
 				<dict>
 					<key>xCord</key>
-					<integer>270</integer>
+					<integer>290</integer>
 					<key>yCord</key>
-					<integer>610</integer>
+					<integer>140</integer>
 					<key>creator</key>
 					<string>Jamiew_</string>
 					<key>path</key>
-					<string>cache_f_bmain_from_bsite</string>
+					<string>mirage_f_b_from_apts</string>
 				</dict>
 			</dict>
 			<key>To B</key>
 			<dict>
 				<key>xCord</key>
-				<integer>280</integer>
+				<integer>160</integer>
 				<key>yCord</key>
-				<integer>540</integer>
-				<key>From Heaven</key>
+				<integer>190</integer>
+				<key>From Bench</key>
 				<dict>
 					<key>xCord</key>
-					<integer>230</integer>
+					<integer>90</integer>
 					<key>yCord</key>
-					<integer>525</integer>
+					<integer>200</integer>
 					<key>creator</key>
 					<string>Jamiew_</string>
 					<key>path</key>
-					<string>cache_f_b_from_heaven</string>
+					<string>mirage_f_b_from_bench</string>
 				</dict>
-				<key>From B Main</key>
+				<key>From Apts</key>
 				<dict>
 					<key>xCord</key>
-					<integer>410</integer>
+					<integer>290</integer>
 					<key>yCord</key>
-					<integer>580</integer>
+					<integer>140</integer>
 					<key>creator</key>
 					<string>Jamiew_</string>
 					<key>path</key>
-					<string>cache_f_b_from_bmain</string>
+					<string>mirage_f_b_from_apts2</string>
 				</dict>
+			</dict>
+			<key>To Apts</key>
+			<dict>
+				<key>xCord</key>
+				<integer>180</integer>
+				<key>yCord</key>
+				<integer>120</integer>
 				<key>From B Site</key>
 				<dict>
 					<key>xCord</key>
-					<integer>270</integer>
+					<integer>190</integer>
 					<key>yCord</key>
-					<integer>610</integer>
+					<integer>205</integer>
 					<key>creator</key>
 					<string>Jamiew_</string>
 					<key>path</key>
-					<string>cache_f_b_from_bsite</string>
+					<string>mirage_f_apts_from_bsite</string>
+				</dict>
+				<key>From B Close</key>
+				<dict>
+					<key>xCord</key>
+					<integer>170</integer>
+					<key>yCord</key>
+					<integer>155</integer>
+					<key>creator</key>
+					<string>Jamiew_</string>
+					<key>path</key>
+					<string>mirage_f_apts_from_bclose</string>
+				</dict>
+			</dict>
+			<key>To A Playground</key>
+			<dict>
+				<key>xCord</key>
+				<integer>440</integer>
+				<key>yCord</key>
+				<integer>460</integer>
+				<key>From Lower Dark</key>
+				<dict>
+					<key>xCord</key>
+					<integer>460</integer>
+					<key>yCord</key>
+					<integer>520</integer>
+					<key>creator</key>
+					<string>Jamiew_</string>
+					<key>path</key>
+					<string>mirage_f_ashort_from_lowerdark</string>
+				</dict>
+				<key>From ashort</key>
+				<dict>
+					<key>xCord</key>
+					<integer>540</integer>
+					<key>yCord</key>
+					<integer>470</integer>
+					<key>creator</key>
+					<string>Jamiew_</string>
+					<key>path</key>
+					<string>mirage_f_a_from_ashort</string>
 				</dict>
 			</dict>
 			<key>To A</key>
 			<dict>
 				<key>xCord</key>
-				<integer>300</integer>
+				<integer>400</integer>
 				<key>yCord</key>
-				<integer>220</integer>
-				<key>From A Site</key>
+				<integer>500</integer>
+				<key>From Palace</key>
 				<dict>
 					<key>xCord</key>
-					<integer>260</integer>
+					<integer>340</integer>
 					<key>yCord</key>
-					<integer>220</integer>
+					<integer>530</integer>
 					<key>creator</key>
 					<string>Jamiew_</string>
 					<key>path</key>
-					<string>cache_f_a_from_asite</string>
+					<string>mirage_f_a_from_asite</string>
 				</dict>
-				<key>From A Corner</key>
+				<key>From a site</key>
 				<dict>
 					<key>xCord</key>
-					<integer>285</integer>
+					<integer>480</integer>
 					<key>yCord</key>
-					<integer>160</integer>
+					<integer>570</integer>
 					<key>creator</key>
 					<string>Jamiew_</string>
 					<key>path</key>
-					<string>cache_f_a_from_acorner</string>
+					<string>mirage_f_asite_from_palace</string>
 				</dict>
 			</dict>
 		</dict>
+		<key>MapName</key>
+		<string>de_mirage</string>
 		<key>Smokes</key>
 		<dict>
-			<key>To Vent</key>
+			<key>To Window</key>
 			<dict>
-				<key>xCord</key>
-				<integer>350</integer>
 				<key>yCord</key>
-				<integer>460</integer>
-				<key>From Truck</key>
+				<integer>320</integer>
+				<key>xCord</key>
+				<integer>280</integer>
+				<key>From T Spawn</key>
 				<dict>
-					<key>xCord</key>
-					<integer>170</integer>
 					<key>yCord</key>
-					<integer>300</integer>
+					<integer>265</integer>
+					<key>xCord</key>
+					<integer>650</integer>
 					<key>creator</key>
 					<string>Jamiew_</string>
 					<key>path</key>
-					<string>cache_s_vent_from_truck</string>
+					<string>mirage_s_window_from_tspawn</string>
+				</dict>
+				<key>From A Short</key>
+				<dict>
+					<key>yCord</key>
+					<integer>410</integer>
+					<key>xCord</key>
+					<integer>650</integer>
+					<key>creator</key>
+					<string>Jamiew_</string>
+					<key>path</key>
+					<string>mirage_s_window_from_short</string>
+				</dict>
+				<key>From Apts</key>
+				<dict>
+					<key>yCord</key>
+					<integer>140</integer>
+					<key>xCord</key>
+					<integer>370</integer>
+					<key>creator</key>
+					<string>Jamiew_</string>
+					<key>path</key>
+					<string>mirage_s_window_from_apts</string>
 				</dict>
 			</dict>
-			<key>To Tree room and balcony</key>
+			<key>To Van</key>
 			<dict>
-				<key>xCord</key>
-				<integer>220</integer>
 				<key>yCord</key>
-				<integer>540</integer>
-				<key>From Toxic</key>
+				<integer>130</integer>
+				<key>xCord</key>
+				<integer>120</integer>
+				<key>From Apts</key>
 				<dict>
-					<key>xCord</key>
-					<integer>430</integer>
 					<key>yCord</key>
-					<integer>620</integer>
+					<integer>160</integer>
+					<key>xCord</key>
+					<integer>420</integer>
 					<key>creator</key>
 					<string>Jamiew_</string>
 					<key>path</key>
-					<string>cache_s_treeroomandbalacony_from_bmain</string>
+					<string>mirage_s_van_from_apts</string>
+				</dict>
+			</dict>
+			<key>To Underpass</key>
+			<dict>
+				<key>yCord</key>
+				<integer>280</integer>
+				<key>xCord</key>
+				<integer>300</integer>
+				<key>From Connector</key>
+				<dict>
+					<key>yCord</key>
+					<integer>410</integer>
+					<key>xCord</key>
+					<integer>345</integer>
+					<key>creator</key>
+					<string>Jamiew_</string>
+					<key>path</key>
+					<string>mirage_s_underpass_from_connector</string>
+				</dict>
+			</dict>
+			<key>To T Ramp</key>
+			<dict>
+				<key>yCord</key>
+				<integer>450</integer>
+				<key>xCord</key>
+				<integer>480</integer>
+				<key>From Ct Spawn</key>
+				<dict>
+					<key>yCord</key>
+					<integer>460</integer>
+					<key>xCord</key>
+					<integer>210</integer>
+					<key>creator</key>
+					<string>Jamiew_</string>
+					<key>path</key>
+					<string>mirage_s_tramp_from_ct</string>
 				</dict>
 			</dict>
 			<key>To T Mid</key>
 			<dict>
-				<key>xCord</key>
-				<integer>395</integer>
 				<key>yCord</key>
-				<integer>400</integer>
-				<key>From Ct Mid</key>
-				<dict>
-					<key>xCord</key>
-					<integer>235</integer>
-					<key>yCord</key>
-					<integer>410</integer>
-					<key>creator</key>
-					<string>Jamiew_</string>
-					<key>path</key>
-					<string>cache_s_tmid_from_ctmid</string>
-				</dict>
-			</dict>
-			<key>To Midbox</key>
-			<dict>
+				<integer>275</integer>
 				<key>xCord</key>
-				<integer>265</integer>
-				<key>yCord</key>
-				<integer>380</integer>
-				<key>From T Van</key>
+				<integer>490</integer>
+				<key>From Ct Spawn</key>
 				<dict>
-					<key>xCord</key>
-					<integer>530</integer>
 					<key>yCord</key>
-					<integer>360</integer>
-					<key>creator</key>
-					<string>Jamiew_</string>
-					<key>path</key>
-					<string>cache_s_midboxes_from_tvan</string>
-				</dict>
-				<key>From T Spawn</key>
-				<dict>
-					<key>xCord</key>
-					<integer>630</integer>
-					<key>yCord</key>
-					<integer>440</integer>
-					<key>creator</key>
-					<string>Jamiew_</string>
-					<key>path</key>
-					<string>cache_s_midbox_from_tspawn</string>
-				</dict>
-			</dict>
-			<key>To Mid</key>
-			<dict>
-				<key>xCord</key>
-				<integer>335</integer>
-				<key>yCord</key>
-				<integer>400</integer>
-				<key>From T Spawn</key>
-				<dict>
-					<key>xCord</key>
-					<integer>510</integer>
-					<key>yCord</key>
-					<integer>410</integer>
-					<key>creator</key>
-					<string>Jamiew_</string>
-					<key>path</key>
-					<string>cache_s_mid_from_tmid</string>
-				</dict>
-			</dict>
-			<key>To Generator</key>
-			<dict>
-				<key>xCord</key>
-				<integer>240</integer>
-				<key>yCord</key>
-				<integer>580</integer>
-				<key>From Toxic</key>
-				<dict>
-					<key>xCord</key>
-					<integer>430</integer>
-					<key>yCord</key>
-					<integer>620</integer>
-					<key>creator</key>
-					<string>Jamiew_</string>
-					<key>path</key>
-					<string>cache_s_generator_from_toxic</string>
-				</dict>
-			</dict>
-			<key>To Back A Site</key>
-			<dict>
-				<key>xCord</key>
-				<integer>250</integer>
-				<key>yCord</key>
-				<integer>150</integer>
-				<key>From Boost</key>
-				<dict>
-					<key>xCord</key>
-					<integer>420</integer>
-					<key>yCord</key>
-					<integer>370</integer>
-					<key>creator</key>
-					<string>Jamiew_</string>
-					<key>path</key>
-					<string>cache_s_fork_backasite_from_boost</string>
-				</dict>
-			</dict>
-			<key>To Forklift</key>
-			<dict>
-				<key>xCord</key>
-				<integer>330</integer>
-				<key>yCord</key>
-				<integer>250</integer>
-				<key>From Boost</key>
-				<dict>
-					<key>xCord</key>
-					<integer>420</integer>
-					<key>yCord</key>
-					<integer>370</integer>
-					<key>creator</key>
-					<string>Jamiew_</string>
-					<key>path</key>
-					<string>cache_s_fork_backasite_from_boost</string>
-				</dict>
-			</dict>
-			<key>To Ct Mid</key>
-			<dict>
-				<key>xCord</key>
-				<integer>220</integer>
-				<key>yCord</key>
-				<integer>440</integer>
-				<key>From T Van</key>
-				<dict>
-					<key>xCord</key>
-					<integer>505</integer>
-					<key>yCord</key>
-					<integer>315</integer>
-					<key>creator</key>
-					<string>Jamiew_</string>
-					<key>path</key>
-					<string>cache_s_ctmid_from_tvan</string>
-				</dict>
-				<key>From T Spawn</key>
-				<dict>
-					<key>xCord</key>
-					<integer>630</integer>
-					<key>yCord</key>
-					<integer>440</integer>
-					<key>creator</key>
-					<string>Jamiew_</string>
-					<key>path</key>
-					<string>cache_s_ctmid_from_tspawn</string>
-				</dict>
-			</dict>
-			<key>To Checkers</key>
-			<dict>
-				<key>xCord</key>
-				<integer>290</integer>
-				<key>yCord</key>
-				<integer>480</integer>
-				<key>From Heaven</key>
-				<dict>
+					<integer>380</integer>
 					<key>xCord</key>
 					<integer>220</integer>
-					<key>yCord</key>
-					<integer>540</integer>
 					<key>creator</key>
 					<string>Jamiew_</string>
 					<key>path</key>
-					<string>cache_s_checkers_from_heaven</string>
+					<string>mirage_s_tmid_from_ct</string>
+				</dict>
+			</dict>
+			<key>To Stairs</key>
+			<dict>
+				<key>yCord</key>
+				<integer>450</integer>
+				<key>xCord</key>
+				<integer>380</integer>
+				<key>From A Short</key>
+				<dict>
+					<key>yCord</key>
+					<integer>410</integer>
+					<key>xCord</key>
+					<integer>570</integer>
+					<key>creator</key>
+					<string>Jamiew_</string>
+					<key>path</key>
+					<string>mirage_s_stairs_from_ashort</string>
+				</dict>
+			</dict>
+			<key>To B Short T side</key>
+			<dict>
+				<key>yCord</key>
+				<integer>240</integer>
+				<key>xCord</key>
+				<integer>330</integer>
+				<key>From Underpass</key>
+				<dict>
+					<key>yCord</key>
+					<integer>300</integer>
+					<key>xCord</key>
+					<integer>310</integer>
+					<key>creator</key>
+					<string>Jamiew_</string>
+					<key>path</key>
+					<string>mirage_s_short_from_underpass</string>
+				</dict>
+				<key>From T Spawn</key>
+				<dict>
+					<key>yCord</key>
+					<integer>300</integer>
+					<key>xCord</key>
+					<integer>650</integer>
+					<key>creator</key>
+					<string>Jamiew_</string>
+					<key>path</key>
+					<string>mirage_s_short_from_tspawn</string>
+				</dict>
+				<key>From A Short</key>
+				<dict>
+					<key>yCord</key>
+					<integer>400</integer>
+					<key>xCord</key>
+					<integer>650</integer>
+					<key>creator</key>
+					<string>Jamiew_</string>
+					<key>path</key>
+					<string>mirage_s_short_from_ashort</string>
+				</dict>
+			</dict>
+			<key>To Palace</key>
+			<dict>
+				<key>yCord</key>
+				<integer>550</integer>
+				<key>xCord</key>
+				<integer>460</integer>
+				<key>From B Short</key>
+				<dict>
+					<key>yCord</key>
+					<integer>280</integer>
+					<key>xCord</key>
+					<integer>330</integer>
+					<key>creator</key>
+					<string>Jamiew_</string>
+					<key>path</key>
+					<string>mirage_s_palace_from_short</string>
+				</dict>
+			</dict>
+			<key>To Ct Spawn</key>
+			<dict>
+				<key>yCord</key>
+				<integer>570</integer>
+				<key>xCord</key>
+				<integer>320</integer>
+				<key>From ashort</key>
+				<dict>
+					<key>yCord</key>
+					<integer>380</integer>
+					<key>xCord</key>
+					<integer>600</integer>
+					<key>creator</key>
+					<string>Jamiew_</string>
+					<key>path</key>
+					<string>mirage_s_ctspawn_from_ashort</string>
+				</dict>
+			</dict>
+			<key>To Connector</key>
+			<dict>
+				<key>yCord</key>
+				<integer>370</integer>
+				<key>xCord</key>
+				<integer>350</integer>
+				<key>From T Spawn</key>
+				<dict>
+					<key>yCord</key>
+					<integer>145</integer>
+					<key>xCord</key>
+					<integer>610</integer>
+					<key>creator</key>
+					<string>Jamiew_</string>
+					<key>path</key>
+					<string>mirage_s_connector_from_tspawn</string>
+				</dict>
+				<key>From t Mid</key>
+				<dict>
+					<key>yCord</key>
+					<integer>225</integer>
+					<key>xCord</key>
+					<integer>500</integer>
+					<key>creator</key>
+					<string>Jamiew_</string>
+					<key>path</key>
+					<string>mirage_s_connector_from_tmid</string>
+				</dict>
+			</dict>
+			<key>To B Site ct side - 2</key>
+			<dict>
+				<key>yCord</key>
+				<integer>220</integer>
+				<key>xCord</key>
+				<integer>120</integer>
+				<key>From Apts</key>
+				<dict>
+					<key>yCord</key>
+					<integer>160</integer>
+					<key>xCord</key>
+					<integer>340</integer>
+					<key>creator</key>
+					<string>Jamiew_</string>
+					<key>path</key>
+					<string>mirage_s_kitchendoor_from_apts</string>
+				</dict>
+				<key>From Kitchen</key>
+				<dict>
+					<key>yCord</key>
+					<integer>310</integer>
+					<key>xCord</key>
+					<integer>145</integer>
+					<key>creator</key>
+					<string>Jamiew_</string>
+					<key>path</key>
+					<string>mirage_s_bsite_from_kitchen</string>
+				</dict>
+			</dict>
+			<key>To B Site ct side</key>
+			<dict>
+				<key>yCord</key>
+				<integer>220</integer>
+				<key>xCord</key>
+				<integer>160</integer>
+				<key>From Apts</key>
+				<dict>
+					<key>yCord</key>
+					<integer>160</integer>
+					<key>xCord</key>
+					<integer>340</integer>
+					<key>creator</key>
+					<string>Jamiew_</string>
+					<key>path</key>
+					<string>mirage_s_bsitex2_from_apts</string>
+				</dict>
+				<key>From Ct Spawn</key>
+				<dict>
+					<key>yCord</key>
+					<integer>460</integer>
+					<key>xCord</key>
+					<integer>240</integer>
+					<key>creator</key>
+					<string>Jamiew_</string>
+					<key>path</key>
+					<string>mirage_s_bsite_from_ct</string>
 				</dict>
 			</dict>
 			<key>To B Site</key>
 			<dict>
-				<key>xCord</key>
-				<integer>280</integer>
 				<key>yCord</key>
-				<integer>575</integer>
-				<key>From Toxic</key>
+				<integer>180</integer>
+				<key>xCord</key>
+				<integer>160</integer>
+				<key>From Apts</key>
 				<dict>
-					<key>xCord</key>
-					<integer>430</integer>
 					<key>yCord</key>
-					<integer>620</integer>
+					<integer>160</integer>
+					<key>xCord</key>
+					<integer>380</integer>
 					<key>creator</key>
 					<string>Jamiew_</string>
 					<key>path</key>
-					<string>cache_s_bsite_from_toxic</string>
+					<string>mirage_s_bsite_from_apts</string>
 				</dict>
 			</dict>
-			<key>To B Main</key>
+			<key>To B Short Cubby</key>
 			<dict>
-				<key>xCord</key>
-				<integer>345</integer>
 				<key>yCord</key>
-				<integer>545</integer>
-				<key>From Heaven</key>
+				<integer>175</integer>
+				<key>xCord</key>
+				<integer>250</integer>
+				<key>From Apts</key>
 				<dict>
-					<key>xCord</key>
-					<integer>220</integer>
 					<key>yCord</key>
-					<integer>530</integer>
-					<key>creator</key>
-					<string>Jamiew_</string>
-					<key>path</key>
-					<string>cache_s_bmain_from_heaven</string>
-				</dict>
-			</dict>
-			<key>To B Entry</key>
-			<dict>
-				<key>xCord</key>
-				<integer>315</integer>
-				<key>yCord</key>
-				<integer>520</integer>
-				<key>From B Main</key>
-				<dict>
+					<integer>120</integer>
 					<key>xCord</key>
 					<integer>420</integer>
-					<key>yCord</key>
-					<integer>530</integer>
 					<key>creator</key>
 					<string>Jamiew_</string>
 					<key>path</key>
-					<string>cache_s_bentry_from_bmain</string>
+					<string>mirage_s_bshortcubby_from_apts</string>
 				</dict>
 			</dict>
-			<key>To A Site Deep</key>
+			<key>To B Short</key>
 			<dict>
-				<key>xCord</key>
-				<integer>240</integer>
 				<key>yCord</key>
-				<integer>235</integer>
-				<key>From A Long</key>
+				<integer>200</integer>
+				<key>xCord</key>
+				<integer>280</integer>
+				<key>From Apts</key>
 				<dict>
-					<key>xCord</key>
-					<integer>455</integer>
 					<key>yCord</key>
-					<integer>240</integer>
+					<integer>120</integer>
+					<key>xCord</key>
+					<integer>420</integer>
 					<key>creator</key>
 					<string>Jamiew_</string>
 					<key>path</key>
-					<string>cache_s_asite2_from_along</string>
+					<string>mirage_s_bench_from_apts</string>
+				</dict>
+			</dict>
+			<key>To Bench</key>
+			<dict>
+				<key>yCord</key>
+				<integer>160</integer>
+				<key>xCord</key>
+				<integer>120</integer>
+				<key>From Apts</key>
+				<dict>
+					<key>yCord</key>
+					<integer>160</integer>
+					<key>xCord</key>
+					<integer>380</integer>
+					<key>creator</key>
+					<string>Jamiew_</string>
+					<key>path</key>
+					<string>mirage_s_bench_from_apts</string>
+				</dict>
+			</dict>
+			<key>To B Apts</key>
+			<dict>
+				<key>yCord</key>
+				<integer>125</integer>
+				<key>xCord</key>
+				<integer>240</integer>
+				<key>From B</key>
+				<dict>
+					<key>yCord</key>
+					<integer>250</integer>
+					<key>xCord</key>
+					<integer>115</integer>
+					<key>creator</key>
+					<string>Jamiew_</string>
+					<key>path</key>
+					<string>mirage_s_bapts_from_b</string>
+				</dict>
+			</dict>
+			<key>To A Site - 2</key>
+			<dict>
+				<key>yCord</key>
+				<integer>520</integer>
+				<key>xCord</key>
+				<integer>380</integer>
+				<key>From ashort</key>
+				<dict>
+					<key>yCord</key>
+					<integer>380</integer>
+					<key>xCord</key>
+					<integer>600</integer>
+					<key>creator</key>
+					<string>Jamiew_</string>
+					<key>path</key>
+					<string>mirage_s_asite_from_ashort</string>
 				</dict>
 			</dict>
 			<key>To A Site</key>
 			<dict>
-				<key>xCord</key>
-				<integer>295</integer>
 				<key>yCord</key>
-				<integer>235</integer>
-				<key>From A Main</key>
-				<dict>
-					<key>xCord</key>
-					<integer>380</integer>
-					<key>yCord</key>
-					<integer>275</integer>
-					<key>creator</key>
-					<string>Jamiew_</string>
-					<key>path</key>
-					<string>cache_s_asite_from_amain</string>
-				</dict>
-				<key>From A Long</key>
-				<dict>
-					<key>xCord</key>
-					<integer>455</integer>
-					<key>yCord</key>
-					<integer>240</integer>
-					<key>creator</key>
-					<string>Jamiew_</string>
-					<key>path</key>
-					<string>cache_s_asite_from_along</string>
-				</dict>
-			</dict>
-			<key>To abalc</key>
-			<dict>
+				<integer>510</integer>
 				<key>xCord</key>
-				<integer>280</integer>
-				<key>yCord</key>
-				<integer>275</integer>
-				<key>From A Long</key>
+				<integer>340</integer>
+				<key>From apts</key>
 				<dict>
-					<key>xCord</key>
-					<integer>455</integer>
 					<key>yCord</key>
-					<integer>275</integer>
+					<integer>150</integer>
+					<key>xCord</key>
+					<integer>360</integer>
 					<key>creator</key>
 					<string>Jamiew_</string>
 					<key>path</key>
-					<string>cache_s_abalc_from_along</string>
+					<string>mirage_s_asite_from_apts</string>
 				</dict>
 			</dict>
 		</dict>

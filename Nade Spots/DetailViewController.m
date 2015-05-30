@@ -16,18 +16,9 @@
 @implementation DetailViewController
 @synthesize mapName;
 @synthesize mapDetails;
-@synthesize nadeFromButtons;
-@synthesize videoView;
-@synthesize nadeType = _nadeType;
-@synthesize scrollView = _scrollView;
-@synthesize mapView = _mapView;
-@synthesize nadeSpotButtons;
-@synthesize nadeTypeButtons;
-@synthesize videoPlayer;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     //initialize arrays
     self.nadeSpotButtons = [[NSMutableArray alloc] initWithCapacity:20]; // increase when more are added
     self.nadeFromButtons = [[NSMutableArray alloc] initWithCapacity:5];
@@ -65,7 +56,7 @@
     [self.scrollView addGestureRecognizer:twoFingerTapRecognizer];
     
     // initialize showSmokes and showFlashes buttons
-    self.nadesBottomBar = [[UIView alloc] initWithFrame:CGRectMake(0, [[UIScreen mainScreen] bounds].size.height - BOTTOM_BAR_HEIGHT , [[UIScreen mainScreen] bounds].size.width, 40)];
+    self.nadesBottomBar = [[UIView alloc] initWithFrame:CGRectMake(0, [[UIScreen mainScreen] applicationFrame].size.height - (BOTTOM_BAR_HEIGHT + self.navigationController.navigationBar.frame.size.height), [[UIScreen mainScreen] applicationFrame].size.width, 40)];
     [self.nadesBottomBar setBackgroundColor:[[UIColor colorWithRed:0.937f green:0.325f blue:0.314f alpha:1.0f] colorWithAlphaComponent:0.9f]];
     [self.view addSubview:self.nadesBottomBar];
     NSArray * nadeTypes = @[@"Smokes", @"Flashes", @"HEMolotov"];
@@ -86,7 +77,7 @@
     self.videoView = [[UIView alloc] initWithFrame:frame];
     self.videoView.backgroundColor = [UIColor whiteColor];
     self.videoView.hidden = true;
-    [self.view addSubview:videoView];
+    [self.view addSubview:self.videoView];
     
     // add channel link and graphic to video player view
     UILabel * video_by = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.videoView.frame.size.width / 3, CHANNEL_PLUG_HEIGHT)];
@@ -133,7 +124,9 @@
     self.transparentPlayerExiterButton.alpha = 0.0f;
     [self.transparentPlayerExiterButton addTarget:self action:@selector(dismissVideoPlayer:) forControlEvents:UIControlEventTouchUpInside];
     [self.scrollView addSubview:self.transparentPlayerExiterButton];
+    
     self.transparentPlayerExiterButton.hidden = true;
+    
 }
 
 -(void) createNadeTypeSelectorButtonsForType:(NSString *) nadeType atIndex:(int) index numberTypes:(int) totalTypeAmount {
@@ -144,7 +137,7 @@
     NSMutableString * selected_path = [NSMutableString stringWithFormat: @"small_icon_selected_"];
     [nadeTypeButton setImage:[UIImage imageNamed:[selected_path stringByAppendingString:nadeType]] forState:UIControlStateSelected];
     [nadeTypeButton setTitle:nadeType forState:UIControlStateNormal];
-    [nadeTypeButton setCenter:CGPointMake([[UIScreen mainScreen] bounds].size.width * (index + 1) / (totalTypeAmount + 1), BOTTOM_BAR_HEIGHT / 2)];
+    [nadeTypeButton setCenter:CGPointMake([[UIScreen mainScreen] applicationFrame].size.width * (index + 1) / (totalTypeAmount + 1), BOTTOM_BAR_HEIGHT / 2)];
     [nadeTypeButton addTarget:self action:@selector(selectNadeType:) forControlEvents:UIControlEventTouchUpInside];
     [self.nadesBottomBar addSubview:nadeTypeButton];
     [self.nadeTypeButtons addObject:nadeTypeButton];
@@ -247,7 +240,7 @@
         nadeFromButton.transform = CGAffineTransformScale(nadeFromButton.transform, 100.0, 100.0);
         } completion:nil];
         
-        [nadeFromButtons addObject:nadeFromButton];
+        [self.nadeFromButtons addObject:nadeFromButton];
     }
     
     // scroll to relevant area
@@ -281,11 +274,11 @@
 
 -(void)awakeVideoPlayerWithVideoPath:(NSString *) path {
     NSURL * videoURL = [NSURL fileURLWithPath:path];
-    videoPlayer = [[MPMoviePlayerController alloc] initWithContentURL:videoURL];
-    videoPlayer.controlStyle = MPMovieControlStyleDefault;
-    [[videoPlayer view] setFrame:CGRectMake(0, CHANNEL_PLUG_HEIGHT, videoView.frame.size.width, videoView.frame.size.height - CHANNEL_PLUG_HEIGHT)];
-    [self.videoView addSubview:videoPlayer.view];
-    [videoPlayer play];
+    self.videoPlayer = [[MPMoviePlayerController alloc] initWithContentURL:videoURL];
+    self.videoPlayer.controlStyle = MPMovieControlStyleDefault;
+    [[self.videoPlayer view] setFrame:CGRectMake(0, CHANNEL_PLUG_HEIGHT, self.videoView.frame.size.width, self.videoView.frame.size.height - CHANNEL_PLUG_HEIGHT)];
+    [self.videoView addSubview:self.videoPlayer.view];
+    [self.videoPlayer play];
     self.videoView.hidden = false;
     self.transparentPlayerExiterButton.hidden = false;
     [UIView animateWithDuration:0.25f delay:0 options:UIViewAnimationOptionCurveEaseInOut
@@ -313,11 +306,11 @@
 }
 
 -(void) clearNadeFrom {
-    [self clearButtonArray:nadeFromButtons];
+    [self clearButtonArray:self.nadeFromButtons];
 }
 
 -(void) clearNadeSpots {
-    [self clearButtonArray:nadeSpotButtons];
+    [self clearButtonArray:self.nadeSpotButtons];
 }
 
 -(void) clearButtonArray:(NSMutableArray *) nadeButtons {
@@ -390,15 +383,15 @@
 
 -(void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation {
     
-    NSUInteger nadeTypeCount = nadeTypeButtons.count;
-    CGFloat screen_height = [[UIScreen mainScreen]bounds].size.height;
+    NSUInteger nadeTypeCount = self.nadeTypeButtons.count;
+    CGFloat screen_height = [[UIScreen mainScreen] applicationFrame].size.height - self.navigationController.navigationBar.frame.size.height;
     CGFloat bottom_bar_y_height = self.videoView.hidden ? screen_height - BOTTOM_BAR_HEIGHT : screen_height;
     [UIView animateWithDuration:0.15 delay:0 options:UIViewAnimationOptionCurveEaseInOut
                      animations:^{
                          
                          self.nadesBottomBar.frame = CGRectMake(0, bottom_bar_y_height, [[UIScreen mainScreen] bounds].size.width, BOTTOM_BAR_HEIGHT);
                          for (int i = 0; i < nadeTypeCount; i++) {
-                             [[nadeTypeButtons objectAtIndex:i] setCenter:CGPointMake([[UIScreen mainScreen] bounds].size.width * (i + 1) / (nadeTypeCount + 1), BOTTOM_BAR_HEIGHT / 2)];
+                             [[self.nadeTypeButtons objectAtIndex:i] setCenter:CGPointMake([[UIScreen mainScreen] bounds].size.width * (i + 1) / (nadeTypeCount + 1), BOTTOM_BAR_HEIGHT / 2)];
                          }
                      }
                      completion:nil
@@ -426,7 +419,7 @@
     videoHeight = videoWidth * VIDEO_INVERSE_ASPECT + CHANNEL_PLUG_HEIGHT;
     
     CGFloat videoWidthMargin = ([[UIScreen mainScreen] bounds].size.width - videoWidth ) / 2.0;
-    CGFloat videoHeightMargin = ([[UIScreen mainScreen] bounds].size.height - videoHeight ) / 2.0 ;
+    CGFloat videoHeightMargin = ([[UIScreen mainScreen] bounds].size.height - (videoHeight + self.navigationController.navigationBar.frame.size.height)) / 2.0 ;
     frame = CGRectMake(videoWidthMargin, videoHeightMargin, videoWidth, videoHeight);
     return frame;
 }

@@ -17,11 +17,11 @@
 #define VIDEO_INVERSE_ASPECT 0.5625
 #define CHANNEL_PLUG_HEIGHT 40
 
-@interface DetailViewController : UIViewController <UIScrollViewDelegate> 
+@interface DetailViewController : UIViewController <UIScrollViewDelegate>
 
+@property (strong, nonatomic) NSString * mapName;
 @property (nonatomic, strong) UIScrollView *scrollView;
 @property (nonatomic, strong) UIImageView *mapView;
-@property (strong, nonatomic) NSString * mapName;
 @property (strong, nonatomic) NSDictionary * mapDetails;
 @property (strong, nonatomic) NSString * nadeType;
 @property (strong, nonatomic) NSMutableArray * nadeSpotButtons;
