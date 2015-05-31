@@ -67,12 +67,12 @@
     MapTableViewCell * cell = (MapTableViewCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     NSDictionary * mapInfo = self.maps[indexPath.row];
     NSString * mapName = mapInfo[@"MapName"];
-    
+    NSLog(@"%@", [self filesFoundForNadeType:mapInfo[@"Flashes"]]? @"YES" : @"NO");
     if ([self filesFoundForNadeType:mapInfo[@"Smokes"]]
         && [self fileFoundForOrigin:mapInfo[@"Flashes"]]) {
         [cell.downloadButton setImage:[UIImage imageNamed:@"delete_icon"] forState:UIControlStateNormal];
     } else {
-        
+        [cell.downloadButton setImage:[UIImage imageNamed:@"download_icon"] forState:UIControlStateNormal];
     }
     
     [[cell mapTitle] setText:mapName];
@@ -85,7 +85,7 @@
     [cell mapImage].layer.shadowRadius = 2.0f;
     [cell mapImage].layer.shadowOpacity = 0.5f;
     
-    UIView * seperator = [[UIView alloc] initWithFrame:CGRectMake([cell mapImage].frame.size.width + 25, cell.frame.size.height - 1, fmaxf(cell.frame.size.width, cell.frame.size.height), 1)];
+    UIView * seperator = [[UIView alloc] initWithFrame:CGRectMake([cell mapImage].frame.size.width + 25, cell.frame.size.height - 1, fmaxf([[UIScreen mainScreen] bounds].size.width, [[UIScreen mainScreen] bounds].size.height), 1)];
     seperator.backgroundColor = [[UIColor lightGrayColor] colorWithAlphaComponent:0.2f];
     
     [cell addSubview:seperator];
@@ -113,7 +113,11 @@
 
 -(BOOL) fileFoundForOrigin:(NSDictionary *) origin {
     NSString * path = [[NSBundle mainBundle] pathForResource:[origin objectForKey:@"path"] ofType:@"mp4"];
-    if (self.debug) NSLog(@"%@ found: %@", path, ([self.NSFM fileExistsAtPath:[origin objectForKey:path]])? @"YES" : @"NO");
+    if (self.debug) {
+        if (![self.NSFM fileExistsAtPath:[origin objectForKey:path]]) {
+            //NSLog(@"%@ not found", path);
+        }
+    }
     return [self.NSFM fileExistsAtPath:path];
 }
 

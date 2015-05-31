@@ -490,8 +490,19 @@
 			</dict>
 			<key>To Short</key>
 			<dict>
+				<key>From Rail</key>
+				<dict>
+					<key>xCord</key>
+					<integer>470</integer>
+					<key>yCord</key>
+					<integer>200</integer>
+					<key>creator</key>
+					<string>TrilluXe</string>
+					<key>path</key>
+					<string>de_dust2_flash_mid_to_cat</string>
+				</dict>
 				<key>xCord</key>
-				<integer>440</integer>
+				<integer>445</integer>
 				<key>yCord</key>
 				<integer>180</integer>
 				<key>From ctramp</key>
@@ -1178,7 +1189,7 @@
 					<key>creator</key>
 					<string>Jamiew_</string>
 					<key>path</key>
-					<string>de_inferno_f_con_to_bpl_2</string>
+					<string>de_inferno_f_con_to_bpl</string>
 				</dict>
 				<key>From Oranges 1</key>
 				<dict>

@@ -34,6 +34,8 @@
 @property (strong, nonatomic) UIView * nadesBottomBar;
 @property (strong, nonatomic) UIButton * channelName;
 @property (strong, nonatomic) UIButton * channelLogo;
+@property (strong, nonatomic) NSFileManager * NSFM;
+@property BOOL debug;
 
 @property bool scrollAvailable;
 - (void)centerScrollViewContents;

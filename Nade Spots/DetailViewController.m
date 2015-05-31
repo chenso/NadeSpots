@@ -19,6 +19,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.debug = YES;
+    
+    self.NSFM = [[NSFileManager alloc] init];
+    
     //initialize arrays
     self.nadeSpotButtons = [[NSMutableArray alloc] initWithCapacity:20]; // increase when more are added
     self.nadeFromButtons = [[NSMutableArray alloc] initWithCapacity:5];
@@ -57,9 +61,19 @@
     
     // initialize showSmokes and showFlashes buttons
     self.nadesBottomBar = [[UIView alloc] initWithFrame:CGRectMake(0, [[UIScreen mainScreen] applicationFrame].size.height - (BOTTOM_BAR_HEIGHT + self.navigationController.navigationBar.frame.size.height), [[UIScreen mainScreen] applicationFrame].size.width, 40)];
-    [self.nadesBottomBar setBackgroundColor:[[UIColor colorWithRed:0.937f green:0.325f blue:0.314f alpha:1.0f] colorWithAlphaComponent:0.9f]];
+    [self.nadesBottomBar setBackgroundColor:[[UIColor colorWithRed:0.937f green:0.325f blue:0.314f alpha:1.0f] colorWithAlphaComponent:0.4f]];
+    
     [self.view addSubview:self.nadesBottomBar];
     NSArray * nadeTypes = @[@"Smokes", @"Flashes", @"HEMolotov"];
+    
+    // create effect
+    UIBlurEffect *blur = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
+    
+    // add effect to an effect view
+    UIVisualEffectView *effectView = [[UIVisualEffectView alloc]initWithEffect:blur];
+    effectView.frame = self.nadesBottomBar.bounds;
+    
+    [self.nadesBottomBar addSubview:effectView];
     
     for (int i = 0; i < nadeTypes.count; i++) {
         [self createNadeTypeSelectorButtonsForType:[nadeTypes objectAtIndex:i] atIndex:i numberTypes:(int)nadeTypes.count];
@@ -106,11 +120,9 @@
     self.channelName.titleLabel.adjustsFontSizeToFitWidth = YES;
     [self.videoView addSubview:self.channelName];
     
-    self.channelLogo = [[UIButton alloc] initWithFrame:CGRectMake(self.videoView.frame.size.width / 3 - CHANNEL_PLUG_HEIGHT /3, CHANNEL_PLUG_HEIGHT / 6, CHANNEL_PLUG_HEIGHT * 2 / 3, CHANNEL_PLUG_HEIGHT * 2 / 3)];
-    [self.channelLogo setImage:[UIImage imageNamed:@"Jamiew__logo.png"] forState:UIControlStateNormal];
+    self.channelLogo = [[UIButton alloc] initWithFrame:CGRectMake(self.videoView.frame.size.width / 3 - CHANNEL_PLUG_HEIGHT /3, CHANNEL_PLUG_HEIGHT / 6, CHANNEL_PLUG_HEIGHT * 5 / 6, CHANNEL_PLUG_HEIGHT * 5 / 6)];
     
     [self.channelLogo addTarget:self action:@selector(openYT) forControlEvents:UIControlEventTouchUpInside];
-    
     self.channelLogo.layer.shadowColor = [UIColor colorWithRed:0.702f green:0.071f blue:0.09f alpha:1.0f].CGColor;
     self.channelLogo.layer.shadowOffset = CGSizeMake(2.0f, 2.0f);
     self.channelLogo.layer.shadowRadius = 1.5f;
@@ -146,6 +158,8 @@
 - (void) openYT {
     if ([self.channelName.titleLabel.text isEqualToString:@"Jamiew_"]) {
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://www.youtube.com/c/jamiew"]];
+    } else if ([self.channelName.titleLabel.text isEqualToString:@"TrilluXe"]) {
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://www.youtube.com/TrilluXe"]];
     }
 }
 
@@ -267,13 +281,22 @@
 -(void)nadeOriginButtonTouchUp:(id)sender {
     NadeFromButton * button = (NadeFromButton *)sender;
     [self.channelName setTitle:button.video_creator forState:UIControlStateNormal];
-    NSString * path = [[NSBundle mainBundle] pathForResource:button.path ofType:@"mp4"];
-    [self awakeVideoPlayerWithVideoPath:path];
+    [self awakeVideoPlayerWithVideoPath:button.path fromCreator:button.video_creator];
     
    }
 
--(void)awakeVideoPlayerWithVideoPath:(NSString *) path {
-    NSURL * videoURL = [NSURL fileURLWithPath:path];
+-(void)awakeVideoPlayerWithVideoPath:(NSString *) filename fromCreator:(NSString *) video_creator{
+    NSString * path = [[NSBundle mainBundle] pathForResource:filename ofType:@"mp4"];
+    NSURL * videoURL;
+    @try {
+        videoURL = [NSURL fileURLWithPath:path];
+    }
+    @catch (NSException *exception) {
+        NSLog(@"Unable to locate file for filename %@", filename);
+        return;
+    }
+    NSString * logoName = [video_creator stringByAppendingString:@"_logo"];
+    [self.channelLogo setImage:[UIImage imageNamed:logoName] forState:UIControlStateNormal];
     self.videoPlayer = [[MPMoviePlayerController alloc] initWithContentURL:videoURL];
     self.videoPlayer.controlStyle = MPMovieControlStyleDefault;
     [[self.videoPlayer view] setFrame:CGRectMake(0, CHANNEL_PLUG_HEIGHT, self.videoView.frame.size.width, self.videoView.frame.size.height - CHANNEL_PLUG_HEIGHT)];
