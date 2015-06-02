@@ -14,7 +14,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.debug = YES;
+    self.debug = NO;
+    /*self.mapIdentifiers = @{
+                            @"de_dust2" : @"com.nadespots.dust2"
+                            };*/
     
     self.title = @"MAPS";
     UINavigationBar * navbar = self.navigationController.navigationBar;
@@ -28,16 +31,7 @@
     navbar.layer.shadowOpacity = 0.5f;
     self.tableView.contentMode = UIViewContentModeScaleAspectFit;
     
-    self.NSFM = [[NSFileManager alloc] init];
-    
-    /*
-     Maps.plist arranged as:
-     item #
-     -> { mapname(contained in item#), nadetype[] }
-     -> { destination[] }
-     -> { xCord, yCord, origin[] }
-     -> { xCord, yCord, creator, path}
-     */
+    self.MFM = [[MapsFileManager alloc] initWithDebug:self.debug];
     
     NSString * mapsPath = [[NSBundle mainBundle]pathForResource:@"Maps" ofType:@"plist"];
     self.maps = [NSArray arrayWithContentsOfFile:mapsPath];
@@ -67,17 +61,25 @@
     MapTableViewCell * cell = (MapTableViewCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     NSDictionary * mapInfo = self.maps[indexPath.row];
     NSString * mapName = mapInfo[@"MapName"];
-    NSLog(@"%@", [self filesFoundForNadeType:mapInfo[@"Flashes"]]? @"YES" : @"NO");
-    if ([self filesFoundForNadeType:mapInfo[@"Smokes"]]
-        && [self fileFoundForOrigin:mapInfo[@"Flashes"]]) {
+    [cell.downloadButton.titleLabel setText:mapName];
+    /*if ([self.MFM filesFoundForMap:mapInfo]) {
         [cell.downloadButton setImage:[UIImage imageNamed:@"delete_icon"] forState:UIControlStateNormal];
+        
     } else {
         [cell.downloadButton setImage:[UIImage imageNamed:@"download_icon"] forState:UIControlStateNormal];
-    }
+        [cell.downloadButton addTarget:self action:@selector(downloadVideosForMap:) forControlEvents:UIControlEventTouchUpInside];
+    }*/
+    cell.downloadButton.hidden = YES; // UNTIL NEXT TIME...
     
+    NSNumber * smokesCount = [NSNumber numberWithInt:0];
+    NSNumber * flashesCount = [NSNumber numberWithInt:0];
+    NSNumber * HEMolotovCount = [NSNumber numberWithInt:0];
+    [self.MFM getNadeCountForMap:mapInfo smokes:&smokesCount flashes:&flashesCount HEMolotovs:&HEMolotovCount];
+    NSString * subtitle = [NSString stringWithFormat:@"%@ smokes %@ flashes %@ HE/molotovs", smokesCount, flashesCount, HEMolotovCount];
+    [[cell mapSubtitle] setText:subtitle];
     [[cell mapTitle] setText:mapName];
     [[cell mapTitle] setTextColor:[UIColor blackColor]];
-    
+
     [[cell mapImage] setImage:[UIImage imageNamed:[mapName stringByAppendingString:@"_icon.png"]]];
     cell.accessoryType = UITableViewCellAccessoryNone;
     [cell mapImage].layer.shadowColor = [UIColor blackColor].CGColor;
@@ -93,37 +95,69 @@
     return cell;
 }
 
--(BOOL) filesFoundForNadeType:(NSDictionary *) destinationDictionary {
-    if (self.debug) NSLog(@"Iterating through Type Dictionary");
-    for (id key in destinationDictionary) {
-            if(![self filesFoundForDestination:[destinationDictionary objectForKey:key]]) return NO;
-    }
-    return YES;
-}
-
--(BOOL) filesFoundForDestination:(NSDictionary *) destination {
-        for (id key in destination) {
-        if (![key isEqualToString:@"xCord"] && ![key isEqualToString:@"yCord"]) {
-            NSDictionary * origin = [destination objectForKey:key];
-            if (![self fileFoundForOrigin:origin]) return NO;
-        }
-    }
-    return YES;
-}
-
--(BOOL) fileFoundForOrigin:(NSDictionary *) origin {
-    NSString * path = [[NSBundle mainBundle] pathForResource:[origin objectForKey:@"path"] ofType:@"mp4"];
-    if (self.debug) {
-        if (![self.NSFM fileExistsAtPath:[origin objectForKey:path]]) {
-            //NSLog(@"%@ not found", path);
-        }
-    }
-    return [self.NSFM fileExistsAtPath:path];
-}
-
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return 80;
+}
+
+#pragma mark - File Management
+
+-(void)downloadVideosForMap:(UIButton *) sender {
+    SKProductsRequest *productsRequest = [[SKProductsRequest alloc] initWithProductIdentifiers:[NSSet setWithObject: self.mapIdentifiers[sender.titleLabel.text]]];
+    productsRequest.delegate = self;
+    [productsRequest start];
+}
+
+- (void)productsRequest:(SKProductsRequest *)request didReceiveResponse:(SKProductsResponse *)response{
+    SKProduct *validProduct = nil;
+    int count = (int) [response.products count];
+    if(count > 0){
+        validProduct = [response.products objectAtIndex:0];
+        NSLog(@"Products Available!");
+        [self purchase:validProduct];
+    }
+    else if(!validProduct){
+        NSLog(@"No products available");
+        //this is called if your product id is not valid, this shouldn't be called unless that happens.
+    }
+}
+
+- (IBAction)purchase:(SKProduct *)product{
+    SKPayment *payment = [SKPayment paymentWithProduct:product];
+    
+    [[SKPaymentQueue defaultQueue] addTransactionObserver:self];
+    [[SKPaymentQueue defaultQueue] addPayment:payment];
+}
+
+- (void)paymentQueue:(SKPaymentQueue *)queue updatedTransactions:(NSArray *)transactions{
+    for(SKPaymentTransaction *transaction in transactions){
+        switch(transaction.transactionState){
+            case SKPaymentTransactionStateDeferred: NSLog(@"Transaction state -> Deferred");
+                break;
+            case SKPaymentTransactionStatePurchasing: NSLog(@"Transaction state -> Purchasing");
+                //called when the user is in the process of purchasing, do not add any of your own code here.
+                break;
+            case SKPaymentTransactionStatePurchased:
+                //this is called when the user has successfully purchased the package (Cha-Ching!)
+                NSLog(@"ok");//you can add your code for what you want to happen when the user buys the purchase here, for this tutorial we use removing ads
+                [[SKPaymentQueue defaultQueue] finishTransaction:transaction];
+                NSLog(@"Transaction state -> Purchased");
+                break;
+            case SKPaymentTransactionStateRestored:
+                NSLog(@"Transaction state -> Restored");
+                //add the same code as you did from SKPaymentTransactionStatePurchased here
+                [[SKPaymentQueue defaultQueue] finishTransaction:transaction];
+                break;
+            case SKPaymentTransactionStateFailed:
+                //called when the transaction does not finish
+                if(transaction.error.code == SKErrorPaymentCancelled){
+                    NSLog(@"Transaction state -> Cancelled");
+                    //the user cancelled the payment ;(
+                }
+                [[SKPaymentQueue defaultQueue] finishTransaction:transaction];
+                break;
+        }
+    }
 }
 
 #pragma mark - Navigation
@@ -141,6 +175,7 @@
     DVC.mapName = theMap;
     DVC.title = theMap;
     DVC.mapDetails = mapDetails;
+    DVC.debug = self.debug;
 }
 - (void)tableView:(UITableView *)tableView
   willDisplayCell:(UITableViewCell *)cell

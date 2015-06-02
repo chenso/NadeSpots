@@ -3,6 +3,81 @@
 <plist version="1.0">
 <array>
 	<dict>
+		<key>HEMolotov</key>
+		<dict>
+			<key>To Generator</key>
+			<dict>
+				<key>From Toxic</key>
+				<dict>
+					<key>xCord</key>
+					<integer>416</integer>
+					<key>yCord</key>
+					<integer>604</integer>
+					<key>creator</key>
+					<string>Jamiew_</string>
+					<key>path</key>
+					<string>cache_h_generator_from_toxic</string>
+				</dict>
+				<key>xCord</key>
+				<integer>250</integer>
+				<key>yCord</key>
+				<integer>592</integer>
+			</dict>
+			<key>To B Site</key>
+			<dict>
+				<key>From Toxic</key>
+				<dict>
+					<key>xCord</key>
+					<integer>416</integer>
+					<key>yCord</key>
+					<integer>604</integer>
+					<key>creator</key>
+					<string>Jamiew_</string>
+					<key>path</key>
+					<string>cache_h_bsite_from_toxic</string>
+				</dict>
+				<key>xCord</key>
+				<integer>291</integer>
+				<key>yCord</key>
+				<integer>601</integer>
+			</dict>
+			<key>To BHall</key>
+			<dict>
+				<key>From BSite</key>
+				<dict>
+					<key>xCord</key>
+					<integer>265</integer>
+					<key>yCord</key>
+					<integer>604</integer>
+					<key>creator</key>
+					<string>Jamiew_</string>
+					<key>path</key>
+					<string>cache_h_bhall_from_bsite</string>
+				</dict>
+				<key>xCord</key>
+				<integer>307</integer>
+				<key>yCord</key>
+				<integer>512</integer>
+			</dict>
+			<key>To balcony</key>
+			<dict>
+				<key>From BSite</key>
+				<dict>
+					<key>xCord</key>
+					<integer>265</integer>
+					<key>yCord</key>
+					<integer>604</integer>
+					<key>creator</key>
+					<string>Jamiew_</string>
+					<key>path</key>
+					<string>cache_h_balcony_from_bsite</string>
+				</dict>
+				<key>xCord</key>
+				<integer>224</integer>
+				<key>yCord</key>
+				<integer>519</integer>
+			</dict>
+		</dict>
 		<key>MapName</key>
 		<string>de_cache</string>
 		<key>Flashes</key>
@@ -439,8 +514,163 @@
 		</dict>
 	</dict>
 	<dict>
+		<key>HEMolotov</key>
+		<dict>
+			<key>To Short</key>
+			<dict>
+				<key>From A</key>
+				<dict>
+					<key>xCord</key>
+					<integer>577</integer>
+					<key>yCord</key>
+					<integer>152</integer>
+					<key>creator</key>
+					<string>Jamiew_</string>
+					<key>path</key>
+					<string>dust2_h_short_from_a</string>
+				</dict>
+				<key>xCord</key>
+				<integer>436</integer>
+				<key>yCord</key>
+				<integer>259</integer>
+			</dict>
+			<key>To Cat</key>
+			<dict>
+				<key>From CT Spawn</key>
+				<dict>
+					<key>xCord</key>
+					<integer>349</integer>
+					<key>yCord</key>
+					<integer>196</integer>
+					<key>creator</key>
+					<string>Jamiew_</string>
+					<key>path</key>
+					<string>dust2_h_cat_from_ctspawn</string>
+				</dict>
+				<key>xCord</key>
+				<integer>351</integer>
+				<key>yCord</key>
+				<integer>329</integer>
+			</dict>
+			<key>To BTun</key>
+			<dict>
+				<key>From Lower - 2</key>
+				<dict>
+					<key>xCord</key>
+					<integer>233</integer>
+					<key>yCord</key>
+					<integer>309</integer>
+					<key>creator</key>
+					<string>Jamiew_</string>
+					<key>path</key>
+					<string>dust2_h_btun_from_lower2</string>
+				</dict>
+				<key>From Lower</key>
+				<dict>
+					<key>xCord</key>
+					<integer>215</integer>
+					<key>yCord</key>
+					<integer>334</integer>
+					<key>creator</key>
+					<string>Jamiew_</string>
+					<key>path</key>
+					<string>dust2_h_btun_from_lower</string>
+				</dict>
+				<key>From B</key>
+				<dict>
+					<key>xCord</key>
+					<integer>73</integer>
+					<key>yCord</key>
+					<integer>224</integer>
+					<key>creator</key>
+					<string>Jamiew_</string>
+					<key>path</key>
+					<string>dust2_h_btun_from_b</string>
+				</dict>
+				<key>xCord</key>
+				<integer>98</integer>
+				<key>yCord</key>
+				<integer>351</integer>
+			</dict>
+			<key>To BackB</key>
+			<dict>
+				<key>From Window</key>
+				<dict>
+					<key>xCord</key>
+					<integer>191</integer>
+					<key>yCord</key>
+					<integer>105</integer>
+					<key>creator</key>
+					<string>Jamiew_</string>
+					<key>path</key>
+					<string>dust2_h_backb_from_window</string>
+				</dict>
+				<key>xCord</key>
+				<integer>152</integer>
+				<key>yCord</key>
+				<integer>84</integer>
+			</dict>
+			<key>To A</key>
+			<dict>
+				<key>From Short</key>
+				<dict>
+					<key>xCord</key>
+					<integer>440</integer>
+					<key>yCord</key>
+					<integer>240</integer>
+					<key>creator</key>
+					<string>Jamiew_</string>
+					<key>path</key>
+					<string>dust2_h_a_from_short</string>
+				</dict>
+				<key>xCord</key>
+				<integer>570</integer>
+				<key>yCord</key>
+				<integer>130</integer>
+				<key>From CT Ramp</key>
+				<dict>
+					<key>xCord</key>
+					<integer>540</integer>
+					<key>yCord</key>
+					<integer>190</integer>
+					<key>creator</key>
+					<string>Jamiew_</string>
+					<key>path</key>
+					<string>dust2_h_a_from_ctramp</string>
+				</dict>
+			</dict>
+		</dict>
 		<key>Flashes</key>
 		<dict>
+			<key>To Mid Door</key>
+			<dict>
+				<key>xCord</key>
+				<integer>312</integer>
+				<key>yCord</key>
+				<integer>237</integer>
+				<key>From CT Spawn</key>
+				<dict>
+					<key>xCord</key>
+					<integer>380</integer>
+					<key>yCord</key>
+					<integer>206</integer>
+					<key>creator</key>
+					<string>TrilluXe</string>
+					<key>path</key>
+					<string>dust2_f_middoor_from_ctspawn</string>
+				</dict>
+				<key>From CT Mid</key>
+				<dict>
+					<key>xCord</key>
+					<integer>267</integer>
+					<key>yCord</key>
+					<integer>198</integer>
+					<key>creator</key>
+					<string>TrilluXe</string>
+					<key>path</key>
+					<string>dust2_f_middoor_from_ctmid</string>
+				</dict>
+			</dict>
 			<key>To deep cat</key>
 			<dict>
 				<key>xCord</key>
@@ -490,6 +720,17 @@
 			</dict>
 			<key>To Short</key>
 			<dict>
+				<key>From Deep Short</key>
+				<dict>
+					<key>xCord</key>
+					<integer>451</integer>
+					<key>yCord</key>
+					<integer>286</integer>
+					<key>creator</key>
+					<string>TrilluXe</string>
+					<key>path</key>
+					<string>dust2_f_quad_from_short</string>
+				</dict>
 				<key>From Rail</key>
 				<dict>
 					<key>xCord</key>
@@ -499,7 +740,7 @@
 					<key>creator</key>
 					<string>TrilluXe</string>
 					<key>path</key>
-					<string>de_dust2_flash_mid_to_cat</string>
+					<string>dust2_f_short_from_rail</string>
 				</dict>
 				<key>xCord</key>
 				<integer>445</integer>
@@ -763,6 +1004,17 @@
 			</dict>
 			<key>To Long Corner</key>
 			<dict>
+				<key>From Long Tun</key>
+				<dict>
+					<key>xCord</key>
+					<integer>500</integer>
+					<key>yCord</key>
+					<integer>440</integer>
+					<key>creator</key>
+					<string>TrilluXe</string>
+					<key>path</key>
+					<string>dust2_f_long_from_atun</string>
+				</dict>
 				<key>xCord</key>
 				<integer>550</integer>
 				<key>yCord</key>
@@ -1103,8 +1355,159 @@
 	<dict>
 		<key>MapName</key>
 		<string>de_inferno</string>
+		<key>HEMolotov</key>
+		<dict>
+			<key>To Oranges</key>
+			<dict>
+				<key>From Banana</key>
+				<dict>
+					<key>xCord</key>
+					<integer>316</integer>
+					<key>yCord</key>
+					<integer>276</integer>
+					<key>creator</key>
+					<string>Jamiew_</string>
+					<key>path</key>
+					<string>inferno_h_oranges_from_banana</string>
+				</dict>
+				<key>xCord</key>
+				<integer>314</integer>
+				<key>yCord</key>
+				<integer>201</integer>
+			</dict>
+			<key>To Noob</key>
+			<dict>
+				<key>From Banana</key>
+				<dict>
+					<key>xCord</key>
+					<integer>275</integer>
+					<key>yCord</key>
+					<integer>356</integer>
+					<key>creator</key>
+					<string>Jamiew_</string>
+					<key>path</key>
+					<string>inferno_h_noob_from_banana</string>
+				</dict>
+				<key>xCord</key>
+				<integer>278</integer>
+				<key>yCord</key>
+				<integer>207</integer>
+			</dict>
+			<key>To Mexico</key>
+			<dict>
+				<key>From T Ramp</key>
+				<dict>
+					<key>xCord</key>
+					<integer>267</integer>
+					<key>yCord</key>
+					<integer>421</integer>
+					<key>creator</key>
+					<string>Jamiew_</string>
+					<key>path</key>
+					<string>inferno_h_mexico_from_tramp</string>
+				</dict>
+				<key>xCord</key>
+				<integer>287</integer>
+				<key>yCord</key>
+				<integer>475</integer>
+			</dict>
+			<key>To Dark</key>
+			<dict>
+				<key>From Alt</key>
+				<dict>
+					<key>xCord</key>
+					<integer>350</integer>
+					<key>yCord</key>
+					<integer>495</integer>
+					<key>creator</key>
+					<string>Jamiew_</string>
+					<key>path</key>
+					<string>inferno_h_dark_from_alt</string>
+				</dict>
+				<key>xCord</key>
+				<integer>384</integer>
+				<key>yCord</key>
+				<integer>536</integer>
+			</dict>
+			<key>To Boiler</key>
+			<dict>
+				<key>From Alt</key>
+				<dict>
+					<key>xCord</key>
+					<integer>351</integer>
+					<key>yCord</key>
+					<integer>552</integer>
+					<key>creator</key>
+					<string>Jamiew_</string>
+					<key>path</key>
+					<string>inferno_h_boiler_from_alt</string>
+				</dict>
+				<key>xCord</key>
+				<integer>402</integer>
+				<key>yCord</key>
+				<integer>495</integer>
+			</dict>
+		</dict>
 		<key>Flashes</key>
 		<dict>
+			<key>To Quad</key>
+			<dict>
+				<key>xCord</key>
+				<integer>452</integer>
+				<key>yCord</key>
+				<integer>512</integer>
+				<key>From A</key>
+				<dict>
+					<key>xCord</key>
+					<integer>524</integer>
+					<key>yCord</key>
+					<integer>489</integer>
+					<key>creator</key>
+					<string>TrilluXe</string>
+					<key>path</key>
+					<string>inferno_f_quad_from_asite</string>
+				</dict>
+				<key>From Pit</key>
+				<dict>
+					<key>xCord</key>
+					<integer>573</integer>
+					<key>yCord</key>
+					<integer>541</integer>
+					<key>creator</key>
+					<string>TrilluXe</string>
+					<key>path</key>
+					<string>inferno_f_quad_from_pit</string>
+				</dict>
+			</dict>
+			<key>To Archside</key>
+			<dict>
+				<key>xCord</key>
+				<integer>501</integer>
+				<key>yCord</key>
+				<integer>384</integer>
+				<key>From Library</key>
+				<dict>
+					<key>xCord</key>
+					<integer>563</integer>
+					<key>yCord</key>
+					<integer>372</integer>
+					<key>creator</key>
+					<string>TrilluXe</string>
+					<key>path</key>
+					<string>inferno_f_archside_from_library</string>
+				</dict>
+				<key>From Closet</key>
+				<dict>
+					<key>xCord</key>
+					<integer>420</integer>
+					<key>yCord</key>
+					<integer>370</integer>
+					<key>creator</key>
+					<string>TrilluXe</string>
+					<key>path</key>
+					<string>inferno_f_archside_from_moto</string>
+				</dict>
+			</dict>
 			<key>To A Site</key>
 			<dict>
 				<key>xCord</key>
@@ -1154,6 +1557,39 @@
 			</dict>
 			<key>To B Playground</key>
 			<dict>
+				<key>From Spool</key>
+				<dict>
+					<key>xCord</key>
+					<integer>319</integer>
+					<key>yCord</key>
+					<integer>132</integer>
+					<key>creator</key>
+					<string>TrilluXe</string>
+					<key>path</key>
+					<string>inferno_f_playground_from_spool</string>
+				</dict>
+				<key>From B Tree</key>
+				<dict>
+					<key>xCord</key>
+					<integer>410</integer>
+					<key>yCord</key>
+					<integer>196</integer>
+					<key>creator</key>
+					<string>TrilluXe</string>
+					<key>path</key>
+					<string>inferno_f_playground_from_btree</string>
+				</dict>
+				<key>From CT B Steps</key>
+				<dict>
+					<key>xCord</key>
+					<integer>432</integer>
+					<key>yCord</key>
+					<integer>210</integer>
+					<key>creator</key>
+					<string>TrilluXe</string>
+					<key>path</key>
+					<string>inferno_f_b_from_ctsteps</string>
+				</dict>
 				<key>xCord</key>
 				<integer>330</integer>
 				<key>yCord</key>
@@ -1214,7 +1650,7 @@
 					<string>de_inferno_flash_ctb_to_bplayground</string>
 				</dict>
 			</dict>
-			<key>To Archside</key>
+			<key>To Left Mid</key>
 			<dict>
 				<key>xCord</key>
 				<integer>430</integer>
@@ -1636,6 +2072,99 @@
 		</dict>
 	</dict>
 	<dict>
+		<key>HEMolotov</key>
+		<dict>
+			<key>To B Window</key>
+			<dict>
+				<key>From Apts</key>
+				<dict>
+					<key>xCord</key>
+					<integer>171</integer>
+					<key>yCord</key>
+					<integer>132</integer>
+					<key>creator</key>
+					<string>Jamiew_</string>
+					<key>path</key>
+					<string>mirage_h_bwindow_from_apts</string>
+				</dict>
+				<key>xCord</key>
+				<integer>170</integer>
+				<key>yCord</key>
+				<integer>301</integer>
+			</dict>
+			<key>To T Smokes</key>
+			<dict>
+				<key>From Boxes</key>
+				<dict>
+					<key>xCord</key>
+					<integer>459</integer>
+					<key>yCord</key>
+					<integer>494</integer>
+					<key>creator</key>
+					<string>Jamiew_</string>
+					<key>path</key>
+					<string>mirage_h_palace_from_dark</string>
+				</dict>
+				<key>xCord</key>
+				<integer>563</integer>
+				<key>yCord</key>
+				<integer>444</integer>
+			</dict>
+			<key>To Palace</key>
+			<dict>
+				<key>From Dark</key>
+				<dict>
+					<key>xCord</key>
+					<integer>469</integer>
+					<key>yCord</key>
+					<integer>537</integer>
+					<key>creator</key>
+					<string>Jamiew_</string>
+					<key>path</key>
+					<string>mirage_h_palace_from_dark</string>
+				</dict>
+				<key>xCord</key>
+				<integer>452</integer>
+				<key>yCord</key>
+				<integer>563</integer>
+			</dict>
+			<key>To Dark</key>
+			<dict>
+				<key>From Palace</key>
+				<dict>
+					<key>xCord</key>
+					<integer>456</integer>
+					<key>yCord</key>
+					<integer>573</integer>
+					<key>creator</key>
+					<string>Jamiew_</string>
+					<key>path</key>
+					<string>mirage_h_dark_from_palace</string>
+				</dict>
+				<key>xCord</key>
+				<integer>451</integer>
+				<key>yCord</key>
+				<integer>517</integer>
+			</dict>
+			<key>To Cat</key>
+			<dict>
+				<key>From T Apts</key>
+				<dict>
+					<key>xCord</key>
+					<integer>392</integer>
+					<key>yCord</key>
+					<integer>146</integer>
+					<key>creator</key>
+					<string>Jamiew_</string>
+					<key>path</key>
+					<string>mirage_h_cat_from_tapts</string>
+				</dict>
+				<key>xCord</key>
+				<integer>327</integer>
+				<key>yCord</key>
+				<integer>207</integer>
+			</dict>
+		</dict>
 		<key>Flashes</key>
 		<dict>
 			<key>To Connector</key>

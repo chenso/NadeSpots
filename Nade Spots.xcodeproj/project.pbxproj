@@ -97,7 +97,6 @@
 		4A0684731AC3E5C400F637EF /* mirage_s_window_from_apts.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 4A0684581AC3E5C400F637EF /* mirage_s_window_from_apts.mp4 */; };
 		4A0684741AC3E5C400F637EF /* mirage_s_window_from_short.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 4A0684591AC3E5C400F637EF /* mirage_s_window_from_short.mp4 */; };
 		4A0684751AC3E5C400F637EF /* mirage_s_window_from_tspawn.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 4A06845A1AC3E5C400F637EF /* mirage_s_window_from_tspawn.mp4 */; };
-		4A076FF31A9EBD5000073D9A /* SmokeSpotButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A076FF21A9EBD5000073D9A /* SmokeSpotButton.m */; };
 		4A076FF81A9EC10900073D9A /* NadeFrom.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A076FF51A9EC10900073D9A /* NadeFrom.m */; };
 		4A076FF91A9EC10900073D9A /* NadeSpot.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A076FF71A9EC10900073D9A /* NadeSpot.m */; };
 		4A0770001A9F0D7500073D9A /* NadeFromButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A076FFF1A9F0D7500073D9A /* NadeFromButton.m */; };
@@ -128,11 +127,46 @@
 		4A3938021B1A80A9006B9EC9 /* mirage_f_connector_from_tetris.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 4A3937F71B1A80A9006B9EC9 /* mirage_f_connector_from_tetris.mp4 */; };
 		4A3938041B1A80E3006B9EC9 /* de_mirage.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A3938031B1A80E3006B9EC9 /* de_mirage.png */; };
 		4A3938061B1AA935006B9EC9 /* TrilluXe_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A3938051B1AA935006B9EC9 /* TrilluXe_logo.png */; };
+		4A3938AB1B1AE736006B9EC9 /* MapsFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A3938AA1B1AE736006B9EC9 /* MapsFileManager.m */; };
+		4A3938AD1B1BDBA2006B9EC9 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A3938AC1B1BDBA2006B9EC9 /* iAd.framework */; };
+		4A83BBB81B1D19CF001E605E /* dust2_h_a_from_ctramp.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 4A83BBB01B1D19CF001E605E /* dust2_h_a_from_ctramp.mp4 */; };
+		4A83BBB91B1D19CF001E605E /* dust2_h_a_from_short.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 4A83BBB11B1D19CF001E605E /* dust2_h_a_from_short.mp4 */; };
+		4A83BBBA1B1D19CF001E605E /* dust2_h_backb_from_window.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 4A83BBB21B1D19CF001E605E /* dust2_h_backb_from_window.mp4 */; };
+		4A83BBBB1B1D19CF001E605E /* dust2_h_btun_from_b.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 4A83BBB31B1D19CF001E605E /* dust2_h_btun_from_b.mp4 */; };
+		4A83BBBC1B1D19CF001E605E /* dust2_h_btun_from_lower.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 4A83BBB41B1D19CF001E605E /* dust2_h_btun_from_lower.mp4 */; };
+		4A83BBBD1B1D19CF001E605E /* dust2_h_btun_from_lower2.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 4A83BBB51B1D19CF001E605E /* dust2_h_btun_from_lower2.mp4 */; };
+		4A83BBBE1B1D19CF001E605E /* dust2_h_cat_from_ctspawn.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 4A83BBB61B1D19CF001E605E /* dust2_h_cat_from_ctspawn.mp4 */; };
+		4A83BBBF1B1D19CF001E605E /* dust2_h_short_from_a.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 4A83BBB71B1D19CF001E605E /* dust2_h_short_from_a.mp4 */; };
+		4A83BBC51B1D241A001E605E /* cache_h_balcony_from_bsite.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 4A83BBC11B1D241A001E605E /* cache_h_balcony_from_bsite.mp4 */; };
+		4A83BBC61B1D241A001E605E /* cache_h_bhall_from_bsite.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 4A83BBC21B1D241A001E605E /* cache_h_bhall_from_bsite.mp4 */; };
+		4A83BBC71B1D241A001E605E /* cache_h_bsite_from_toxic.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 4A83BBC31B1D241A001E605E /* cache_h_bsite_from_toxic.mp4 */; };
+		4A83BBC81B1D241A001E605E /* cache_h_generator_from_toxic.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 4A83BBC41B1D241A001E605E /* cache_h_generator_from_toxic.mp4 */; };
+		4A83BBCF1B1D282E001E605E /* inferno_h_boiler_from_alt.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 4A83BBCA1B1D282E001E605E /* inferno_h_boiler_from_alt.mp4 */; };
+		4A83BBD01B1D282E001E605E /* inferno_h_dark_from_alt.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 4A83BBCB1B1D282E001E605E /* inferno_h_dark_from_alt.mp4 */; };
+		4A83BBD11B1D282E001E605E /* inferno_h_mexico_from_tramp.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 4A83BBCC1B1D282E001E605E /* inferno_h_mexico_from_tramp.mp4 */; };
+		4A83BBD21B1D282E001E605E /* inferno_h_noob_from_banana.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 4A83BBCD1B1D282E001E605E /* inferno_h_noob_from_banana.mp4 */; };
+		4A83BBD31B1D282E001E605E /* inferno_h_oranges_from_banana.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 4A83BBCE1B1D282E001E605E /* inferno_h_oranges_from_banana.mp4 */; };
+		4A83BBDA1B1D29F0001E605E /* mirage_h_cat_from_tapts.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 4A83BBD51B1D29F0001E605E /* mirage_h_cat_from_tapts.mp4 */; };
+		4A83BBDB1B1D29F0001E605E /* mirage_h_dark_from_palace.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 4A83BBD61B1D29F0001E605E /* mirage_h_dark_from_palace.mp4 */; };
+		4A83BBDC1B1D29F0001E605E /* mirage_h_palace_from_dark.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 4A83BBD71B1D29F0001E605E /* mirage_h_palace_from_dark.mp4 */; };
+		4A83BBDD1B1D29F0001E605E /* mirage_h_tsmokes_from_boxes.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 4A83BBD81B1D29F0001E605E /* mirage_h_tsmokes_from_boxes.mp4 */; };
+		4A83BBDE1B1D29F0001E605E /* mirage_h_bwindow_from_apts.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 4A83BBD91B1D29F0001E605E /* mirage_h_bwindow_from_apts.mp4 */; };
 		4A8C843D1B16AC610026D5E1 /* Maps.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4A8C843C1B16AC610026D5E1 /* Maps.plist */; };
 		4A8C84431B16B7260026D5E1 /* Jamiew__logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A8C84421B16B7260026D5E1 /* Jamiew__logo.png */; };
-		4AA137471AB8FE070085A959 /* FlashSpotButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AA137461AB8FE070085A959 /* FlashSpotButton.m */; };
 		4AA1374A1AB900C00085A959 /* NadeSpotButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AA137491AB900C00085A959 /* NadeSpotButton.m */; };
 		4AA137781ABA351F0085A959 /* de_dust2.png in Resources */ = {isa = PBXBuildFile; fileRef = 4AA137771ABA351F0085A959 /* de_dust2.png */; };
+		4AC2B2501B1CC9EC003F8626 /* dust2_f_short_from_rail.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 4AC2B24F1B1CC9EC003F8626 /* dust2_f_short_from_rail.mp4 */; };
+		4AC2B2521B1CCA76003F8626 /* dust2_f_quad_from_short.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 4AC2B2511B1CCA76003F8626 /* dust2_f_quad_from_short.mp4 */; };
+		4AC2B2541B1CCB3F003F8626 /* dust2_f_middoor_from_ctspawn.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 4AC2B2531B1CCB3F003F8626 /* dust2_f_middoor_from_ctspawn.mp4 */; };
+		4AC2B2561B1CCBB7003F8626 /* dust2_f_middoor_from_ctmid.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 4AC2B2551B1CCBB7003F8626 /* dust2_f_middoor_from_ctmid.mp4 */; };
+		4AC2B2581B1CCC39003F8626 /* dust2_f_long_from_atun.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 4AC2B2571B1CCC39003F8626 /* dust2_f_long_from_atun.mp4 */; };
+		4AC2B2601B1CCCB8003F8626 /* inferno_f_archside_from_library.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 4AC2B2591B1CCCB8003F8626 /* inferno_f_archside_from_library.mp4 */; };
+		4AC2B2611B1CCCB8003F8626 /* inferno_f_archside_from_moto.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 4AC2B25A1B1CCCB8003F8626 /* inferno_f_archside_from_moto.mp4 */; };
+		4AC2B2621B1CCCB8003F8626 /* inferno_f_b_from_ctsteps.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 4AC2B25B1B1CCCB8003F8626 /* inferno_f_b_from_ctsteps.mp4 */; };
+		4AC2B2631B1CCCB8003F8626 /* inferno_f_playground_from_btree.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 4AC2B25C1B1CCCB8003F8626 /* inferno_f_playground_from_btree.mp4 */; };
+		4AC2B2641B1CCCB8003F8626 /* inferno_f_playground_from_spool.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 4AC2B25D1B1CCCB8003F8626 /* inferno_f_playground_from_spool.mp4 */; };
+		4AC2B2651B1CCCB8003F8626 /* inferno_f_quad_from_asite.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 4AC2B25E1B1CCCB8003F8626 /* inferno_f_quad_from_asite.mp4 */; };
+		4AC2B2661B1CCCB8003F8626 /* inferno_f_quad_from_pit.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 4AC2B25F1B1CCCB8003F8626 /* inferno_f_quad_from_pit.mp4 */; };
 		4AC6625F1B0EB7B5001CC31A /* small_icon_selected_Smokes.png in Resources */ = {isa = PBXBuildFile; fileRef = 4AC6625E1B0EB7B5001CC31A /* small_icon_selected_Smokes.png */; };
 		4AC662631B0EB877001CC31A /* small_icon_deselected_Smokes.png in Resources */ = {isa = PBXBuildFile; fileRef = 4AC662621B0EB877001CC31A /* small_icon_deselected_Smokes.png */; };
 		4AC662661B0FBB61001CC31A /* small_icon_selected_Flashes.png in Resources */ = {isa = PBXBuildFile; fileRef = 4AC662641B0FBB61001CC31A /* small_icon_selected_Flashes.png */; };
@@ -286,8 +320,6 @@
 		4A0684581AC3E5C400F637EF /* mirage_s_window_from_apts.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = mirage_s_window_from_apts.mp4; sourceTree = "<group>"; };
 		4A0684591AC3E5C400F637EF /* mirage_s_window_from_short.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = mirage_s_window_from_short.mp4; sourceTree = "<group>"; };
 		4A06845A1AC3E5C400F637EF /* mirage_s_window_from_tspawn.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = mirage_s_window_from_tspawn.mp4; sourceTree = "<group>"; };
-		4A076FF11A9EBD5000073D9A /* SmokeSpotButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SmokeSpotButton.h; sourceTree = "<group>"; };
-		4A076FF21A9EBD5000073D9A /* SmokeSpotButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SmokeSpotButton.m; sourceTree = "<group>"; };
 		4A076FF41A9EC10900073D9A /* NadeFrom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NadeFrom.h; sourceTree = "<group>"; };
 		4A076FF51A9EC10900073D9A /* NadeFrom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NadeFrom.m; sourceTree = "<group>"; };
 		4A076FF61A9EC10900073D9A /* NadeSpot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NadeSpot.h; sourceTree = "<group>"; };
@@ -329,13 +361,48 @@
 		4A3937F71B1A80A9006B9EC9 /* mirage_f_connector_from_tetris.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; name = mirage_f_connector_from_tetris.mp4; path = Videos/de_mirage/flashes/mirage_f_connector_from_tetris.mp4; sourceTree = "<group>"; };
 		4A3938031B1A80E3006B9EC9 /* de_mirage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = de_mirage.png; sourceTree = "<group>"; };
 		4A3938051B1AA935006B9EC9 /* TrilluXe_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TrilluXe_logo.png; sourceTree = "<group>"; };
+		4A3938A91B1AE735006B9EC9 /* MapsFileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapsFileManager.h; sourceTree = "<group>"; };
+		4A3938AA1B1AE736006B9EC9 /* MapsFileManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapsFileManager.m; sourceTree = "<group>"; };
+		4A3938AC1B1BDBA2006B9EC9 /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
+		4A83BBB01B1D19CF001E605E /* dust2_h_a_from_ctramp.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = dust2_h_a_from_ctramp.mp4; sourceTree = "<group>"; };
+		4A83BBB11B1D19CF001E605E /* dust2_h_a_from_short.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = dust2_h_a_from_short.mp4; sourceTree = "<group>"; };
+		4A83BBB21B1D19CF001E605E /* dust2_h_backb_from_window.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = dust2_h_backb_from_window.mp4; sourceTree = "<group>"; };
+		4A83BBB31B1D19CF001E605E /* dust2_h_btun_from_b.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = dust2_h_btun_from_b.mp4; sourceTree = "<group>"; };
+		4A83BBB41B1D19CF001E605E /* dust2_h_btun_from_lower.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = dust2_h_btun_from_lower.mp4; sourceTree = "<group>"; };
+		4A83BBB51B1D19CF001E605E /* dust2_h_btun_from_lower2.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = dust2_h_btun_from_lower2.mp4; sourceTree = "<group>"; };
+		4A83BBB61B1D19CF001E605E /* dust2_h_cat_from_ctspawn.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = dust2_h_cat_from_ctspawn.mp4; sourceTree = "<group>"; };
+		4A83BBB71B1D19CF001E605E /* dust2_h_short_from_a.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = dust2_h_short_from_a.mp4; sourceTree = "<group>"; };
+		4A83BBC11B1D241A001E605E /* cache_h_balcony_from_bsite.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = cache_h_balcony_from_bsite.mp4; sourceTree = "<group>"; };
+		4A83BBC21B1D241A001E605E /* cache_h_bhall_from_bsite.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = cache_h_bhall_from_bsite.mp4; sourceTree = "<group>"; };
+		4A83BBC31B1D241A001E605E /* cache_h_bsite_from_toxic.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = cache_h_bsite_from_toxic.mp4; sourceTree = "<group>"; };
+		4A83BBC41B1D241A001E605E /* cache_h_generator_from_toxic.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = cache_h_generator_from_toxic.mp4; sourceTree = "<group>"; };
+		4A83BBCA1B1D282E001E605E /* inferno_h_boiler_from_alt.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = inferno_h_boiler_from_alt.mp4; sourceTree = "<group>"; };
+		4A83BBCB1B1D282E001E605E /* inferno_h_dark_from_alt.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = inferno_h_dark_from_alt.mp4; sourceTree = "<group>"; };
+		4A83BBCC1B1D282E001E605E /* inferno_h_mexico_from_tramp.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = inferno_h_mexico_from_tramp.mp4; sourceTree = "<group>"; };
+		4A83BBCD1B1D282E001E605E /* inferno_h_noob_from_banana.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = inferno_h_noob_from_banana.mp4; sourceTree = "<group>"; };
+		4A83BBCE1B1D282E001E605E /* inferno_h_oranges_from_banana.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = inferno_h_oranges_from_banana.mp4; sourceTree = "<group>"; };
+		4A83BBD51B1D29F0001E605E /* mirage_h_cat_from_tapts.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = mirage_h_cat_from_tapts.mp4; sourceTree = "<group>"; };
+		4A83BBD61B1D29F0001E605E /* mirage_h_dark_from_palace.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = mirage_h_dark_from_palace.mp4; sourceTree = "<group>"; };
+		4A83BBD71B1D29F0001E605E /* mirage_h_palace_from_dark.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = mirage_h_palace_from_dark.mp4; sourceTree = "<group>"; };
+		4A83BBD81B1D29F0001E605E /* mirage_h_tsmokes_from_boxes.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = mirage_h_tsmokes_from_boxes.mp4; sourceTree = "<group>"; };
+		4A83BBD91B1D29F0001E605E /* mirage_h_bwindow_from_apts.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = mirage_h_bwindow_from_apts.mp4; sourceTree = "<group>"; };
 		4A8C843C1B16AC610026D5E1 /* Maps.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Maps.plist; sourceTree = "<group>"; };
 		4A8C84421B16B7260026D5E1 /* Jamiew__logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Jamiew__logo.png; sourceTree = "<group>"; };
-		4AA137451AB8FE070085A959 /* FlashSpotButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlashSpotButton.h; sourceTree = "<group>"; };
-		4AA137461AB8FE070085A959 /* FlashSpotButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlashSpotButton.m; sourceTree = "<group>"; };
 		4AA137481AB900C00085A959 /* NadeSpotButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NadeSpotButton.h; sourceTree = "<group>"; };
 		4AA137491AB900C00085A959 /* NadeSpotButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NadeSpotButton.m; sourceTree = "<group>"; };
 		4AA137771ABA351F0085A959 /* de_dust2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = de_dust2.png; sourceTree = "<group>"; };
+		4AC2B24F1B1CC9EC003F8626 /* dust2_f_short_from_rail.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = dust2_f_short_from_rail.mp4; sourceTree = "<group>"; };
+		4AC2B2511B1CCA76003F8626 /* dust2_f_quad_from_short.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = dust2_f_quad_from_short.mp4; sourceTree = "<group>"; };
+		4AC2B2531B1CCB3F003F8626 /* dust2_f_middoor_from_ctspawn.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = dust2_f_middoor_from_ctspawn.mp4; sourceTree = "<group>"; };
+		4AC2B2551B1CCBB7003F8626 /* dust2_f_middoor_from_ctmid.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = dust2_f_middoor_from_ctmid.mp4; sourceTree = "<group>"; };
+		4AC2B2571B1CCC39003F8626 /* dust2_f_long_from_atun.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = dust2_f_long_from_atun.mp4; sourceTree = "<group>"; };
+		4AC2B2591B1CCCB8003F8626 /* inferno_f_archside_from_library.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = inferno_f_archside_from_library.mp4; sourceTree = "<group>"; };
+		4AC2B25A1B1CCCB8003F8626 /* inferno_f_archside_from_moto.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = inferno_f_archside_from_moto.mp4; sourceTree = "<group>"; };
+		4AC2B25B1B1CCCB8003F8626 /* inferno_f_b_from_ctsteps.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = inferno_f_b_from_ctsteps.mp4; sourceTree = "<group>"; };
+		4AC2B25C1B1CCCB8003F8626 /* inferno_f_playground_from_btree.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = inferno_f_playground_from_btree.mp4; sourceTree = "<group>"; };
+		4AC2B25D1B1CCCB8003F8626 /* inferno_f_playground_from_spool.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = inferno_f_playground_from_spool.mp4; sourceTree = "<group>"; };
+		4AC2B25E1B1CCCB8003F8626 /* inferno_f_quad_from_asite.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = inferno_f_quad_from_asite.mp4; sourceTree = "<group>"; };
+		4AC2B25F1B1CCCB8003F8626 /* inferno_f_quad_from_pit.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = inferno_f_quad_from_pit.mp4; sourceTree = "<group>"; };
 		4AC6625E1B0EB7B5001CC31A /* small_icon_selected_Smokes.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = small_icon_selected_Smokes.png; sourceTree = "<group>"; };
 		4AC662621B0EB877001CC31A /* small_icon_deselected_Smokes.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = small_icon_deselected_Smokes.png; sourceTree = "<group>"; };
 		4AC662641B0FBB61001CC31A /* small_icon_selected_Flashes.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = small_icon_selected_Flashes.png; sourceTree = "<group>"; };
@@ -393,6 +460,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A3938AD1B1BDBA2006B9EC9 /* iAd.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -409,6 +477,7 @@
 		4A06834A1AC20DE800F637EF /* de_inferno */ = {
 			isa = PBXGroup;
 			children = (
+				4A83BBC91B1D2822001E605E /* HEMolotov */,
 				4A06834C1AC20DF300F637EF /* flashes */,
 				4A06834B1AC20DEE00F637EF /* smokes */,
 			);
@@ -460,6 +529,13 @@
 				4A06838A1AC22AC500F637EF /* de_inferno_flash_oranges1_to_bplayground.mp4 */,
 				4A06838B1AC22AC500F637EF /* de_inferno_flash_quad_to_asite.mp4 */,
 				4A06838C1AC22AC500F637EF /* de_inferno_flash_sandbags_to_banana.mp4 */,
+				4AC2B2591B1CCCB8003F8626 /* inferno_f_archside_from_library.mp4 */,
+				4AC2B25A1B1CCCB8003F8626 /* inferno_f_archside_from_moto.mp4 */,
+				4AC2B25B1B1CCCB8003F8626 /* inferno_f_b_from_ctsteps.mp4 */,
+				4AC2B25C1B1CCCB8003F8626 /* inferno_f_playground_from_btree.mp4 */,
+				4AC2B25D1B1CCCB8003F8626 /* inferno_f_playground_from_spool.mp4 */,
+				4AC2B25E1B1CCCB8003F8626 /* inferno_f_quad_from_asite.mp4 */,
+				4AC2B25F1B1CCCB8003F8626 /* inferno_f_quad_from_pit.mp4 */,
 			);
 			name = flashes;
 			sourceTree = "<group>";
@@ -467,6 +543,7 @@
 		4A0683EA1AC33CF500F637EF /* de_cache */ = {
 			isa = PBXGroup;
 			children = (
+				4A83BBC01B1D23FD001E605E /* HEMolotov */,
 				4A0683EC1AC33D0200F637EF /* flashes */,
 				4A0683EB1AC33CFD00F637EF /* smokes */,
 			);
@@ -515,6 +592,7 @@
 		4A0684271AC3E52200F637EF /* de_mirage */ = {
 			isa = PBXGroup;
 			children = (
+				4A83BBD41B1D29D0001E605E /* HEMolotov */,
 				4A0684291AC3E52C00F637EF /* flashes */,
 				4A0684281AC3E52800F637EF /* smokes */,
 			);
@@ -587,6 +665,7 @@
 		4A0B39771A9B1C0C004F8CC6 = {
 			isa = PBXGroup;
 			children = (
+				4A3938AC1B1BDBA2006B9EC9 /* iAd.framework */,
 				4A0B39821A9B1C0C004F8CC6 /* Nade Spots */,
 				4A0B399C1A9B1C0C004F8CC6 /* Nade SpotsTests */,
 				4A0B39811A9B1C0C004F8CC6 /* Products */,
@@ -611,18 +690,16 @@
 				4A076FF41A9EC10900073D9A /* NadeFrom.h */,
 				4A076FF51A9EC10900073D9A /* NadeFrom.m */,
 				4A076FF61A9EC10900073D9A /* NadeSpot.h */,
+				4A3938A91B1AE735006B9EC9 /* MapsFileManager.h */,
+				4A3938AA1B1AE736006B9EC9 /* MapsFileManager.m */,
 				4A076FF71A9EC10900073D9A /* NadeSpot.m */,
 				4A0B39B81A9E98DC004F8CC6 /* DetailViewController.h */,
 				4A0B39B91A9E98DC004F8CC6 /* DetailViewController.m */,
 				4A0B39AF1A9BC96C004F8CC6 /* MapsTableViewController.h */,
 				4A3937D31B1809A0006B9EC9 /* MapsTableViewController.m */,
 				4A8C843C1B16AC610026D5E1 /* Maps.plist */,
-				4A076FF11A9EBD5000073D9A /* SmokeSpotButton.h */,
 				4A3937D01B17E33B006B9EC9 /* MapTableViewCell.h */,
 				4A3937D11B17E33B006B9EC9 /* MapTableViewCell.m */,
-				4A076FF21A9EBD5000073D9A /* SmokeSpotButton.m */,
-				4AA137451AB8FE070085A959 /* FlashSpotButton.h */,
-				4AA137461AB8FE070085A959 /* FlashSpotButton.m */,
 				4AA137481AB900C00085A959 /* NadeSpotButton.h */,
 				4AA137491AB900C00085A959 /* NadeSpotButton.m */,
 				4A0B39871A9B1C0C004F8CC6 /* AppDelegate.h */,
@@ -667,13 +744,13 @@
 				4A3938051B1AA935006B9EC9 /* TrilluXe_logo.png */,
 				4A8C84421B16B7260026D5E1 /* Jamiew__logo.png */,
 				4AC662681B0FDAA0001CC31A /* small_icon_selected_HEMolotov.png */,
+				4A3937E21B198374006B9EC9 /* download_icon.png */,
+				4A3937E71B1A2308006B9EC9 /* delete_icon.png */,
 				4AC662701B0FDCCF001CC31A /* small_icon_deselected_HEMolotov.png */,
 				4A3937DF1B197987006B9EC9 /* de_cache_icon.png */,
 				4AC662641B0FBB61001CC31A /* small_icon_selected_Flashes.png */,
 				4AC662651B0FBB61001CC31A /* small_icon_deselected_Flashes.png */,
 				4AC6625E1B0EB7B5001CC31A /* small_icon_selected_Smokes.png */,
-				4A3937E21B198374006B9EC9 /* download_icon.png */,
-				4A3937E71B1A2308006B9EC9 /* delete_icon.png */,
 				4A3937DD1B197905006B9EC9 /* de_inferno_icon.png */,
 				4A3937DB1B197861006B9EC9 /* de_mirage_icon.png */,
 				4AC662621B0EB877001CC31A /* small_icon_deselected_Smokes.png */,
@@ -688,9 +765,60 @@
 			name = Images;
 			sourceTree = "<group>";
 		};
+		4A83BBAF1B1D19A9001E605E /* HEMolotov */ = {
+			isa = PBXGroup;
+			children = (
+				4A83BBB01B1D19CF001E605E /* dust2_h_a_from_ctramp.mp4 */,
+				4A83BBB11B1D19CF001E605E /* dust2_h_a_from_short.mp4 */,
+				4A83BBB21B1D19CF001E605E /* dust2_h_backb_from_window.mp4 */,
+				4A83BBB31B1D19CF001E605E /* dust2_h_btun_from_b.mp4 */,
+				4A83BBB41B1D19CF001E605E /* dust2_h_btun_from_lower.mp4 */,
+				4A83BBB51B1D19CF001E605E /* dust2_h_btun_from_lower2.mp4 */,
+				4A83BBB61B1D19CF001E605E /* dust2_h_cat_from_ctspawn.mp4 */,
+				4A83BBB71B1D19CF001E605E /* dust2_h_short_from_a.mp4 */,
+			);
+			name = HEMolotov;
+			sourceTree = "<group>";
+		};
+		4A83BBC01B1D23FD001E605E /* HEMolotov */ = {
+			isa = PBXGroup;
+			children = (
+				4A83BBC11B1D241A001E605E /* cache_h_balcony_from_bsite.mp4 */,
+				4A83BBC21B1D241A001E605E /* cache_h_bhall_from_bsite.mp4 */,
+				4A83BBC31B1D241A001E605E /* cache_h_bsite_from_toxic.mp4 */,
+				4A83BBC41B1D241A001E605E /* cache_h_generator_from_toxic.mp4 */,
+			);
+			name = HEMolotov;
+			sourceTree = "<group>";
+		};
+		4A83BBC91B1D2822001E605E /* HEMolotov */ = {
+			isa = PBXGroup;
+			children = (
+				4A83BBCA1B1D282E001E605E /* inferno_h_boiler_from_alt.mp4 */,
+				4A83BBCB1B1D282E001E605E /* inferno_h_dark_from_alt.mp4 */,
+				4A83BBCC1B1D282E001E605E /* inferno_h_mexico_from_tramp.mp4 */,
+				4A83BBCD1B1D282E001E605E /* inferno_h_noob_from_banana.mp4 */,
+				4A83BBCE1B1D282E001E605E /* inferno_h_oranges_from_banana.mp4 */,
+			);
+			name = HEMolotov;
+			sourceTree = "<group>";
+		};
+		4A83BBD41B1D29D0001E605E /* HEMolotov */ = {
+			isa = PBXGroup;
+			children = (
+				4A83BBD51B1D29F0001E605E /* mirage_h_cat_from_tapts.mp4 */,
+				4A83BBD61B1D29F0001E605E /* mirage_h_dark_from_palace.mp4 */,
+				4A83BBD71B1D29F0001E605E /* mirage_h_palace_from_dark.mp4 */,
+				4A83BBD81B1D29F0001E605E /* mirage_h_tsmokes_from_boxes.mp4 */,
+				4A83BBD91B1D29F0001E605E /* mirage_h_bwindow_from_apts.mp4 */,
+			);
+			name = HEMolotov;
+			sourceTree = "<group>";
+		};
 		4AD8B5BB1ABFA4B000BC5A7F /* de_dust2 */ = {
 			isa = PBXGroup;
 			children = (
+				4A83BBAF1B1D19A9001E605E /* HEMolotov */,
 				4AD8B5BD1ABFA4C000BC5A7F /* flashes */,
 				4AD8B5BC1ABFA4B600BC5A7F /* smokes */,
 			);
@@ -750,6 +878,11 @@
 				4AD8B5D41ABFA4D100BC5A7F /* de_dust2_flash_short_to_cat.mp4 */,
 				4AD8B5D51ABFA4D100BC5A7F /* de_dust2_flash_tspawn_to_long_1.mp4 */,
 				4AD8B5D61ABFA4D100BC5A7F /* de_dust2_flash_tspawn_to_long.mp4 */,
+				4AC2B24F1B1CC9EC003F8626 /* dust2_f_short_from_rail.mp4 */,
+				4AC2B2511B1CCA76003F8626 /* dust2_f_quad_from_short.mp4 */,
+				4AC2B2531B1CCB3F003F8626 /* dust2_f_middoor_from_ctspawn.mp4 */,
+				4AC2B2571B1CCC39003F8626 /* dust2_f_long_from_atun.mp4 */,
+				4AC2B2551B1CCBB7003F8626 /* dust2_f_middoor_from_ctmid.mp4 */,
 			);
 			name = flashes;
 			sourceTree = "<group>";
@@ -838,28 +971,39 @@
 				4A0683771AC2186000F637EF /* de_inferno_altmid_to_library.mp4 in Resources */,
 				4AD8B5791ABCDB5500BC5A7F /* dust2_smoke_ctmid_to_btunnel.mp4 in Resources */,
 				4AD8B5EA1ABFA4D100BC5A7F /* de_dust2_flash_mid_to_deepshort.mp4 in Resources */,
+				4A83BBC51B1D241A001E605E /* cache_h_balcony_from_bsite.mp4 in Resources */,
 				4AD8B5E01ABFA4D100BC5A7F /* de_dust2_flash_ctmid_to_bsite_3.mp4 in Resources */,
 				4A06841E1AC33D1600F637EF /* cache_f_mid_from_tmid.mp4 in Resources */,
 				4A3937FF1B1A80A9006B9EC9 /* mirage_f_b_from_apts2.mp4 in Resources */,
 				4AD8B5841ABCDB5500BC5A7F /* dust2_smoke_tspawn_to_mid.mp4 in Resources */,
 				4A3938041B1A80E3006B9EC9 /* de_mirage.png in Resources */,
 				4A06845B1AC3E5C400F637EF /* mirage_s_asite_from_apts.mp4 in Resources */,
+				4A83BBC81B1D241A001E605E /* cache_h_generator_from_toxic.mp4 in Resources */,
 				4A3938011B1A80A9006B9EC9 /* mirage_f_connector_from_jungle.mp4 in Resources */,
 				4A0683921AC22AC500F637EF /* de_inferno_flash_ctb_to_bplayground.mp4 in Resources */,
 				4A06840E1AC33D0E00F637EF /* cache_s_tmid_from_ctmid.mp4 in Resources */,
+				4A83BBDD1B1D29F0001E605E /* mirage_h_tsmokes_from_boxes.mp4 in Resources */,
+				4AC2B2561B1CCBB7003F8626 /* dust2_f_middoor_from_ctmid.mp4 in Resources */,
+				4A83BBBC1B1D19CF001E605E /* dust2_h_btun_from_lower.mp4 in Resources */,
 				4A3937E81B1A2308006B9EC9 /* delete_icon.png in Resources */,
 				4A0684061AC33D0E00F637EF /* cache_s_checkers_from_heaven.mp4 in Resources */,
+				4AC2B2501B1CC9EC003F8626 /* dust2_f_short_from_rail.mp4 in Resources */,
 				4A0683951AC22AC500F637EF /* de_inferno_flash_oranges1_to_bplayground.mp4 in Resources */,
 				4A06846A1AC3E5C400F637EF /* mirage_s_palace_from_short.mp4 in Resources */,
+				4AC2B2621B1CCCB8003F8626 /* inferno_f_b_from_ctsteps.mp4 in Resources */,
 				4A0684051AC33D0E00F637EF /* cache_s_bsite_from_toxic.mp4 in Resources */,
 				4A06845C1AC3E5C400F637EF /* mirage_s_asite_from_ashort.mp4 in Resources */,
 				4A0683BB1AC267A500F637EF /* de_overpass.png in Resources */,
 				4A0B398F1A9B1C0C004F8CC6 /* Main.storyboard in Resources */,
+				4A83BBC61B1D241A001E605E /* cache_h_bhall_from_bsite.mp4 in Resources */,
 				4AD8B5771ABCDB5500BC5A7F /* dust2_smoke_cat_to_ctspawn.mp4 in Resources */,
 				4AD8B5EE1ABFA4D100BC5A7F /* de_dust2_flash_tspawn_to_long_1.mp4 in Resources */,
+				4A83BBBF1B1D19CF001E605E /* dust2_h_short_from_a.mp4 in Resources */,
+				4AC2B2661B1CCCB8003F8626 /* inferno_f_quad_from_pit.mp4 in Resources */,
 				4AD8B57E1ABCDB5500BC5A7F /* dust2_smoke_long_to_short.mp4 in Resources */,
 				4A3938021B1A80A9006B9EC9 /* mirage_f_connector_from_tetris.mp4 in Resources */,
 				4A06838F1AC22AC500F637EF /* de_inferno_flash_archside_to_mid.mp4 in Resources */,
+				4A83BBD01B1D282E001E605E /* inferno_h_dark_from_alt.mp4 in Resources */,
 				4A06838D1AC22AC500F637EF /* de_inferno_flash_apts_to_balcony.mp4 in Resources */,
 				4A0684641AC3E5C400F637EF /* mirage_s_bsitex2_from_apts.mp4 in Resources */,
 				4A3937FA1B1A80A9006B9EC9 /* mirage_f_apts_from_bclose.mp4 in Resources */,
@@ -878,16 +1022,20 @@
 				4A0684751AC3E5C400F637EF /* mirage_s_window_from_tspawn.mp4 in Resources */,
 				4AD8B5E51ABFA4D100BC5A7F /* de_dust2_flash_ctramp to longcorner.mp4 in Resources */,
 				4A0683E71AC3239E00F637EF /* de_inferno_s_ctsp_to_ban.mp4 in Resources */,
+				4A83BBD21B1D282E001E605E /* inferno_h_noob_from_banana.mp4 in Resources */,
 				4A0684071AC33D0E00F637EF /* cache_s_ctmid_from_tspawn.mp4 in Resources */,
 				4AD8B57A1ABCDB5500BC5A7F /* dust2_smoke_ctmid_to_suicide.mp4 in Resources */,
 				4A06846D1AC3E5C400F637EF /* mirage_s_short_from_underpass.mp4 in Resources */,
 				4A0684731AC3E5C400F637EF /* mirage_s_window_from_apts.mp4 in Resources */,
 				4A3937DE1B197905006B9EC9 /* de_inferno_icon.png in Resources */,
+				4A83BBB91B1D19CF001E605E /* dust2_h_a_from_short.mp4 in Resources */,
+				4AC2B2641B1CCCB8003F8626 /* inferno_f_playground_from_spool.mp4 in Resources */,
 				4A0684021AC33D0E00F637EF /* cache_s_asite2_from_along.mp4 in Resources */,
 				4A3937F81B1A80A9006B9EC9 /* mirage_f_a_from_ashort.mp4 in Resources */,
 				4AD8B5801ABCDB5500BC5A7F /* dust2_smoke_mid_to_ctspawn_1.mp4 in Resources */,
 				4A06837B1AC2186000F637EF /* de_inferno_arches_to_pit.mp4 in Resources */,
 				4AD8B5DE1ABFA4D100BC5A7F /* de_dust2_flash_ctmid_to_bsite_1.mp4 in Resources */,
+				4A83BBD31B1D282E001E605E /* inferno_h_oranges_from_banana.mp4 in Resources */,
 				4AD8B5DB1ABFA4D100BC5A7F /* de_dust2_flash_bcar_to_btunnel.mp4 in Resources */,
 				4A0684691AC3E5C400F637EF /* mirage_s_kitchendoor_from_apts.mp4 in Resources */,
 				4A0683B31AC2679300F637EF /* de_cache.png in Resources */,
@@ -900,6 +1048,7 @@
 				4A3938001B1A80A9006B9EC9 /* mirage_f_b_from_bench.mp4 in Resources */,
 				4A06841C1AC33D1600F637EF /* cache_f_b_from_heaven.mp4 in Resources */,
 				4A0683E91AC3239E00F637EF /* de_inferno_smoke_tspawn_to_bananacar.mp4 in Resources */,
+				4A83BBBE1B1D19CF001E605E /* dust2_h_cat_from_ctspawn.mp4 in Resources */,
 				4A0684661AC3E5C400F637EF /* mirage_s_connector_from_tspawn.mp4 in Resources */,
 				4A0684011AC33D0E00F637EF /* cache_s_asite_from_amain.mp4 in Resources */,
 				4A0683DB1AC3239400F637EF /* de_inferno_f_grave_to_a.mp4 in Resources */,
@@ -916,10 +1065,12 @@
 				4A0684741AC3E5C400F637EF /* mirage_s_window_from_short.mp4 in Resources */,
 				4AA137781ABA351F0085A959 /* de_dust2.png in Resources */,
 				4AD8B5D71ABFA4D100BC5A7F /* de_dust2_flash_acar_to_long.mp4 in Resources */,
+				4A83BBDE1B1D29F0001E605E /* mirage_h_bwindow_from_apts.mp4 in Resources */,
 				4A3937DC1B197861006B9EC9 /* de_mirage_icon.png in Resources */,
 				4AD8B5E11ABFA4D100BC5A7F /* de_dust2_flash_ctmid_to_bsite.mp4 in Resources */,
 				4A0684101AC33D0E00F637EF /* cache_s_vent_from_truck.mp4 in Resources */,
 				4A3937E41B198374006B9EC9 /* download_icon.png in Resources */,
+				4AC2B2601B1CCCB8003F8626 /* inferno_f_archside_from_library.mp4 in Resources */,
 				4A0683E31AC3239E00F637EF /* de_inferno_s_alt_to_pit.mp4 in Resources */,
 				4AD8B5741ABCDB5500BC5A7F /* dust2_smoke_bluebox_to_tramp.mp4 in Resources */,
 				4A3937D61B1852FD006B9EC9 /* de_dust2_icon.png in Resources */,
@@ -927,6 +1078,7 @@
 				4A06845F1AC3E5C400F637EF /* mirage_s_bshort_from_apts.mp4 in Resources */,
 				4AD8B5DF1ABFA4D100BC5A7F /* de_dust2_flash_ctmid_to_bsite_2.mp4 in Resources */,
 				4A06845E1AC3E5C400F637EF /* mirage_s_bench_from_apts.mp4 in Resources */,
+				4A83BBDB1B1D29F0001E605E /* mirage_h_dark_from_palace.mp4 in Resources */,
 				4A0683781AC2186000F637EF /* de_inferno_altmid_to_pastarch.mp4 in Resources */,
 				4AD8B5E41ABFA4D100BC5A7F /* de_dust2_flash_ctramp to long.mp4 in Resources */,
 				4AC662671B0FBB61001CC31A /* small_icon_deselected_Flashes.png in Resources */,
@@ -936,7 +1088,9 @@
 				4A0684711AC3E5C400F637EF /* mirage_s_underpass_from_connector.mp4 in Resources */,
 				4A0683FF1AC33D0E00F637EF /* cache_s_abalc_from_along.mp4 in Resources */,
 				4A3937F91B1A80A9006B9EC9 /* mirage_f_a_from_asite.mp4 in Resources */,
+				4AC2B2631B1CCCB8003F8626 /* inferno_f_playground_from_btree.mp4 in Resources */,
 				4A8C843D1B16AC610026D5E1 /* Maps.plist in Resources */,
+				4AC2B2611B1CCCB8003F8626 /* inferno_f_archside_from_moto.mp4 in Resources */,
 				4A0684721AC3E5C400F637EF /* mirage_s_van_from_apts.mp4 in Resources */,
 				4AC662711B0FDCCF001CC31A /* small_icon_deselected_HEMolotov.png in Resources */,
 				4AD8B5DC1ABFA4D100BC5A7F /* de_dust2_flash_bplat_to_btunnel.mp4 in Resources */,
@@ -945,14 +1099,18 @@
 				4A06845D1AC3E5C400F637EF /* mirage_s_bapts_from_b.mp4 in Resources */,
 				4AD8B5E31ABFA4D100BC5A7F /* de_dust2_flash_ctramp to long_1.mp4 in Resources */,
 				4A06840B1AC33D0E00F637EF /* cache_s_mid_from_tmid.mp4 in Resources */,
+				4A83BBCF1B1D282E001E605E /* inferno_h_boiler_from_alt.mp4 in Resources */,
 				4AD8B5EF1ABFA4D100BC5A7F /* de_dust2_flash_tspawn_to_long.mp4 in Resources */,
 				4A0684081AC33D0E00F637EF /* cache_s_ctmid_from_tvan.mp4 in Resources */,
 				4A0683901AC22AC500F637EF /* de_inferno_flash_bplayground_to_ctbanana.mp4 in Resources */,
 				4A06840F1AC33D0E00F637EF /* cache_s_treeroomandbalacony_from_bmain.mp4 in Resources */,
 				4A06841A1AC33D1600F637EF /* cache_f_b_from_bmain.mp4 in Resources */,
 				4A06841D1AC33D1600F637EF /* cache_f_bmain_from_bsite.mp4 in Resources */,
+				4A83BBD11B1D282E001E605E /* inferno_h_mexico_from_tramp.mp4 in Resources */,
+				4AC2B2541B1CCB3F003F8626 /* dust2_f_middoor_from_ctspawn.mp4 in Resources */,
 				4A0683DA1AC3239400F637EF /* de_inferno_f_constr_to_bplay.mp4 in Resources */,
 				4A06840D1AC33D0E00F637EF /* cache_s_midboxes_from_tvan.mp4 in Resources */,
+				4A83BBBD1B1D19CF001E605E /* dust2_h_btun_from_lower2.mp4 in Resources */,
 				4A0683811AC2186000F637EF /* de_inferno_tspawn_to_banana.mp4 in Resources */,
 				4A0683D81AC3239400F637EF /* de_inferno_f_con_to_bpl.mp4 in Resources */,
 				4A0683941AC22AC500F637EF /* de_inferno_flash_mid_to_archside.mp4 in Resources */,
@@ -960,6 +1118,7 @@
 				4A0684681AC3E5C400F637EF /* mirage_s_ctspawn_from_ashort.mp4 in Resources */,
 				4A3937FC1B1A80A9006B9EC9 /* mirage_f_ashort_from_lowerdark.mp4 in Resources */,
 				4A06837F1AC2186000F637EF /* de_inferno_ctspawn_to_tbanana.mp4 in Resources */,
+				4A83BBDA1B1D29F0001E605E /* mirage_h_cat_from_tapts.mp4 in Resources */,
 				4A3937FB1B1A80A9006B9EC9 /* mirage_f_apts_from_bsite.mp4 in Resources */,
 				4A0684191AC33D1600F637EF /* cache_f_a_from_asite.mp4 in Resources */,
 				4A0683791AC2186000F637EF /* de_inferno_altmid_to_truck.mp4 in Resources */,
@@ -974,18 +1133,25 @@
 				4A06841B1AC33D1600F637EF /* cache_f_b_from_bsite.mp4 in Resources */,
 				4A0684091AC33D0E00F637EF /* cache_s_fork_backasite_from_boost.mp4 in Resources */,
 				4AD8B5781ABCDB5500BC5A7F /* dust2_smoke_ctmid_to_bcar.mp4 in Resources */,
+				4AC2B2651B1CCCB8003F8626 /* inferno_f_quad_from_asite.mp4 in Resources */,
 				4A0684601AC3E5C400F637EF /* mirage_s_bshortcubby_from_apts.mp4 in Resources */,
+				4A83BBBB1B1D19CF001E605E /* dust2_h_btun_from_b.mp4 in Resources */,
 				4A0684701AC3E5C400F637EF /* mirage_s_tramp_from_ct.mp4 in Resources */,
 				4A0683E61AC3239E00F637EF /* de_inferno_s_ctplayground_to_bcar.mp4 in Resources */,
 				4AD8B5D81ABFA4D100BC5A7F /* de_dust2_flash_a_to_long.mp4 in Resources */,
 				4A0683E41AC3239E00F637EF /* de_inferno_s_arch_to_ctbanana.mp4 in Resources */,
 				4A3937FD1B1A80A9006B9EC9 /* mirage_f_asite_from_palace.mp4 in Resources */,
 				4AD8B5E81ABFA4D100BC5A7F /* de_dust2_flash_elevator to long.mp4 in Resources */,
+				4A83BBB81B1D19CF001E605E /* dust2_h_a_from_ctramp.mp4 in Resources */,
 				4AD8B5761ABCDB5500BC5A7F /* dust2_smoke_cat_to_asite.mp4 in Resources */,
 				4A0684631AC3E5C400F637EF /* mirage_s_bsite_from_kitchen.mp4 in Resources */,
 				4AD8B57B1ABCDB5500BC5A7F /* dust2_smoke_ctspawn_to_ctmid.mp4 in Resources */,
 				4A06837A1AC2186000F637EF /* de_inferno_arches_to_banana.mp4 in Resources */,
+				4A83BBBA1B1D19CF001E605E /* dust2_h_backb_from_window.mp4 in Resources */,
+				4AC2B2581B1CCC39003F8626 /* dust2_f_long_from_atun.mp4 in Resources */,
 				4AD8B5ED1ABFA4D100BC5A7F /* de_dust2_flash_short_to_cat.mp4 in Resources */,
+				4A83BBC71B1D241A001E605E /* cache_h_bsite_from_toxic.mp4 in Resources */,
+				4A83BBDC1B1D29F0001E605E /* mirage_h_palace_from_dark.mp4 in Resources */,
 				4A0683911AC22AC500F637EF /* de_inferno_flash_closet_to_archside.mp4 in Resources */,
 				4AD8B5E71ABFA4D100BC5A7F /* de_dust2_flash_ctspawn_to_short.mp4 in Resources */,
 				4AD8B5DA1ABFA4D100BC5A7F /* de_dust2_flash_bbox_to_btunnel.mp4 in Resources */,
@@ -993,6 +1159,7 @@
 				4AD8B5D91ABFA4D100BC5A7F /* de_dust2_flash_bbackofsite_to_bsite.mp4 in Resources */,
 				4AD8B57C1ABCDB5500BC5A7F /* dust2_smoke_long_to_connector.mp4 in Resources */,
 				4A0683761AC2186000F637EF /* de_inferno_altmid_to_ctb.mp4 in Resources */,
+				4AC2B2521B1CCA76003F8626 /* dust2_f_quad_from_short.mp4 in Resources */,
 				4AD8B5DD1ABFA4D100BC5A7F /* de_dust2_flash_bsite_to_bsite.mp4 in Resources */,
 				4AD8B5821ABCDB5500BC5A7F /* dust2_smoke_tspawn_to_long_corner_1.mp4 in Resources */,
 				4A3937FE1B1A80A9006B9EC9 /* mirage_f_b_from_apts.mp4 in Resources */,
@@ -1020,8 +1187,7 @@
 				4A3937D21B17E33B006B9EC9 /* MapTableViewCell.m in Sources */,
 				4A076FF81A9EC10900073D9A /* NadeFrom.m in Sources */,
 				4A3937D41B1809A0006B9EC9 /* MapsTableViewController.m in Sources */,
-				4AA137471AB8FE070085A959 /* FlashSpotButton.m in Sources */,
-				4A076FF31A9EBD5000073D9A /* SmokeSpotButton.m in Sources */,
+				4A3938AB1B1AE736006B9EC9 /* MapsFileManager.m in Sources */,
 				4A0770001A9F0D7500073D9A /* NadeFromButton.m in Sources */,
 				4AA1374A1AB900C00085A959 /* NadeSpotButton.m in Sources */,
 				4A0B39891A9B1C0C004F8CC6 /* AppDelegate.m in Sources */,

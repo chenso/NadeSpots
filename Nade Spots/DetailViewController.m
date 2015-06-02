@@ -16,11 +16,10 @@
 @implementation DetailViewController
 @synthesize mapName;
 @synthesize mapDetails;
+@synthesize debug;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.debug = YES;
-    
     self.NSFM = [[NSFileManager alloc] init];
     
     //initialize arrays
@@ -41,12 +40,10 @@
     self.scrollView.frame = CGRectMake(0.0f, 0.0f, image.size.width, image.size.height);
     self.scrollView.minimumZoomScale = [[UIScreen mainScreen] bounds].size.width / image.size.width;
     self.scrollView.maximumZoomScale = 1.0;
-    self.scrollAvailable = self.scrollView.minimumZoomScale >= self.scrollView.maximumZoomScale;
-    if (self.scrollAvailable) {
-        self.mapView.center = self.view.center;
-    }
+    self.scrollAvailable = self.scrollView.minimumZoomScale <= self.scrollView.maximumZoomScale;
+    
     self.scrollView.delegate = self;
-    [self.scrollView setBackgroundColor:[UIColor blackColor] ];
+    [self.scrollView setBackgroundColor:[UIColor blackColor]];
     self.scrollView.canCancelContentTouches = YES;
     self.scrollView.delaysContentTouches = YES;
     UITapGestureRecognizer *doubleTapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(scrollViewDoubleTapped:)];
@@ -87,9 +84,9 @@
     [self loadNades];
     
     // initialize video player view
-    CGRect frame = [self videoViewScale];
-    self.videoView = [[UIView alloc] initWithFrame:frame];
-    self.videoView.backgroundColor = [UIColor whiteColor];
+    CGRect videoViewframe = [self videoViewScale];
+    self.videoView = [[UIView alloc] initWithFrame:videoViewframe];
+    self.videoView.backgroundColor = [UIColor clearColor];
     self.videoView.hidden = true;
     [self.view addSubview:self.videoView];
     
@@ -97,6 +94,7 @@
     UILabel * video_by = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.videoView.frame.size.width / 3, CHANNEL_PLUG_HEIGHT)];
     [video_by setText:@"video source:"];
     [video_by setFont:[UIFont fontWithName:@"AvenirNextCondensed-UltraLight" size:15]];
+    [video_by setBackgroundColor:[UIColor whiteColor]];
     [video_by setTextAlignment:NSTextAlignmentCenter];
     video_by.layer.shadowColor = [UIColor blackColor].CGColor;
     video_by.layer.shadowOffset = CGSizeMake(0.5f, 0.5f);
@@ -138,7 +136,40 @@
     [self.scrollView addSubview:self.transparentPlayerExiterButton];
     
     self.transparentPlayerExiterButton.hidden = true;
+    if (!self.scrollAvailable) {
+        self.mapView.center = self.view.center;
+    } else {
+        CGFloat centerx = self.mapView.center.x;
+        CGFloat centery = self.mapView.center.y;
+        CGFloat leftCornerx = centerx - self.view.frame.size.width / 2;
+        CGFloat leftCornery = centery - self.view.frame.size.height / 2;
+        [self.scrollView setContentOffset:CGPointMake(leftCornerx, leftCornery) animated:NO];
+    }
+}
+ 
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+-(CGRect) videoViewScale {
+    CGRect frame;
+    UIDeviceOrientation orientation = [[UIDevice currentDevice] orientation];
+    CGFloat videoWidth, videoHeight;
     
+    if (UIDeviceOrientationIsPortrait(orientation)) {
+        videoWidth = [[UIScreen mainScreen] bounds].size.width;
+    } else {
+        videoWidth = [[UIScreen mainScreen] bounds].size.width - 250.0;
+    }
+    
+    videoHeight = videoWidth * VIDEO_INVERSE_ASPECT + CHANNEL_PLUG_HEIGHT;
+    
+    CGFloat videoWidthMargin = ([[UIScreen mainScreen] bounds].size.width - videoWidth ) / 2.0;
+    CGFloat videoHeightTopMargin = ([[UIScreen mainScreen] bounds].size.height - (videoHeight + self.navigationController.navigationBar.frame.size.height)) / 3.0;
+    frame = CGRectMake(videoWidthMargin, videoHeightTopMargin, videoWidth, videoHeight);
+    return frame;
 }
 
 -(void) createNadeTypeSelectorButtonsForType:(NSString *) nadeType atIndex:(int) index numberTypes:(int) totalTypeAmount {
@@ -185,13 +216,8 @@
         
         // create button for the spot
         NadeSpot * aSpot = [[NadeSpot alloc] initWithX:[destination[@"xCord"] floatValue] Y:[destination[@"yCord"] floatValue]fromLocations:origins];
-        CGRect buttonLocation = CGRectMake(aSpot.xCord, aSpot.yCord, 45, 45);
-        NadeSpotButton * nadeButton;
-        if ([self.nadeType isEqualToString:@"Smokes"]) {
-            nadeButton = [[SmokeSpotButton alloc] initWithFrame:buttonLocation];
-        } else {
-            nadeButton = [[FlashSpotButton alloc] initWithFrame:buttonLocation];
-        }
+        CGRect buttonLocation = CGRectMake(aSpot.xCord, aSpot.yCord, NADE_BUTTON_DIM, NADE_BUTTON_DIM);
+        NadeSpotButton * nadeButton = [[NadeSpotButton alloc] initWithFrame:buttonLocation NadeType:self.nadeType];
         nadeButton.exclusiveTouch = YES;
         [nadeButton addTarget:self action:@selector(nadeDestButtonTouchUp:) forControlEvents:UIControlEventTouchUpInside];
         nadeButton.nadeFromSpots = aSpot.nadeFrom;
@@ -229,10 +255,10 @@
     [self clearNadeFrom];
     
     // prepare zoom and scroll to fit relevant buttons
-    CGFloat rightmost = myButton.frame.origin.x;
-    CGFloat leftmost = rightmost;
+    CGFloat leftmost = myButton.frame.origin.x;
+    CGFloat rightmost = leftmost + myButton.frame.size.width;
     CGFloat topmost = myButton.frame.origin.y;
-    CGFloat botmost = topmost;
+    CGFloat botmost = topmost + myButton.frame.size.height;
 
     for (NadeFrom * aSpot in myButton.nadeFromSpots) {
         // check button location to determine scoll edges
@@ -242,7 +268,7 @@
         botmost = botmost > aSpot.yCord ? botmost : aSpot.yCord;
         
         // make NadeFromButtons for destination button
-        CGRect buttonLocation = CGRectMake(aSpot.xCord, aSpot.yCord, 35, 35);
+        CGRect buttonLocation = CGRectMake(aSpot.xCord, aSpot.yCord, PLAYER_BUTTON_DIM, PLAYER_BUTTON_DIM);
         NadeFromButton * nadeFromButton = [[NadeFromButton alloc] initWithPath:aSpot.path video_creator:aSpot.video_creator];
         nadeFromButton.frame = buttonLocation;
         [nadeFromButton addTarget:self action:@selector(nadeOriginButtonTouchUp:) forControlEvents:UIControlEventTouchUpInside];
@@ -256,21 +282,25 @@
         
         [self.nadeFromButtons addObject:nadeFromButton];
     }
+    if (self.debug) {
+        NSLog(@"Leftmost: %f, Rightmost: %f, Topmost: %f, Botmost: %f", leftmost, rightmost, topmost, botmost);
+    }
     
     // scroll to relevant area
     //TODO
     if (self.scrollAvailable) {
-        
+        leftmost -= PLAYER_BUTTON_DIM;
+        rightmost += PLAYER_BUTTON_DIM;
+        CGFloat width = rightmost - leftmost;
+        CGFloat height = (botmost - topmost) +BOTTOM_BAR_HEIGHT + 2 * PLAYER_BUTTON_DIM;
+        CGRect relevantNadesBox = CGRectMake(leftmost, topmost, width, height);
+        [self.scrollView zoomToRect:relevantNadesBox animated:YES];
     }
     
     // switch other NadeSpotButtons to deselected image
 
     for (NadeSpotButton * buttonToDeselect in self.nadeSpotButtons){
-        if (buttonToDeselect != myButton) {
-            [buttonToDeselect deselect];
-        } else {
-            [buttonToDeselect defaultImage];
-        }
+        buttonToDeselect.selected = buttonToDeselect == myButton;
     }
     self.currentlySelectedSpot = myButton;
     [[UIApplication sharedApplication] endIgnoringInteractionEvents];
@@ -295,6 +325,13 @@
         NSLog(@"Unable to locate file for filename %@", filename);
         return;
     }
+    self.adView = [[ADBannerView alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height, 0, 0)];
+    [self.adView setDelegate:self];
+    [self.adView setAutoresizingMask:UIViewAutoresizingFlexibleWidth];
+    self.adView.hidden = YES;
+    [self.view addSubview:self.adView];
+    
+    //self.adView.frame  = CGRectOffset(self.adView.frame, 0, );
     NSString * logoName = [video_creator stringByAppendingString:@"_logo"];
     [self.channelLogo setImage:[UIImage imageNamed:logoName] forState:UIControlStateNormal];
     self.videoPlayer = [[MPMoviePlayerController alloc] initWithContentURL:videoURL];
@@ -312,11 +349,14 @@
                      completion:nil];
 }
 
--(void)dismissVideoPlayer:(UIButton *) sender{
+-(void) dismissVideoPlayer:(UIButton *) sender{
     [self.videoPlayer stop];
     self.videoView.hidden = YES;
     [UIView animateWithDuration:0.25 delay:0 options:UIViewAnimationOptionCurveEaseInOut
                      animations:^{
+                         self.adView.frame = CGRectOffset(self.adView.frame, 0, self.adView.frame.size.height);
+                         [self.adView removeFromSuperview];
+                         self.adView = 0;
                          sender.alpha = 0.0f;
                          self.nadesBottomBar.frame = CGRectOffset(self.nadesBottomBar.frame, 0, -BOTTOM_BAR_HEIGHT);
                      }
@@ -346,9 +386,17 @@
     [nadeButtons removeAllObjects];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+#pragma mark - ADBannerViewDelegate
+- (void)bannerViewDidLoadAd:(ADBannerView *)banner
+{
+    NSLog(@"banner loaded");
+    
+    // Display BannerView
+    self.adView.hidden = NO;
+    [UIView animateWithDuration:0.4f
+                     animations:^{
+                         self.adView.frame = CGRectOffset(self.adView.frame, 0, -self.adView.frame.size.height);
+                     }];
 }
 
 #pragma mark - UIGestureHandling
@@ -404,8 +452,15 @@
     self.mapView.frame = contentsFrame;
 }
 
+/*
 -(void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation {
-    
+    if (self.adView) {
+        if (self.adView.isBannerLoaded) {
+            self.adView.frame = CGRectMake(0, self.view.frame.size.height - self.adView.frame.size.height, 0, 0);
+        } else {
+            
+        }
+    }
     NSUInteger nadeTypeCount = self.nadeTypeButtons.count;
     CGFloat screen_height = [[UIScreen mainScreen] applicationFrame].size.height - self.navigationController.navigationBar.frame.size.height;
     CGFloat bottom_bar_y_height = self.videoView.hidden ? screen_height - BOTTOM_BAR_HEIGHT : screen_height;
@@ -424,36 +479,8 @@
         self.mapView.center = self.view.center;
     }
     self.videoView.frame = [self videoViewScale];
-    self.channelName.frame = CGRectMake(self.videoView.frame.size.width / 2, 0, self.videoView.frame.size.width / 2, CHANNEL_PLUG_HEIGHT);
+    self.channelName.frame = CGRectMake(self.videoView.frame.size.width / 3, 0, self.videoView.frame.size.width * 2 / 3, CHANNEL_PLUG_HEIGHT);
     [[self.videoPlayer view] setFrame:CGRectMake(0, CHANNEL_PLUG_HEIGHT, self.videoView.frame.size.width, self.videoView.frame.size.height - CHANNEL_PLUG_HEIGHT)];
-}
-
--(CGRect) videoViewScale {
-    CGRect frame;
-    UIDeviceOrientation orientation = [[UIDevice currentDevice] orientation];
-    CGFloat videoWidth, videoHeight;
-    
-    if (UIDeviceOrientationIsPortrait(orientation)) {
-        videoWidth = [[UIScreen mainScreen] bounds].size.width;
-    } else {
-        videoWidth = [[UIScreen mainScreen] bounds].size.width - 250.0;
-    }
-    
-    videoHeight = videoWidth * VIDEO_INVERSE_ASPECT + CHANNEL_PLUG_HEIGHT;
-    
-    CGFloat videoWidthMargin = ([[UIScreen mainScreen] bounds].size.width - videoWidth ) / 2.0;
-    CGFloat videoHeightMargin = ([[UIScreen mainScreen] bounds].size.height - (videoHeight + self.navigationController.navigationBar.frame.size.height)) / 2.0 ;
-    frame = CGRectMake(videoWidthMargin, videoHeightMargin, videoWidth, videoHeight);
-    return frame;
-}
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
 }
 */
 

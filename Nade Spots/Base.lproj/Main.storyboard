@@ -73,6 +73,7 @@
                                 <connections>
                                     <outlet property="downloadButton" destination="6Zj-0s-Rz1" id="SMJ-zH-QoY"/>
                                     <outlet property="mapImage" destination="Sz5-xP-mlJ" id="WqK-ZC-OQP"/>
+                                    <outlet property="mapSubtitle" destination="9D0-kR-aps" id="oXA-8h-OSk"/>
                                     <outlet property="mapTitle" destination="foN-ZG-4mK" id="Vnp-QG-17f"/>
                                     <segue destination="Qmb-iD-iel" kind="push" id="N5a-XR-GGV"/>
                                 </connections>

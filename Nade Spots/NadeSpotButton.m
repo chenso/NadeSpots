@@ -11,11 +11,19 @@
 @implementation NadeSpotButton
 
 @synthesize nadeFromSpots = _nadeFromSpots;
--(void) deselect{
-
+-(id) initWithFrame:(CGRect)frame NadeType:(NSString *) nadeType {
+    if (self = [super initWithFrame:frame]) {
+        self.nadeType = nadeType;
+    }
+    return self;
 }
--(void) defaultImage {
+
+-(void)drawRect:(CGRect)rect {
+    UIImage * defaultImage = [UIImage imageNamed:[NSString stringWithFormat:@"%@_deselected",self.nadeType]];
+    [self setImage:defaultImage forState:UIControlStateNormal];
     
+    UIImage * selectedImage =[UIImage imageNamed:[NSString stringWithFormat:@"%@_selected",self.nadeType]];
+    [self setImage:selectedImage forState:UIControlStateSelected];
 }
 
 @end

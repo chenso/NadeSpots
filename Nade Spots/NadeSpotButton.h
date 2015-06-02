@@ -10,6 +10,7 @@
 
 @interface NadeSpotButton : UIButton
 @property (strong, nonatomic) NSArray * nadeFromSpots;
--(void) deselect;
--(void) defaultImage;
+@property (strong, nonatomic) NSString * nadeType;
+
+-(id) initWithFrame:(CGRect)frame NadeType:(NSString *) nadeType;
 @end

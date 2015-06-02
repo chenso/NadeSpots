@@ -7,17 +7,20 @@
 //
 
 #import "NadeSpot.h"
-#import "SmokeSpotButton.h"
 #import "NadeFromButton.h"
-#import "FlashSpotButton.h"
+#import "NadeSpotButton.h"
+#import <iAd/iAd.h>
 #import <MediaPlayer/MediaPlayer.h>
 #import <QuartzCore/QuartzCore.h>
 
 #define BOTTOM_BAR_HEIGHT 40
 #define VIDEO_INVERSE_ASPECT 0.5625
 #define CHANNEL_PLUG_HEIGHT 40
+#define IADBANNER_HEIGHT 50
+#define NADE_BUTTON_DIM 45
+#define PLAYER_BUTTON_DIM 35
 
-@interface DetailViewController : UIViewController <UIScrollViewDelegate>
+@interface DetailViewController : UIViewController <UIScrollViewDelegate, ADBannerViewDelegate>
 
 @property (strong, nonatomic) NSString * mapName;
 @property (nonatomic, strong) UIScrollView *scrollView;
@@ -35,6 +38,7 @@
 @property (strong, nonatomic) UIButton * channelName;
 @property (strong, nonatomic) UIButton * channelLogo;
 @property (strong, nonatomic) NSFileManager * NSFM;
+@property (strong, nonatomic) ADBannerView * adView;
 @property BOOL debug;
 
 @property bool scrollAvailable;

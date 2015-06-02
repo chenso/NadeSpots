@@ -10,6 +10,7 @@
 
 @interface MapTableViewCell : UITableViewCell
 @property (nonatomic, weak) IBOutlet UILabel * mapTitle;
+@property (nonatomic, weak) IBOutlet UILabel * mapSubtitle;
 @property (nonatomic, weak) IBOutlet UIImageView * mapImage;
 @property (nonatomic, weak) IBOutlet UIButton * downloadButton;
 @end

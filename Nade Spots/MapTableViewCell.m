@@ -12,4 +12,5 @@
 @synthesize mapTitle = _mapTitle;
 @synthesize mapImage = _mapImage;
 @synthesize downloadButton = _downloadButton;
+@synthesize mapSubtitle = _mapSubtitle;
 @end
