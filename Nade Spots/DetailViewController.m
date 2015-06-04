@@ -221,18 +221,17 @@
             if (![key isEqualToString:@"xCord"] && ![key isEqualToString:@"yCord"]) {
                 // add all origins to single destination spot
                 NSDictionary * anOrigin = [destination objectForKey:key];
-                NadeFrom * originSpot = [[NadeFrom alloc] initWithPath:anOrigin[@"path"] xCord:[anOrigin[@"xCord"] floatValue] yCord:[anOrigin[@"yCord"] floatValue] video_creator:anOrigin[@"creator"]];
-                [origins addObject:originSpot];
+                CGRect buttonLocation = CGRectMake([anOrigin[@"xCord"] floatValue], [anOrigin[@"yCord"] floatValue], PLAYER_BUTTON_DIM, PLAYER_BUTTON_DIM);
+                NadeFromButton * originButton = [[NadeFromButton alloc] initWithFrame:buttonLocation path:anOrigin[@"path"] video_creator:anOrigin[@"creator"]];
+                [origins addObject:originButton];
             }
         }
         
         // create button for the spot
-        NadeSpot * aSpot = [[NadeSpot alloc] initWithX:[destination[@"xCord"] floatValue] Y:[destination[@"yCord"] floatValue]fromLocations:origins];
-        CGRect buttonLocation = CGRectMake(aSpot.xCord, aSpot.yCord, NADE_BUTTON_DIM, NADE_BUTTON_DIM);
-        NadeSpotButton * nadeButton = [[NadeSpotButton alloc] initWithFrame:buttonLocation NadeType:self.nadeType];
+        CGRect buttonLocation = CGRectMake([destination[@"xCord"] floatValue], [destination[@"yCord"] floatValue], NADE_BUTTON_DIM, NADE_BUTTON_DIM);
+        NadeSpotButton * nadeButton = [[NadeSpotButton alloc] initWithFrame:buttonLocation NadeType:self.nadeType nadeFromSpots:origins];
         nadeButton.exclusiveTouch = YES;
         [nadeButton addTarget:self action:@selector(nadeDestButtonTouchUp:) forControlEvents:UIControlEventTouchUpInside];
-        nadeButton.nadeFromSpots = aSpot.nadeFrom;
         nadeButton.alpha = 0.0;
         
         //animate button appear
@@ -289,17 +288,16 @@
     CGFloat topmost = myButton.frame.origin.y;
     CGFloat botmost = topmost + myButton.frame.size.height;
 
-    for (NadeFrom * aSpot in myButton.nadeFromSpots) {
+    for (NadeFromButton * aSpot in myButton.nadeFromSpots) {
         // check button location to determine scoll edges
-        rightmost = rightmost > aSpot.xCord ? rightmost : aSpot.xCord;
-        leftmost = leftmost < aSpot.xCord ? leftmost : aSpot.xCord;
-        topmost = topmost < aSpot.yCord ? topmost : aSpot.yCord;
-        botmost = botmost > aSpot.yCord ? botmost : aSpot.yCord;
+        rightmost = rightmost > aSpot.frame.origin.x ? rightmost : aSpot.frame.origin.x;
+        leftmost = leftmost < aSpot.frame.origin.x ? leftmost : aSpot.frame.origin.x;
+        topmost = topmost < aSpot.frame.origin.y ? topmost : aSpot.frame.origin.y;
+        botmost = botmost > aSpot.frame.origin.y ? botmost : aSpot.frame.origin.y;
         
         // make NadeFromButtons for destination button
-        CGRect buttonLocation = CGRectMake(aSpot.xCord, aSpot.yCord, PLAYER_BUTTON_DIM, PLAYER_BUTTON_DIM);
-        NadeFromButton * nadeFromButton = [[NadeFromButton alloc] initWithPath:aSpot.path video_creator:aSpot.video_creator];
-        nadeFromButton.frame = buttonLocation;
+        CGRect buttonLocation = CGRectMake(aSpot.frame.origin.x, aSpot.frame.origin.y, PLAYER_BUTTON_DIM, PLAYER_BUTTON_DIM);
+        NadeFromButton * nadeFromButton = [[NadeFromButton alloc] initWithFrame:buttonLocation path:aSpot.path video_creator:aSpot.video_creator];
         [nadeFromButton addTarget:self action:@selector(nadeOriginButtonTouchUp:) forControlEvents:UIControlEventTouchUpInside];
 
         CGAffineTransform trans = CGAffineTransformScale(nadeFromButton.transform, 0.01, 0.01);

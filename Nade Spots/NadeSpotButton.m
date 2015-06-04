@@ -11,9 +11,10 @@
 @implementation NadeSpotButton
 
 @synthesize nadeFromSpots = _nadeFromSpots;
--(id) initWithFrame:(CGRect)frame NadeType:(NSString *) nadeType {
+-(id) initWithFrame:(CGRect)frame NadeType:(NSString *) nadeType nadeFromSpots:(NSArray *) nadeFromSpots{
     if (self = [super initWithFrame:frame]) {
         self.nadeType = nadeType;
+        self.nadeFromSpots = nadeFromSpots;
     }
     return self;
 }

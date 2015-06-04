@@ -5,8 +5,6 @@
 //  Created by Songge Chen on 2/25/15.
 //  Copyright (c) 2015 Songge Chen. All rights reserved.
 //
-
-#import "NadeSpot.h"
 #import "NadeFromButton.h"
 #import "NadeSpotButton.h"
 #import <iAd/iAd.h>

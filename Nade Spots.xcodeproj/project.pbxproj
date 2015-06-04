@@ -98,8 +98,6 @@
 		4A0684731AC3E5C400F637EF /* mirage_s_window_from_apts.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 4A0684581AC3E5C400F637EF /* mirage_s_window_from_apts.mp4 */; };
 		4A0684741AC3E5C400F637EF /* mirage_s_window_from_short.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 4A0684591AC3E5C400F637EF /* mirage_s_window_from_short.mp4 */; };
 		4A0684751AC3E5C400F637EF /* mirage_s_window_from_tspawn.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 4A06845A1AC3E5C400F637EF /* mirage_s_window_from_tspawn.mp4 */; };
-		4A076FF81A9EC10900073D9A /* NadeFrom.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A076FF51A9EC10900073D9A /* NadeFrom.m */; };
-		4A076FF91A9EC10900073D9A /* NadeSpot.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A076FF71A9EC10900073D9A /* NadeSpot.m */; };
 		4A0770001A9F0D7500073D9A /* NadeFromButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A076FFF1A9F0D7500073D9A /* NadeFromButton.m */; };
 		4A0B39861A9B1C0C004F8CC6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A0B39851A9B1C0C004F8CC6 /* main.m */; };
 		4A0B39891A9B1C0C004F8CC6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A0B39881A9B1C0C004F8CC6 /* AppDelegate.m */; };
@@ -327,10 +325,6 @@
 		4A0684581AC3E5C400F637EF /* mirage_s_window_from_apts.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = mirage_s_window_from_apts.mp4; sourceTree = "<group>"; };
 		4A0684591AC3E5C400F637EF /* mirage_s_window_from_short.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = mirage_s_window_from_short.mp4; sourceTree = "<group>"; };
 		4A06845A1AC3E5C400F637EF /* mirage_s_window_from_tspawn.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = mirage_s_window_from_tspawn.mp4; sourceTree = "<group>"; };
-		4A076FF41A9EC10900073D9A /* NadeFrom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NadeFrom.h; sourceTree = "<group>"; };
-		4A076FF51A9EC10900073D9A /* NadeFrom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NadeFrom.m; sourceTree = "<group>"; };
-		4A076FF61A9EC10900073D9A /* NadeSpot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NadeSpot.h; sourceTree = "<group>"; };
-		4A076FF71A9EC10900073D9A /* NadeSpot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NadeSpot.m; sourceTree = "<group>"; };
 		4A076FFE1A9F0D7500073D9A /* NadeFromButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NadeFromButton.h; sourceTree = "<group>"; };
 		4A076FFF1A9F0D7500073D9A /* NadeFromButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NadeFromButton.m; sourceTree = "<group>"; };
 		4A0B39801A9B1C0C004F8CC6 /* Nade Spots.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Nade Spots.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -709,12 +703,10 @@
 				4A0770071AA07B1600073D9A /* Videos */,
 				4A076FFE1A9F0D7500073D9A /* NadeFromButton.h */,
 				4A076FFF1A9F0D7500073D9A /* NadeFromButton.m */,
-				4A076FF41A9EC10900073D9A /* NadeFrom.h */,
-				4A076FF51A9EC10900073D9A /* NadeFrom.m */,
-				4A076FF61A9EC10900073D9A /* NadeSpot.h */,
+				4AA137481AB900C00085A959 /* NadeSpotButton.h */,
+				4AA137491AB900C00085A959 /* NadeSpotButton.m */,
 				4A3938A91B1AE735006B9EC9 /* MapsFileManager.h */,
 				4A3938AA1B1AE736006B9EC9 /* MapsFileManager.m */,
-				4A076FF71A9EC10900073D9A /* NadeSpot.m */,
 				4A0B39B81A9E98DC004F8CC6 /* DetailViewController.h */,
 				4A0B39B91A9E98DC004F8CC6 /* DetailViewController.m */,
 				4A83BBDF1B1FB9AF001E605E /* MapsNavigationController.h */,
@@ -724,8 +716,6 @@
 				4A8C843C1B16AC610026D5E1 /* Maps.plist */,
 				4A3937D01B17E33B006B9EC9 /* MapTableViewCell.h */,
 				4A3937D11B17E33B006B9EC9 /* MapTableViewCell.m */,
-				4AA137481AB900C00085A959 /* NadeSpotButton.h */,
-				4AA137491AB900C00085A959 /* NadeSpotButton.m */,
 				4A0B39871A9B1C0C004F8CC6 /* AppDelegate.h */,
 				4A0B39881A9B1C0C004F8CC6 /* AppDelegate.m */,
 				4A0B398D1A9B1C0C004F8CC6 /* Main.storyboard */,
@@ -1259,9 +1249,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4A076FF91A9EC10900073D9A /* NadeSpot.m in Sources */,
 				4A3937D21B17E33B006B9EC9 /* MapTableViewCell.m in Sources */,
-				4A076FF81A9EC10900073D9A /* NadeFrom.m in Sources */,
 				4A3937D41B1809A0006B9EC9 /* MapsTableViewController.m in Sources */,
 				4A83BBE11B1FB9AF001E605E /* MapsNavigationController.m in Sources */,
 				4A3938AB1B1AE736006B9EC9 /* MapsFileManager.m in Sources */,

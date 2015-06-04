@@ -12,5 +12,5 @@
 @property (strong, nonatomic) NSArray * nadeFromSpots;
 @property (strong, nonatomic) NSString * nadeType;
 
--(id) initWithFrame:(CGRect)frame NadeType:(NSString *) nadeType;
+-(id) initWithFrame:(CGRect)frame NadeType:(NSString *) nadeType nadeFromSpots:(NSArray *) nadeFromSpots;
 @end

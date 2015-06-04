@@ -12,8 +12,8 @@
 @synthesize path = _path;
 @synthesize video_creator = _video_creator;
 
--(id) initWithPath:(NSString *)path video_creator:(NSString *)video_creator{
-    if (self = [super init]) {
+-(id) initWithFrame:(CGRect)frame path:(NSString *)path video_creator:(NSString *)video_creator{
+    if (self = [super initWithFrame:frame]) {
         self.path = path;
         self.video_creator = video_creator;
     }
@@ -22,7 +22,7 @@
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.
 - (void)drawRect:(CGRect)rect {
-    [self setImage:[UIImage imageNamed:@"nadeFromIcon"] forState:UIControlStateNormal];
+    [self setImage:[UIImage imageNamed:@IMAGE_KEY] forState:UIControlStateNormal];
 
 }
 

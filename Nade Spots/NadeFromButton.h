@@ -8,10 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
+#define IMAGE_KEY "nadeFromIcon"
+
 @interface NadeFromButton : UIButton
 @property NSString * path;
 @property NSString * video_creator;
 
--(id) initWithPath:(NSString *)path video_creator:(NSString *)video_creator;
+-(id) initWithFrame:(CGRect)frame path:(NSString *)path video_creator:(NSString *)video_creator;
 
 @end
