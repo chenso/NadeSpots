@@ -20,6 +20,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+
     self.NSFM = [[NSFileManager alloc] init];
     
     //initialize arrays
@@ -37,11 +38,18 @@
     
     // initial and minimum zoom fill screen by x-axis
     [self.scrollView setContentSize:image.size];
-    self.scrollView.frame = CGRectMake(0.0f, 0.0f, image.size.width, image.size.height);
-    self.scrollView.minimumZoomScale = [[UIScreen mainScreen] bounds].size.width / image.size.width;
-    self.scrollView.maximumZoomScale = 1.0;
-    self.scrollAvailable = self.scrollView.minimumZoomScale <= self.scrollView.maximumZoomScale;
-    
+    self.scrollView.minimumZoomScale = [self.view bounds].size.width / image.size.width;
+
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
+        self.scrollView.maximumZoomScale = 1.0f;
+    } else {
+        self.scrollView.maximumZoomScale = 1.5f;
+    }
+    if (self.debug) {
+        NSLog(@"minscale: %f, maxscale: %f", self.scrollView.minimumZoomScale, self.scrollView.maximumZoomScale);
+    }
+    //self.scrollAvailable = self.scrollView.minimumZoomScale <= self.scrollView.maximumZoomScale;
+    self.scrollAvailable = YES;
     self.scrollView.delegate = self;
     [self.scrollView setBackgroundColor:[UIColor blackColor]];
     self.scrollView.canCancelContentTouches = YES;
@@ -57,25 +65,21 @@
     [self.scrollView addGestureRecognizer:twoFingerTapRecognizer];
     
     // initialize showSmokes and showFlashes buttons
-    self.nadesBottomBar = [[UIView alloc] initWithFrame:CGRectMake(0, [[UIScreen mainScreen] applicationFrame].size.height - (BOTTOM_BAR_HEIGHT + self.navigationController.navigationBar.frame.size.height), [[UIScreen mainScreen] applicationFrame].size.width, 40)];
-    [self.nadesBottomBar setBackgroundColor:[[UIColor colorWithRed:0.937f green:0.325f blue:0.314f alpha:1.0f] colorWithAlphaComponent:0.4f]];
-    
-    [self.view addSubview:self.nadesBottomBar];
     NSArray * nadeTypes = @[@"Smokes", @"Flashes", @"HEMolotov"];
-    
+    self.nadesBottomBar = [[UIView alloc] initWithFrame: CGRectMake(0, [[UIScreen mainScreen] applicationFrame].size.height - BOTTOM_BAR_HEIGHT - self.navigationController.navigationBar.frame.size.height, self.view.frame.size.width, BOTTOM_BAR_HEIGHT)];
     // create effect
+    [self.nadesBottomBar setBackgroundColor:[[UIColor colorWithRed:0.937f green:0.325f blue:0.314f alpha:1.0f] colorWithAlphaComponent:0.4f]];
     UIBlurEffect *blur = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
     
     // add effect to an effect view
     UIVisualEffectView *effectView = [[UIVisualEffectView alloc]initWithEffect:blur];
-    effectView.frame = self.nadesBottomBar.bounds;
+    effectView.frame = CGRectMake(0, 0, MAX([[UIScreen mainScreen] bounds].size.height, [[UIScreen mainScreen] bounds].size.width), BOTTOM_BAR_HEIGHT);
     
     [self.nadesBottomBar addSubview:effectView];
-    
     for (int i = 0; i < nadeTypes.count; i++) {
         [self createNadeTypeSelectorButtonsForType:[nadeTypes objectAtIndex:i] atIndex:i numberTypes:(int)nadeTypes.count];
     }
-    
+    [self.view addSubview:self.nadesBottomBar];
     // Default nades are smokes
     UIButton * defaultSelection =[self.nadeTypeButtons objectAtIndex:0];
     self.nadeType = [NSMutableString stringWithFormat:@"%@", [defaultSelection titleForState:UIControlStateNormal]];
@@ -91,17 +95,17 @@
     [self.view addSubview:self.videoView];
     
     // add channel link and graphic to video player view
-    UILabel * video_by = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.videoView.frame.size.width / 3, CHANNEL_PLUG_HEIGHT)];
-    [video_by setText:@"video source:"];
-    [video_by setFont:[UIFont fontWithName:@"AvenirNextCondensed-UltraLight" size:15]];
-    [video_by setBackgroundColor:[UIColor whiteColor]];
-    [video_by setTextAlignment:NSTextAlignmentCenter];
-    video_by.layer.shadowColor = [UIColor blackColor].CGColor;
-    video_by.layer.shadowOffset = CGSizeMake(0.5f, 0.5f);
-    video_by.layer.shadowRadius = 5.5f;
-    video_by.layer.shadowOpacity = 0.2f;
-    video_by.adjustsFontSizeToFitWidth = YES;
-    [self.videoView addSubview:video_by];
+    self.video_by = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.videoView.frame.size.width / 3, CHANNEL_PLUG_HEIGHT)];
+    [self.video_by setText:@"video source:"];
+    [self.video_by setFont:[UIFont fontWithName:@"AvenirNextCondensed-UltraLight" size:15]];
+    [self.video_by setBackgroundColor:[UIColor whiteColor]];
+    [self.video_by setTextAlignment:NSTextAlignmentCenter];
+    self.video_by.layer.shadowColor = [UIColor blackColor].CGColor;
+    self.video_by.layer.shadowOffset = CGSizeMake(0.5f, 0.5f);
+    self.video_by.layer.shadowRadius = 5.5f;
+    self.video_by.layer.shadowOpacity = 0.2f;
+    self.video_by.adjustsFontSizeToFitWidth = YES;
+    [self.videoView addSubview:self.video_by];
     
     self.channelName = [[UIButton alloc] initWithFrame:CGRectMake(self.videoView.frame.size.width / 3, 0, self.videoView.frame.size.width * 2 / 3, CHANNEL_PLUG_HEIGHT)];
     [self.channelName.titleLabel setTextAlignment:NSTextAlignmentRight];
@@ -118,35 +122,43 @@
     self.channelName.titleLabel.adjustsFontSizeToFitWidth = YES;
     [self.videoView addSubview:self.channelName];
     
-    self.channelLogo = [[UIButton alloc] initWithFrame:CGRectMake(self.videoView.frame.size.width / 3 - CHANNEL_PLUG_HEIGHT /3, CHANNEL_PLUG_HEIGHT / 6, CHANNEL_PLUG_HEIGHT * 5 / 6, CHANNEL_PLUG_HEIGHT * 5 / 6)];
+    self.channelLogo = [[UIButton alloc] initWithFrame:[self getChannelLogoFrame]];
     
     [self.channelLogo addTarget:self action:@selector(openYT) forControlEvents:UIControlEventTouchUpInside];
-    self.channelLogo.layer.shadowColor = [UIColor colorWithRed:0.702f green:0.071f blue:0.09f alpha:1.0f].CGColor;
-    self.channelLogo.layer.shadowOffset = CGSizeMake(2.0f, 2.0f);
+    self.channelLogo.layer.shadowColor = UIColorFromRGB(0x2f342b).CGColor;
+    self.channelLogo.layer.shadowOffset = CGSizeMake(1.0f, 1.0f);
     self.channelLogo.layer.shadowRadius = 1.5f;
-    self.channelLogo.layer.shadowOpacity = 0.8f;
+    self.channelLogo.layer.shadowOpacity = 0.6f;
     
     [self.videoView addSubview:self.channelLogo];
     
     // create transparent button on superview for removing the video player view
-    self.transparentPlayerExiterButton = [[UIButton alloc] initWithFrame:self.scrollView.bounds];
+    //self.transparentPlayerExiterButton = [[UIButton alloc] initWithFrame:self.scrollView.bounds];
     self.transparentPlayerExiterButton.backgroundColor = [UIColor blackColor];
     self.transparentPlayerExiterButton.alpha = 0.0f;
     [self.transparentPlayerExiterButton addTarget:self action:@selector(dismissVideoPlayer:) forControlEvents:UIControlEventTouchUpInside];
     [self.scrollView addSubview:self.transparentPlayerExiterButton];
     
     self.transparentPlayerExiterButton.hidden = true;
-    if (!self.scrollAvailable) {
-        self.mapView.center = self.view.center;
-    } else {
-        CGFloat centerx = self.mapView.center.x;
-        CGFloat centery = self.mapView.center.y;
-        CGFloat leftCornerx = centerx - self.view.frame.size.width / 2;
-        CGFloat leftCornery = centery - self.view.frame.size.height / 2;
-        [self.scrollView setContentOffset:CGPointMake(leftCornerx, leftCornery) animated:NO];
+    self.scrollView.zoomScale = self.scrollView.maximumZoomScale;
+    CGFloat centerx = self.mapView.center.x;
+    CGFloat centery = self.mapView.center.y;
+    CGFloat leftCornerx = centerx - self.view.frame.size.width / 2;
+    CGFloat leftCornery = centery - self.view.frame.size.height / 2;
+    NSLog(@"%f, %f", leftCornerx, leftCornery);
+    [self.scrollView setContentOffset:CGPointMake(leftCornerx, leftCornery) animated:NO];
+    [self.view bringSubviewToFront:self.transparentPlayerExiterButton];
+    [self.view bringSubviewToFront:self.nadesBottomBar];
+    for (UIButton * nadeTypeButton in self.nadeTypeButtons) {
+        nadeTypeButton.userInteractionEnabled = YES;
+        [self.nadesBottomBar bringSubviewToFront:nadeTypeButton];
     }
+    self.nadesBottomBar.userInteractionEnabled = YES;
 }
- 
+
+-(CGRect) getChannelLogoFrame {
+    return CGRectMake(self.videoView.frame.size.width / 3 - CHANNEL_PLUG_HEIGHT /3, CHANNEL_PLUG_HEIGHT / 6, CHANNEL_PLUG_HEIGHT * 5 / 6, CHANNEL_PLUG_HEIGHT * 5 / 6);
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -242,14 +254,31 @@
     }
     [self loadNades];
 }
+-(void) clearNadeFrom {
+    [self clearButtonArray:self.nadeFromButtons];
+}
+
+-(void) clearNadeSpots {
+    [self clearButtonArray:self.nadeSpotButtons];
+}
+
+-(void) clearButtonArray:(NSMutableArray *) nadeButtons {
+    for (UIButton * buttonToRemove in nadeButtons) {
+        [UIView animateWithDuration:0.4 delay:0.0 options: UIViewAnimationOptionCurveEaseInOut animations:^{
+            buttonToRemove.transform = CGAffineTransformScale(buttonToRemove.transform, 0.01, 0.01);
+        } completion:nil];
+        [buttonToRemove removeFromSuperview];
+    }
+    [nadeButtons removeAllObjects];
+}
 
 -(void)nadeDestButtonTouchUp:(id)sender {
     NadeSpotButton * myButton = (NadeSpotButton *) sender;
     [[UIApplication sharedApplication] beginIgnoringInteractionEvents];
-    if (self.currentlySelectedSpot == myButton) {
+    /*if (self.currentlySelectedSpot == myButton) {
         [[UIApplication sharedApplication] endIgnoringInteractionEvents];
         return;
-    }
+    }*/
     // remove previous NadeFrom buttons
 
     [self clearNadeFrom];
@@ -289,10 +318,10 @@
     // scroll to relevant area
     //TODO
     if (self.scrollAvailable) {
-        leftmost -= PLAYER_BUTTON_DIM;
-        rightmost += PLAYER_BUTTON_DIM;
+        leftmost -= PLAYER_BUTTON_DIM + 100;
+        rightmost += PLAYER_BUTTON_DIM + 100;
         CGFloat width = rightmost - leftmost;
-        CGFloat height = (botmost - topmost) +BOTTOM_BAR_HEIGHT + 2 * PLAYER_BUTTON_DIM;
+        CGFloat height = (botmost - topmost) +BOTTOM_BAR_HEIGHT + 2 * PLAYER_BUTTON_DIM + 250;
         CGRect relevantNadesBox = CGRectMake(leftmost, topmost, width, height);
         [self.scrollView zoomToRect:relevantNadesBox animated:YES];
     }
@@ -326,7 +355,7 @@
         return;
     }
     self.adView = [[ADBannerView alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height, 0, 0)];
-    [self.adView setDelegate:self];
+    self.adView.delegate = self;
     [self.adView setAutoresizingMask:UIViewAutoresizingFlexibleWidth];
     self.adView.hidden = YES;
     [self.view addSubview:self.adView];
@@ -355,12 +384,12 @@
     [UIView animateWithDuration:0.25 delay:0 options:UIViewAnimationOptionCurveEaseInOut
                      animations:^{
                          self.adView.frame = CGRectOffset(self.adView.frame, 0, self.adView.frame.size.height);
-                         [self.adView removeFromSuperview];
-                         self.adView = 0;
                          sender.alpha = 0.0f;
                          self.nadesBottomBar.frame = CGRectOffset(self.nadesBottomBar.frame, 0, -BOTTOM_BAR_HEIGHT);
                      }
                      completion:^(BOOL finished){
+                         [self.adView removeFromSuperview];
+                         self.adView = 0;
                          sender.hidden = YES;
                      }
      ];
@@ -368,28 +397,10 @@
     
 }
 
--(void) clearNadeFrom {
-    [self clearButtonArray:self.nadeFromButtons];
-}
-
--(void) clearNadeSpots {
-    [self clearButtonArray:self.nadeSpotButtons];
-}
-
--(void) clearButtonArray:(NSMutableArray *) nadeButtons {
-    for (UIButton * buttonToRemove in nadeButtons) {
-        [UIView animateWithDuration:0.4 delay:0.0 options: UIViewAnimationOptionCurveEaseInOut animations:^{
-            buttonToRemove.transform = CGAffineTransformScale(buttonToRemove.transform, 0.01, 0.01);
-        } completion:nil];
-        [buttonToRemove removeFromSuperview];
-    }
-    [nadeButtons removeAllObjects];
-}
-
 #pragma mark - ADBannerViewDelegate
 - (void)bannerViewDidLoadAd:(ADBannerView *)banner
 {
-    NSLog(@"banner loaded");
+    if (self.debug) NSLog(@"banner loaded");
     
     // Display BannerView
     self.adView.hidden = NO;
@@ -397,6 +408,31 @@
                      animations:^{
                          self.adView.frame = CGRectOffset(self.adView.frame, 0, -self.adView.frame.size.height);
                      }];
+}
+
+-(BOOL)bannerViewActionShouldBegin:(ADBannerView *)banner willLeaveApplication:(BOOL)willLeave {
+    if (!willLeave) {
+        [self.videoPlayer pause];
+    }
+    return YES;
+}
+
+-(void)bannerViewActionDidFinish:(ADBannerView *)banner {
+    [self.videoPlayer play];
+}
+
+-(void)bannerView:(ADBannerView *)aBanner didFailToReceiveAdWithError:(NSError *)error {
+    if (!self.adView.hidden) {
+        [UIView animateWithDuration:0.25 delay:0 options:UIViewAnimationOptionCurveEaseInOut
+                         animations:^{
+                             self.adView.frame = CGRectOffset(self.adView.frame, 0, self.adView.frame.size.height);
+                         }
+                         completion:^(BOOL finished){
+                             [self.adView removeFromSuperview];
+                             self.adView = 0;
+                         }
+         ];
+    }
 }
 
 #pragma mark - UIGestureHandling
@@ -451,9 +487,26 @@
     
     self.mapView.frame = contentsFrame;
 }
-
 /*
+-(void) willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {
+        if (self.videoView.hidden) {
+            
+        } else {
+            [UIView animateWithDuration:duration animations:^{
+                self.nadesBottomBar.frame = CGRectOffset(self.nadesBottomBar.frame, 0, BOTTOM_BAR_HEIGHT);
+            } completion:^(BOOL completed) {
+                NSLog(@"HI");
+                self.nadesBottomBar.hidden = YES;
+            }];
+        }
+}
+ 
 -(void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation {
+    if ([[UIDevice currentDevice] orientation] == UIInterfaceOrientationMaskPortrait) {
+        self.scrollView.minimumZoomScale = [self.view bounds].size.width / 750;
+    } else {
+        self.scrollView.minimumZoomScale = [self.view bounds].size.height / 750;
+    }
     if (self.adView) {
         if (self.adView.isBannerLoaded) {
             self.adView.frame = CGRectMake(0, self.view.frame.size.height - self.adView.frame.size.height, 0, 0);
@@ -480,8 +533,23 @@
     }
     self.videoView.frame = [self videoViewScale];
     self.channelName.frame = CGRectMake(self.videoView.frame.size.width / 3, 0, self.videoView.frame.size.width * 2 / 3, CHANNEL_PLUG_HEIGHT);
+    self.channelLogo.frame = [self getChannelLogoFrame];
+    self.video_by.frame = CGRectMake(0, 0, self.videoView.frame.size.width / 3, CHANNEL_PLUG_HEIGHT);
     [[self.videoPlayer view] setFrame:CGRectMake(0, CHANNEL_PLUG_HEIGHT, self.videoView.frame.size.width, self.videoView.frame.size.height - CHANNEL_PLUG_HEIGHT)];
+}*/
+
+- (NSUInteger) supportedInterfaceOrientations {
+    // Return a bitmask of supported orientations. If you need more,
+    // use bitwise or (see the commented return).
+    return UIInterfaceOrientationMaskPortrait;
+    // return UIInterfaceOrientationMaskPortrait | UIInterfaceOrientationMaskPortraitUpsideDown;
 }
-*/
+
+- (UIInterfaceOrientation) preferredInterfaceOrientationForPresentation {
+    // Return the orientation you'd prefer - this is what it launches to. The
+    // user can still rotate. You don't have to implement this method, in which
+    // case it launches in the current orientation
+    return UIInterfaceOrientationPortrait;
+}
 
 @end

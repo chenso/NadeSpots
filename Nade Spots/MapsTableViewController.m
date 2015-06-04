@@ -7,9 +7,11 @@
 //
 
 #import "MapsTableViewController.h"
-#import "DetailViewController.h"
 
-@implementation MapsTableViewController
+
+@implementation MapsTableViewController {
+    //MBProgressHUD *_progress;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -18,7 +20,7 @@
     /*self.mapIdentifiers = @{
                             @"de_dust2" : @"com.nadespots.dust2"
                             };*/
-    
+    self.view.backgroundColor = UIColorFromRGB(0x2f342b);
     self.title = @"MAPS";
     UINavigationBar * navbar = self.navigationController.navigationBar;
     [navbar setBarTintColor:UIColorFromRGB(0xF44336)];
@@ -78,7 +80,7 @@
     NSString * subtitle = [NSString stringWithFormat:@"%@ smokes %@ flashes %@ HE/molotovs", smokesCount, flashesCount, HEMolotovCount];
     [[cell mapSubtitle] setText:subtitle];
     [[cell mapTitle] setText:mapName];
-    [[cell mapTitle] setTextColor:[UIColor blackColor]];
+    [[cell mapTitle] setTextColor:[UIColor whiteColor]];
 
     [[cell mapImage] setImage:[UIImage imageNamed:[mapName stringByAppendingString:@"_icon.png"]]];
     cell.accessoryType = UITableViewCellAccessoryNone;
@@ -99,7 +101,7 @@
 {
     return 80;
 }
-
+/*
 #pragma mark - File Management
 
 -(void)downloadVideosForMap:(UIButton *) sender {
@@ -122,7 +124,7 @@
     }
 }
 
-- (IBAction)purchase:(SKProduct *)product{
+- (void)purchase:(SKProduct *)product{
     SKPayment *payment = [SKPayment paymentWithProduct:product];
     
     [[SKPaymentQueue defaultQueue] addTransactionObserver:self];
@@ -140,7 +142,7 @@
             case SKPaymentTransactionStatePurchased:
                 //this is called when the user has successfully purchased the package (Cha-Ching!)
                 NSLog(@"ok");//you can add your code for what you want to happen when the user buys the purchase here, for this tutorial we use removing ads
-                [[SKPaymentQueue defaultQueue] finishTransaction:transaction];
+                [[SKPaymentQueue defaultQueue] startDownloads:transaction.downloads];
                 NSLog(@"Transaction state -> Purchased");
                 break;
             case SKPaymentTransactionStateRestored:
@@ -160,6 +162,124 @@
     }
 }
 
+
+-(void) paymentQueue:(SKPaymentQueue *)queue updatedDownloads:(NSArray *)downloads
+{
+    for (SKDownload *download in downloads)
+    {
+        switch (download.downloadState)
+        {
+            case SKDownloadStateActive:
+            {
+#ifdef DEBUG
+                NSLog(@"%f", download.progress);
+                NSLog(@"%f remaining", download.timeRemaining);
+#endif
+                
+                if (download.progress == 0.0 && !_progress)
+                {
+#define WAIT_TOO_LONG_SECONDS 60
+#define TOO_LARGE_DOWNLOAD_BYTES 4194304
+                    
+                    const BOOL instantDownload = (download.timeRemaining != SKDownloadTimeRemainingUnknown && download.timeRemaining < WAIT_TOO_LONG_SECONDS) ||
+                    (download.contentLength < TOO_LARGE_DOWNLOAD_BYTES);
+                    
+                    if (instantDownload)
+                    {
+                        UIView *window= [[UIApplication sharedApplication] keyWindow];
+                        
+                        _progress = [[MBProgressHUD alloc] initWithView:[[UIApplication sharedApplication] keyWindow]];
+                        [window addSubview:_progress];
+                        
+                        [_progress show:YES];
+                        [_progress setDelegate:self];
+                        [_progress setDimBackground:YES];
+                        [_progress setLabelText:@"Downloading"];
+                        [_progress setMode:MBProgressHUDModeAnnularDeterminate];
+                    }
+                    else
+                    {
+                        
+                    }
+                }
+                [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+                dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, 0.01 * NSEC_PER_SEC);
+                dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+                    [_progress setProgress:download.progress];
+                    [MBProgressHUD hideHUDForView:self.view animated:YES];
+                });
+
+                
+                break;
+            }
+                
+            case SKDownloadStateCancelled: { break; }
+            case SKDownloadStateFailed:
+            {
+                NSLog(@"Download Failed");
+                break;
+            }
+                
+            case SKDownloadStateFinished:
+            {
+                NSString *source = [download.contentURL relativePath];
+                NSDictionary *dict = [[NSMutableDictionary alloc] initWithContentsOfFile:[source stringByAppendingPathComponent:@"ContentInfo.plist"]];
+                
+                if (![dict objectForKey:@"Files"])
+                {
+                    [[SKPaymentQueue defaultQueue] finishTransaction:download.transaction];
+                    return;
+                }
+                
+                NSAssert([dict objectForKey:@"Files"], @"The Files property must be valid");
+                
+                for (NSString *file in [dict objectForKey:@"Files"])
+                {
+                    NSString *content = [[source stringByAppendingPathComponent:@"Contents"] stringByAppendingPathComponent:file];
+                    
+                    NSLog(@"Copied");
+                }
+                
+                if (download.transaction.transactionState == SKPaymentTransactionStatePurchased && _progress)
+                {
+                    NSLog(@"Purchased Complete");
+                }
+                
+                [_progress setDimBackground:NO];
+                [_progress hide:YES];
+                
+                [[SKPaymentQueue defaultQueue] finishTransaction:download.transaction];
+                break;
+            }
+                
+            case SKDownloadStatePaused:
+            {
+#ifdef DEBUG
+                NSLog(@"SKDownloadStatePaused");
+#endif
+                break;
+            }
+                
+            case SKDownloadStateWaiting:
+            {
+#ifdef DEBUG
+                NSLog(@"SKDownloadStateWaiting");
+#endif
+                break;
+            }
+        }
+    }
+}
+
+#pragma mark MBProgressHUDDelegate
+
+-(void) hudWasHidden:(MBProgressHUD *)hud
+{
+    NSAssert(_progress, @"ddd");
+    
+    [_progress removeFromSuperview];
+} */
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -168,14 +288,14 @@
     // Pass the selected object to the new view controller.
     MapTableViewCell * cell = (MapTableViewCell *) sender;
     NSString * theMap = [[cell mapTitle] text];
-    DetailViewController * DVC = [segue destinationViewController];
+    self.DVC = [segue destinationViewController];
     NSIndexPath * path = [self.tableView indexPathForSelectedRow];
 
     NSDictionary * mapDetails = [self.maps objectAtIndex:path.row];
-    DVC.mapName = theMap;
-    DVC.title = theMap;
-    DVC.mapDetails = mapDetails;
-    DVC.debug = self.debug;
+    self.DVC.mapName = theMap;
+    self.DVC.title = theMap;
+    self.DVC.mapDetails = mapDetails;
+    self.DVC.debug = self.debug;
 }
 - (void)tableView:(UITableView *)tableView
   willDisplayCell:(UITableViewCell *)cell
@@ -183,7 +303,18 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [cell setBackgroundColor:[UIColor clearColor]];
 }
+- (NSUInteger) supportedInterfaceOrientations {
+    // Return a bitmask of supported orientations. If you need more,
+    // use bitwise or (see the commented return).
+    return UIInterfaceOrientationMaskPortrait;
+    // return UIInterfaceOrientationMaskPortrait | UIInterfaceOrientationMaskPortraitUpsideDown;
+}
 
-
+- (UIInterfaceOrientation) preferredInterfaceOrientationForPresentation {
+    // Return the orientation you'd prefer - this is what it launches to. The
+    // user can still rotate. You don't have to implement this method, in which
+    // case it launches in the current orientation
+    return UIInterfaceOrientationPortrait;
+}
 
 @end

@@ -9,7 +9,7 @@
         <!--Maps Table View Controller-->
         <scene sceneID="rTZ-6X-iKX">
             <objects>
-                <tableViewController id="Iso-6j-hzw" customClass="MapsTableViewController" sceneMemberID="viewController">
+                <tableViewController modalTransitionStyle="crossDissolve" id="Iso-6j-hzw" customClass="MapsTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="TD6-bg-bXx">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -24,13 +24,13 @@
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="21 Smokes 16 Flashes" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9D0-kR-aps">
                                             <rect key="frame" x="79" y="39" width="199" height="28"/>
                                             <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="12"/>
-                                            <color key="textColor" red="0.6186868687" green="0.0" blue="0.0" alpha="0.70999999999999996" colorSpace="calibratedRGB"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Zj-0s-Rz1">
-                                            <rect key="frame" x="255" y="28" width="24" height="24"/>
+                                            <rect key="frame" x="227" y="20" width="40" height="39.5"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="24" id="qgy-bS-1wS"/>
+                                                <constraint firstAttribute="width" constant="40" id="qgy-bS-1wS"/>
                                             </constraints>
                                             <color key="tintColor" red="0.6186868687" green="0.0" blue="0.0" alpha="0.70999999999999996" colorSpace="calibratedRGB"/>
                                             <state key="normal">
@@ -63,10 +63,10 @@
                                         <constraint firstItem="foN-ZG-4mK" firstAttribute="top" secondItem="enh-OA-MZv" secondAttribute="topMargin" constant="5" id="HbG-Rk-iOF"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="foN-ZG-4mK" secondAttribute="trailing" constant="5" id="Ryl-Nl-kli"/>
                                         <constraint firstItem="Sz5-xP-mlJ" firstAttribute="top" secondItem="enh-OA-MZv" secondAttribute="topMargin" constant="5" id="Wqd-j8-7Km"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="6Zj-0s-Rz1" secondAttribute="trailing" id="gmt-b9-guc"/>
-                                        <constraint firstItem="6Zj-0s-Rz1" firstAttribute="top" secondItem="enh-OA-MZv" secondAttribute="topMargin" constant="20" id="jhV-C8-Lvm"/>
+                                        <constraint firstAttribute="trailing" secondItem="6Zj-0s-Rz1" secondAttribute="trailing" constant="20" id="gmt-b9-guc"/>
+                                        <constraint firstItem="6Zj-0s-Rz1" firstAttribute="top" secondItem="enh-OA-MZv" secondAttribute="top" constant="20" id="jhV-C8-Lvm"/>
                                         <constraint firstItem="Sz5-xP-mlJ" firstAttribute="leading" secondItem="enh-OA-MZv" secondAttribute="leadingMargin" constant="2" id="nrV-rD-bh4"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="6Zj-0s-Rz1" secondAttribute="bottom" constant="20" id="pnu-RG-tPa"/>
+                                        <constraint firstAttribute="bottom" secondItem="6Zj-0s-Rz1" secondAttribute="bottom" constant="20" id="pnu-RG-tPa"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="9D0-kR-aps" secondAttribute="trailing" constant="1" id="vKU-qs-RTe"/>
                                     </constraints>
                                 </tableViewCellContentView>
@@ -93,42 +93,54 @@
         <!--Detail View Controller-->
         <scene sceneID="NYt-qu-fKf">
             <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="Qmb-iD-iel" customClass="DetailViewController" sceneMemberID="viewController">
+                <viewController modalTransitionStyle="crossDissolve" id="Qmb-iD-iel" customClass="DetailViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="rBl-2g-Yul"/>
                         <viewControllerLayoutGuide type="bottom" id="WHz-FA-c1n"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="xKJ-Ed-UsN">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vOD-P5-4l9">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                             </scrollView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="USb-d4-d8K">
+                                <rect key="frame" x="-16" y="0.0" width="352" height="568"/>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="vOD-P5-4l9" firstAttribute="leading" secondItem="xKJ-Ed-UsN" secondAttribute="leadingMargin" constant="-16" id="Fsg-sK-nm8"/>
+                            <constraint firstItem="USb-d4-d8K" firstAttribute="leading" secondItem="xKJ-Ed-UsN" secondAttribute="leading" constant="-16" id="3dA-wI-WcN"/>
+                            <constraint firstAttribute="trailing" secondItem="USb-d4-d8K" secondAttribute="trailing" constant="-16" id="HoZ-EC-1pJ"/>
+                            <constraint firstItem="USb-d4-d8K" firstAttribute="top" secondItem="xKJ-Ed-UsN" secondAttribute="top" id="XMu-0T-ZkT"/>
+                            <constraint firstItem="vOD-P5-4l9" firstAttribute="leading" secondItem="xKJ-Ed-UsN" secondAttribute="leading" id="c1f-gp-aSj"/>
                             <constraint firstItem="WHz-FA-c1n" firstAttribute="top" secondItem="vOD-P5-4l9" secondAttribute="bottom" id="mj3-uD-c5k"/>
+                            <constraint firstItem="WHz-FA-c1n" firstAttribute="top" secondItem="USb-d4-d8K" secondAttribute="bottom" id="tl7-op-hQH"/>
                             <constraint firstItem="vOD-P5-4l9" firstAttribute="top" secondItem="xKJ-Ed-UsN" secondAttribute="topMargin" id="uwy-xi-XsE"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="vOD-P5-4l9" secondAttribute="trailing" constant="-16" id="x6J-Pq-vOf"/>
+                            <constraint firstAttribute="trailing" secondItem="vOD-P5-4l9" secondAttribute="trailing" id="x6J-Pq-vOf"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="rU9-PJ-PUJ">
                         <nil key="title"/>
                     </navigationItem>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <connections>
                         <outlet property="scrollView" destination="vOD-P5-4l9" id="QRz-rE-o0f"/>
+                        <outlet property="transparentPlayerExiterButton" destination="USb-d4-d8K" id="vcA-f5-jK8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e4L-id-N8e" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1287" y="313"/>
+            <point key="canvasLocation" x="1289" y="382"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Maps Navigation Controller-->
         <scene sceneID="EYJ-DR-q07">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="4h6-zc-oWI" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="4h6-zc-oWI" customClass="MapsNavigationController" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="lXZ-e7-Snx">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>

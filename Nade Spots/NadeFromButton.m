@@ -23,6 +23,7 @@
 // An empty implementation adversely affects performance during animation.
 - (void)drawRect:(CGRect)rect {
     [self setImage:[UIImage imageNamed:@"nadeFromIcon"] forState:UIControlStateNormal];
+
 }
 
 
