@@ -26,7 +26,7 @@
     //initialize arrays
     self.nadeSpotButtons = [[NSMutableArray alloc] initWithCapacity:20]; // increase when more are added
     self.nadeFromButtons = [[NSMutableArray alloc] initWithCapacity:5];
-    self.nadeTypeButtons = [[NSMutableArray alloc] initWithCapacity:2];
+    self.nadeTypeButtons = [[NSMutableArray alloc] initWithCapacity:3];
     
     // load the map view and nade destination view
     UIImage * image = [UIImage imageNamed:[NSString stringWithFormat:@"%@.png", mapName]];
@@ -222,8 +222,9 @@
                 // add all origins to single destination spot
                 NSDictionary * anOrigin = [destination objectForKey:key];
                 CGRect buttonLocation = CGRectMake([anOrigin[@"xCord"] floatValue], [anOrigin[@"yCord"] floatValue], PLAYER_BUTTON_DIM, PLAYER_BUTTON_DIM);
-                NadeFromButton * originButton = [[NadeFromButton alloc] initWithFrame:buttonLocation path:anOrigin[@"path"] video_creator:anOrigin[@"creator"]];
-                [origins addObject:originButton];
+                NadeFromButton * nadeFromButton = [[NadeFromButton alloc] initWithFrame:buttonLocation path:anOrigin[@"path"] video_creator:anOrigin[@"creator"]];
+                [nadeFromButton addTarget:self action:@selector(nadeOriginButtonTouchUp:) forControlEvents:UIControlEventTouchUpInside];
+                [origins addObject:nadeFromButton];
             }
         }
         
@@ -274,10 +275,6 @@
 -(void)nadeDestButtonTouchUp:(id)sender {
     NadeSpotButton * myButton = (NadeSpotButton *) sender;
     [[UIApplication sharedApplication] beginIgnoringInteractionEvents];
-    /*if (self.currentlySelectedSpot == myButton) {
-        [[UIApplication sharedApplication] endIgnoringInteractionEvents];
-        return;
-    }*/
     // remove previous NadeFrom buttons
 
     [self clearNadeFrom];
@@ -288,17 +285,14 @@
     CGFloat topmost = myButton.frame.origin.y;
     CGFloat botmost = topmost + myButton.frame.size.height;
 
-    for (NadeFromButton * aSpot in myButton.nadeFromSpots) {
+    for (NadeFromButton * nadeFromButton in myButton.nadeFromSpots) {
         // check button location to determine scoll edges
-        rightmost = rightmost > aSpot.frame.origin.x ? rightmost : aSpot.frame.origin.x;
-        leftmost = leftmost < aSpot.frame.origin.x ? leftmost : aSpot.frame.origin.x;
-        topmost = topmost < aSpot.frame.origin.y ? topmost : aSpot.frame.origin.y;
-        botmost = botmost > aSpot.frame.origin.y ? botmost : aSpot.frame.origin.y;
+        rightmost = rightmost > nadeFromButton.frame.origin.x ? rightmost : nadeFromButton.frame.origin.x;
+        leftmost = leftmost < nadeFromButton.frame.origin.x ? leftmost : nadeFromButton.frame.origin.x;
+        topmost = topmost < nadeFromButton.frame.origin.y ? topmost : nadeFromButton.frame.origin.y;
+        botmost = botmost > nadeFromButton.frame.origin.y ? botmost : nadeFromButton.frame.origin.y;
         
         // make NadeFromButtons for destination button
-        CGRect buttonLocation = CGRectMake(aSpot.frame.origin.x, aSpot.frame.origin.y, PLAYER_BUTTON_DIM, PLAYER_BUTTON_DIM);
-        NadeFromButton * nadeFromButton = [[NadeFromButton alloc] initWithFrame:buttonLocation path:aSpot.path video_creator:aSpot.video_creator];
-        [nadeFromButton addTarget:self action:@selector(nadeOriginButtonTouchUp:) forControlEvents:UIControlEventTouchUpInside];
 
         CGAffineTransform trans = CGAffineTransformScale(nadeFromButton.transform, 0.01, 0.01);
         nadeFromButton.transform = trans;
@@ -314,7 +308,6 @@
     }
     
     // scroll to relevant area
-    //TODO
     if (self.scrollAvailable) {
         leftmost -= PLAYER_BUTTON_DIM + 100;
         rightmost += PLAYER_BUTTON_DIM + 100;
@@ -339,8 +332,7 @@
     NadeFromButton * button = (NadeFromButton *)sender;
     [self.channelName setTitle:button.video_creator forState:UIControlStateNormal];
     [self awakeVideoPlayerWithVideoPath:button.path fromCreator:button.video_creator];
-    
-   }
+}
 
 -(void)awakeVideoPlayerWithVideoPath:(NSString *) filename fromCreator:(NSString *) video_creator{
     NSString * path = [[NSBundle mainBundle] pathForResource:filename ofType:@"mp4"];
