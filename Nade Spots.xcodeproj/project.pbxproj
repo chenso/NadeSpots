@@ -128,6 +128,7 @@
 		4A3938061B1AA935006B9EC9 /* TrilluXe_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A3938051B1AA935006B9EC9 /* TrilluXe_logo.png */; };
 		4A3938AB1B1AE736006B9EC9 /* MapsFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A3938AA1B1AE736006B9EC9 /* MapsFileManager.m */; };
 		4A3938AD1B1BDBA2006B9EC9 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A3938AC1B1BDBA2006B9EC9 /* iAd.framework */; };
+		4A5BAC3D1B2691D700A7EF47 /* VideoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A5BAC3C1B2691D700A7EF47 /* VideoView.m */; };
 		4A83BBC51B1D241A001E605E /* cache_h_balcony_from_bsite.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 4A83BBC11B1D241A001E605E /* cache_h_balcony_from_bsite.mp4 */; };
 		4A83BBC61B1D241A001E605E /* cache_h_bhall_from_bsite.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 4A83BBC21B1D241A001E605E /* cache_h_bhall_from_bsite.mp4 */; };
 		4A83BBC71B1D241A001E605E /* cache_h_bsite_from_toxic.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 4A83BBC31B1D241A001E605E /* cache_h_bsite_from_toxic.mp4 */; };
@@ -365,6 +366,8 @@
 		4A3938A91B1AE735006B9EC9 /* MapsFileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapsFileManager.h; sourceTree = "<group>"; };
 		4A3938AA1B1AE736006B9EC9 /* MapsFileManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapsFileManager.m; sourceTree = "<group>"; };
 		4A3938AC1B1BDBA2006B9EC9 /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
+		4A5BAC3B1B2691D700A7EF47 /* VideoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoView.h; sourceTree = "<group>"; };
+		4A5BAC3C1B2691D700A7EF47 /* VideoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoView.m; sourceTree = "<group>"; };
 		4A83BBC11B1D241A001E605E /* cache_h_balcony_from_bsite.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = cache_h_balcony_from_bsite.mp4; sourceTree = "<group>"; };
 		4A83BBC21B1D241A001E605E /* cache_h_bhall_from_bsite.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = cache_h_bhall_from_bsite.mp4; sourceTree = "<group>"; };
 		4A83BBC31B1D241A001E605E /* cache_h_bsite_from_toxic.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = cache_h_bsite_from_toxic.mp4; sourceTree = "<group>"; };
@@ -707,6 +710,8 @@
 				4AA137491AB900C00085A959 /* NadeSpotButton.m */,
 				4A3938A91B1AE735006B9EC9 /* MapsFileManager.h */,
 				4A3938AA1B1AE736006B9EC9 /* MapsFileManager.m */,
+				4A5BAC3B1B2691D700A7EF47 /* VideoView.h */,
+				4A5BAC3C1B2691D700A7EF47 /* VideoView.m */,
 				4A0B39B81A9E98DC004F8CC6 /* DetailViewController.h */,
 				4A0B39B91A9E98DC004F8CC6 /* DetailViewController.m */,
 				4A83BBDF1B1FB9AF001E605E /* MapsNavigationController.h */,
@@ -1255,6 +1260,7 @@
 				4A3938AB1B1AE736006B9EC9 /* MapsFileManager.m in Sources */,
 				4A0770001A9F0D7500073D9A /* NadeFromButton.m in Sources */,
 				4AA1374A1AB900C00085A959 /* NadeSpotButton.m in Sources */,
+				4A5BAC3D1B2691D700A7EF47 /* VideoView.m in Sources */,
 				4A0B39891A9B1C0C004F8CC6 /* AppDelegate.m in Sources */,
 				4A0B39861A9B1C0C004F8CC6 /* main.m in Sources */,
 				4A0B39BA1A9E98DC004F8CC6 /* DetailViewController.m in Sources */,
