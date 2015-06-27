@@ -14,7 +14,6 @@
 #endif
 
 @implementation DetailViewController {
-
     NSFileManager * NSFM;
     UIView * bottomBar;
     ADBannerView * adView;
@@ -24,7 +23,12 @@
     NadeSpotButton * currentlySelectedSpot;
     IBOutlet UIScrollView * scrollView;
     IBOutlet UIButton * transparentPlayerExiterButton;
-    VideoView * videoView;
+    IBOutlet VideoView * videoView;
+    IBOutlet UIView * channelBar;
+    IBOutlet UILabel * byLabel;
+    IBOutlet UIButton * channelName;
+    IBOutlet UIButton * channelLogo;
+    UIImageView * mapView;
 }
 
 @synthesize mapName;
@@ -33,9 +37,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    NSArray * nadeTypes = @[@"Smokes", @"Flashes", @"HEMolotov"];   
     NSFM = [[NSFileManager alloc] init];
-    
+    channelBar.hidden = YES;
+    videoView.hidden = YES;
     //initialize arrays
     nadeSpotButtons = [[NSMutableArray alloc] initWithCapacity:20]; // increase when more are added
     nadeFromButtons = [[NSMutableArray alloc] initWithCapacity:5];
@@ -43,11 +48,11 @@
     
     // load the map view and nade destination view
     UIImage * image = [UIImage imageNamed:[NSString stringWithFormat:@"%@.png", mapName]];
-    self.mapView = [[UIImageView alloc] initWithImage:image];
-    self.mapView.frame = (CGRect){.origin=CGPointMake(0.0f, 0.0f), .size = image.size};
-    self.mapView.userInteractionEnabled = YES;
-    self.mapView.exclusiveTouch = YES;
-    [scrollView addSubview:self.mapView];
+    mapView = [[UIImageView alloc] initWithImage:image];
+    mapView.frame = (CGRect){.origin=CGPointMake(0.0f, 0.0f), .size = image.size};
+    mapView.userInteractionEnabled = YES;
+    mapView.exclusiveTouch = YES;
+    [scrollView addSubview:mapView];
     
     // initial and minimum zoom fill screen by x-axis
     [scrollView setContentSize:image.size];
@@ -76,7 +81,6 @@
     [scrollView addGestureRecognizer:twoFingerTapRecognizer];
     
     // initialize showSmokes and showFlashes buttons
-    NSArray * nadeTypes = @[@"Smokes", @"Flashes", @"HEMolotov"];
     bottomBar = [[UIView alloc] initWithFrame: CGRectMake(0, [[UIScreen mainScreen] applicationFrame].size.height - BOTTOM_BAR_HEIGHT - self.navigationController.navigationBar.frame.size.height, self.view.frame.size.width, BOTTOM_BAR_HEIGHT)];
     // create effect
     [bottomBar setBackgroundColor:[[UIColor colorWithRed:0.937f green:0.325f blue:0.314f alpha:1.0f] colorWithAlphaComponent:0.4f]];
@@ -98,12 +102,6 @@
     
     [self loadNades];
     
-    // initialize video player view
-    CGRect videoViewframe = [self videoViewScale];
-    videoView = [[VideoView alloc] initWithFrame:videoViewframe];
-    videoView.hidden = true;
-    [self.view addSubview:videoView];
-    
     // create transparent button on superview for removing the video player view
     //transparentPlayerExiterButton = [[UIButton alloc] initWithFrame:scrollView.bounds];
     transparentPlayerExiterButton.backgroundColor = [UIColor blackColor];
@@ -113,8 +111,8 @@
     
     transparentPlayerExiterButton.hidden = true;
     scrollView.zoomScale = scrollView.maximumZoomScale;
-    CGFloat centerx = self.mapView.center.x;
-    CGFloat centery = self.mapView.center.y;
+    CGFloat centerx = mapView.center.x;
+    CGFloat centery = mapView.center.y;
     CGFloat leftCornerx = centerx - self.view.frame.size.width / 2;
     CGFloat leftCornery = centery - self.view.frame.size.height / 2;
     NSLog(@"%f, %f", leftCornerx, leftCornery);
@@ -126,30 +124,28 @@
         [bottomBar bringSubviewToFront:nadeTypeButton];
     }
     bottomBar.userInteractionEnabled = YES;
+    
+    [byLabel setText:@"video source:"];
+    [byLabel setFont:[UIFont fontWithName:@"AvenirNextCondensed-UltraLight" size:15]];
+    [byLabel setTextAlignment:NSTextAlignmentCenter];
+    
+    [channelName.titleLabel setTextAlignment:NSTextAlignmentRight];
+    [channelName.titleLabel setFont:[UIFont fontWithName:@"Avenir-Heavy" size:20]];
+    
+    [channelName addTarget:self action:@selector(openYT) forControlEvents:UIControlEventTouchUpInside];
 }
+
+ - (void) openYT {
+ if ([channelName.titleLabel.text isEqualToString:@"Jamiew_"]) {
+ [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://www.youtube.com/c/jamiew"]];
+ } else if ([channelName.titleLabel.text isEqualToString:@"TrilluXe"]) {
+ [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://www.youtube.com/TrilluXe"]];
+ }
+ }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
--(CGRect) videoViewScale {
-    CGRect frame;
-    UIDeviceOrientation orientation = [[UIDevice currentDevice] orientation];
-    CGFloat videoWidth, videoHeight;
-    
-    if (UIDeviceOrientationIsPortrait(orientation)) {
-        videoWidth = [[UIScreen mainScreen] bounds].size.width;
-    } else {
-        videoWidth = [[UIScreen mainScreen] bounds].size.width - 250.0;
-    }
-    
-    videoHeight = videoWidth * VIDEO_INVERSE_ASPECT + CHANNEL_PLUG_HEIGHT;
-    
-    CGFloat videoWidthMargin = ([[UIScreen mainScreen] bounds].size.width - videoWidth ) / 2.0;
-    CGFloat videoHeightTopMargin = ([[UIScreen mainScreen] bounds].size.height - (videoHeight + self.navigationController.navigationBar.frame.size.height)) / 3.0;
-    frame = CGRectMake(videoWidthMargin, videoHeightTopMargin, videoWidth, videoHeight);
-    return frame;
 }
 
 -(void) createNadeTypeSelectorButtonsForType:(NSString *) nadeType atIndex:(int) index numberTypes:(int) totalTypeAmount {
@@ -200,7 +196,7 @@
             nadeButton.alpha = 0.8;
         } completion:nil];
         
-        [self.mapView addSubview:nadeButton];
+        [mapView addSubview:nadeButton];
         [nadeSpotButtons addObject:nadeButton];
         
     }
@@ -255,7 +251,7 @@
         nadeFromButton.alpha = 0.0f;
         
         // make NadeFromButtons for destination button
-        [self.mapView addSubview:nadeFromButton];
+        [mapView addSubview:nadeFromButton];
         [UIView animateWithDuration:0.4 delay:0.0 options: UIViewAnimationOptionCurveEaseInOut animations:^{
             nadeFromButton.alpha = 1.0f;
         } completion:nil];
@@ -288,10 +284,14 @@
 // Play video on nade from dest to origin
 -(void)nadeOriginButtonTouchUp:(id)sender {
     NadeFromButton * button = (NadeFromButton *)sender;
-    
+    [channelName setTitle:button.video_creator forState:UIControlStateNormal];
+    NSString * logoName = [button.video_creator stringByAppendingString:@"_logo"];
+    [channelLogo setImage:[UIImage imageNamed:logoName] forState:UIControlStateNormal];
     [videoView awakeVideoPlayerWithVideoPath:button.path fromCreator:button.video_creator];
+    
     transparentPlayerExiterButton.hidden = false;
-    videoView.hidden = false;
+    videoView.hidden = NO;
+    channelBar.hidden = NO;
     [self bringUpAdView];
     [UIView animateWithDuration:0.25f delay:0 options:UIViewAnimationOptionCurveEaseInOut
                      animations:^{
@@ -325,6 +325,7 @@
 
 -(void) dismissVideoPlayer:(UIButton *) sender{
     [videoView putVideoPlayerToSleep];
+    channelBar.hidden = YES;
     videoView.hidden = YES;
     [self bringDownAdView];
     [UIView animateWithDuration:0.25 delay:0 options:UIViewAnimationOptionCurveEaseInOut
@@ -381,12 +382,12 @@
 #pragma mark - UIGestureHandling
 
 -(UIView *) viewForZoomingInScrollView:(UIScrollView *)scrollView {
-    return self.mapView;
+    return mapView;
 }
 
 - (void)scrollViewDoubleTapped:(UITapGestureRecognizer*)recognizer {
     if (scrollView.minimumZoomScale >= scrollView.maximumZoomScale) return;
-    CGPoint pointInView = [recognizer locationInView:self.mapView];
+    CGPoint pointInView = [recognizer locationInView:mapView];
     CGFloat newZoomScale = scrollView.zoomScale * 1.5f;
     newZoomScale = MIN(newZoomScale, scrollView.maximumZoomScale);
     CGSize scrollViewSize = scrollView.bounds.size;
@@ -414,7 +415,7 @@
 
 - (void)centerScrollViewContents {
     CGSize boundsSize = scrollView.bounds.size;
-    CGRect contentsFrame = self.mapView.frame;
+    CGRect contentsFrame = mapView.frame;
     
     if (contentsFrame.size.width < boundsSize.width) {
         contentsFrame.origin.x = (boundsSize.width - contentsFrame.size.width) / 2.0f;
@@ -428,7 +429,7 @@
         contentsFrame.origin.y = 0.0f;
     }
     
-    self.mapView.frame = contentsFrame;
+    mapView.frame = contentsFrame;
 }
 /*
 -(void) willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {
@@ -472,7 +473,7 @@
      ];
     
     if (scrollView.minimumZoomScale >= scrollView.maximumZoomScale) {
-        self.mapView.center = self.view.center;
+        mapView.center = self.view.center;
     }
     videoView.frame = [self videoViewScale];
     channelName.frame = CGRectMake(videoView.frame.size.width / 3, 0, videoView.frame.size.width * 2 / 3, CHANNEL_PLUG_HEIGHT);

@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <StoreKit/Storekit.h>
 #import "MapTableViewCell.h"
 #import "MapsFileManager.h"
 #import "DetailViewController.h"

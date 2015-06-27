@@ -16,12 +16,12 @@
  */
 
 #import <Foundation/Foundation.h>
+#import <StoreKit/Storekit.h>
 
-@interface MapsFileManager : NSFileManager
+@interface MapsFileManager : NSFileManager <SKProductsRequestDelegate, SKPaymentTransactionObserver>
 @property BOOL debug;
 
 -(id) initWithDebug:(BOOL) debug;
 -(BOOL) filesFoundForMap:(NSDictionary *) mapDict;
-
 -(void) getNadeCountForMap:(NSDictionary *) map smokes:(NSNumber **) smokesCount flashes:(NSNumber **) flashesCount HEMolotovs:(NSNumber **) hemCount;
 @end

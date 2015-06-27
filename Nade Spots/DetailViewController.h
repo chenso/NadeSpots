@@ -17,11 +17,11 @@
 #define NADE_BUTTON_DIM 45
 #define PLAYER_BUTTON_DIM 35
 
+
 @interface DetailViewController : UIViewController <UIScrollViewDelegate, ADBannerViewDelegate>
 
 @property (strong, nonatomic) NSString * mapName;
 @property (strong, nonatomic) NSString * nadeType;
-@property (nonatomic, strong) UIImageView * mapView;
 @property (strong, nonatomic) NSDictionary * mapDetails;
 
 @property BOOL debug;
